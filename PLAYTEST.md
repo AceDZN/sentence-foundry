@@ -26,7 +26,13 @@ Both local GLBs load with embedded JPEG textures and no external decoders: washe
 
 The installed develop-web-game action client completed a real first-shipment construction/run on stable4233 with both models ready. Lead opened work/action-tripo/shot-0.png and state-0.json: success, accepted1, no jam, real washer visible and no error log. It uses the same documented simulation/time hook as ordinary play. Other earlier client runs and a dev HMR interruption are recorded in progress.md.
 
-Measured final preview resources: **2,277,441 encoded body bytes**, excluding navigation HTML, including both full GLBs (2,043,548 bytes combined). Full `dist` is **2,890,734 bytes**. `docs/captures/performance.json` records the resource timings, user agent, viewport and raw state. At1280×720 on this Mac, the sampled idle scene has43 draw calls/49,494 triangles and8.33ms mean animation-frame interval. Loaded production captures reach roughly130k triangles; the installed SwiftShader action-client sample reported27.21ms at first-shipment completion. These are observations under different renderers, not student-device guarantees or certified GPU benchmarks.
+Measured current preview resources: **4,701,083 encoded body bytes** before an audio-unlocking gesture, excluding navigation HTML. All four local GLBs total4,464,124 bytes. Audio is deferred until interaction and adds998,434 bytes across the original score and11cues. Full `dist` is **6,321,207 bytes**. `docs/captures/performance.json` records the resource timings, user agent, viewport and raw state. At1280×720 on this Mac, the sampled current idle scene has55 draw calls/171,362 triangles and8.33ms mean animation-frame interval. These are host observations, not student-device or GPU-performance guarantees.
+
+## Audio and industrial update
+
+Independent real-browser audio review passed gesture lock, silent first mute, all12MP3 decodes, independent music/effects switching, volume persistence, reading suspension/playhead freeze, native English speech ducking, rapid speech replay/cancellation, restarts and actual shipment→Next retaining one music source/start. Mobile touchscreen controls fit and work at390×844. No page/console/audioState errors were observed. Numeric PCM review found zero full-scale samples in all12sourceWAVs; encoded music measured-18.10LUFS/-2.66dBTP. Musical taste and student-device audibility still need human listening judgment. Full receipts are in docs/review/AUDIO_REVIEW.md and audio summaries.
+
+The industrial/tool galleries were searched before asset acquisition. Public reuse rights were not established, so two pre-existing owned Tripo props were exported normally and reused. New wall/windows/pipes are authored geometry. All four Tripo asset statuses are ready in inspected desktop/mobile captures, and props remain outside construction cells/ports. No generation credits were spent for this update.
 
 ## Practical limits
 

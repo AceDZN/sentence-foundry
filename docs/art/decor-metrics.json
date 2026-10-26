@@ -1,0 +1,72 @@
+[
+  {
+    "name": "pump",
+    "runtimePath": "public/models/decor/pump.glb",
+    "originalPath": "work/art/originals/decor/pump.glb",
+    "originalBytes": 1292920,
+    "runtimeBytes": 1292920,
+    "originalAndRuntimeSha256": "45da97237e0986fe13d6c827fa23a59086b1cb07e05b4bd188a2ab34a19776a3",
+    "min": [
+      -0.5000000596046448,
+      0,
+      -0.2066955864429474
+    ],
+    "max": [
+      0.5000000596046448,
+      0.490814208984375,
+      0.2066955864429474
+    ],
+    "size": [
+      1.0000001192092896,
+      0.490814208984375,
+      0.4133911728858948
+    ],
+    "vertices": 13051,
+    "triangles": 19032,
+    "meshes": 1,
+    "images": 3,
+    "imageMimeTypes": [
+      "image/jpeg",
+      "image/jpeg",
+      "image/jpeg"
+    ],
+    "skins": 0,
+    "animations": 0,
+    "extensionsRequired": []
+  },
+  {
+    "name": "spotlight",
+    "runtimePath": "public/models/decor/spotlight.glb",
+    "originalPath": "work/art/originals/decor/spotlight.glb",
+    "originalBytes": 1127656,
+    "runtimeBytes": 1127656,
+    "originalAndRuntimeSha256": "4d6fecd566dc32d5e5349a18f207d5954f06079c033b18bc4e1c5d9c99ca814b",
+    "min": [
+      -0.4962463974952698,
+      0,
+      -0.3110657036304474
+    ],
+    "max": [
+      0.4962463974952698,
+      1,
+      0.3110657036304474
+    ],
+    "size": [
+      0.9924927949905396,
+      1,
+      0.6221314072608948
+    ],
+    "vertices": 12452,
+    "triangles": 19663,
+    "meshes": 1,
+    "images": 3,
+    "imageMimeTypes": [
+      "image/jpeg",
+      "image/jpeg",
+      "image/jpeg"
+    ],
+    "skins": 0,
+    "animations": 0,
+    "extensionsRequired": []
+  }
+]

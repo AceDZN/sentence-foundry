@@ -1,0 +1,110 @@
+{
+  "rotate.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 0.18,
+    "bytes": 31796,
+    "peak_normalized": 0.699981689453125,
+    "rms_normalized": 0.3323899456447553,
+    "full_scale_samples": 0
+  },
+  "label.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 0.22,
+    "bytes": 38852,
+    "peak_normalized": 0.699981689453125,
+    "rms_normalized": 0.296437706042693,
+    "full_scale_samples": 0
+  },
+  "mistake.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 0.4,
+    "bytes": 70604,
+    "peak_normalized": 0.699981689453125,
+    "rms_normalized": 0.18611527686523455,
+    "full_scale_samples": 0
+  },
+  "paint.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 0.25,
+    "bytes": 44144,
+    "peak_normalized": 0.699981689453125,
+    "rms_normalized": 0.19984447302275316,
+    "full_scale_samples": 0
+  },
+  "delivery.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 0.58,
+    "bytes": 102356,
+    "peak_normalized": 0.699981689453125,
+    "rms_normalized": 0.1975277828784842,
+    "full_scale_samples": 0
+  },
+  "place.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 0.15,
+    "bytes": 26504,
+    "peak_normalized": 0.699981689453125,
+    "rms_normalized": 0.2518114555518469,
+    "full_scale_samples": 0
+  },
+  "brass-and-belts.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 68.57142857142857,
+    "bytes": 12096044,
+    "peak_normalized": 0.819976806640625,
+    "rms_normalized": 0.11454882540837995,
+    "full_scale_samples": 0
+  },
+  "wash.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 0.36,
+    "bytes": 63548,
+    "peak_normalized": 0.699981689453125,
+    "rms_normalized": 0.20281619728079348,
+    "full_scale_samples": 0
+  },
+  "start.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 0.42,
+    "bytes": 74132,
+    "peak_normalized": 0.699981689453125,
+    "rms_normalized": 0.22394323656643986,
+    "full_scale_samples": 0
+  },
+  "success.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 1.2,
+    "bytes": 211724,
+    "peak_normalized": 0.699981689453125,
+    "rms_normalized": 0.15409218603572422,
+    "full_scale_samples": 0
+  },
+  "pack.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 0.28002267573696143,
+    "bytes": 49440,
+    "peak_normalized": 0.699981689453125,
+    "rms_normalized": 0.18222531917364027,
+    "full_scale_samples": 0
+  },
+  "remove.wav": {
+    "channels": 2,
+    "sample_rate": 44100,
+    "seconds": 0.17002267573696145,
+    "bytes": 30036,
+    "peak_normalized": 0.699981689453125,
+    "rms_normalized": 0.2907221053740631,
+    "full_scale_samples": 0
+  }
+}

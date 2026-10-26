@@ -1,4 +1,5 @@
 import "./style.css";
+import { FoundryAudio } from "./audio";
 import { Foundry } from "./simulation";
 import { Workshop } from "./workshop";
 import {
@@ -12,6 +13,7 @@ import { key } from "./grid";
 const $ = <T extends HTMLElement = HTMLElement>(id: string) =>
   document.getElementById(id) as T;
 const sim = new Foundry();
+const soundtrack = new FoundryAudio();
 let tool: Tool = "belt",
   rotation = 0,
   selected: Cell | null = null,
@@ -21,13 +23,13 @@ let muted = localStorage.getItem("sf-mute") === "true",
   reduced =
     localStorage.getItem("sf-motion") === "true" ||
     matchMedia("(prefers-reduced-motion: reduce)").matches;
-let audio: AudioContext | null = null,
-  manualUntil = 0,
+let manualUntil = 0,
   last = performance.now(),
   lastUi = "",
   lastDeliveries = 0,
   lastMode = "",
   dialogPaused = false;
+let speechVersion = 0;
 let workshop: Workshop;
 const symbols: Record<Tool, string> = {
   belt: "➜",
@@ -45,37 +47,19 @@ const labels: Record<Tool, string> = {
   label: "Label press",
   pack: "Packer",
 };
-function sound(
-  note = 440,
-  duration = 0.08,
-  type: OscillatorType = "sine",
-  volume = 0.045,
-) {
-  if (muted) return;
-  try {
-    audio ??= new AudioContext();
-    if (audio.state === "suspended") void audio.resume();
-    const osc = audio.createOscillator(),
-      gain = audio.createGain();
-    osc.type = type;
-    osc.frequency.setValueAtTime(note, audio.currentTime);
-    gain.gain.setValueAtTime(volume, audio.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, audio.currentTime + duration);
-    osc.connect(gain);
-    gain.connect(audio.destination);
-    osc.start();
-    osc.stop(audio.currentTime + duration);
-  } catch {
-    /* Sound is optional. */
-  }
+function unlockAudio(event: Event) {
+  if ((event.target as HTMLElement).closest("#mute")) return;
+  void soundtrack.unlock();
 }
+window.addEventListener("pointerdown", unlockAudio, { passive: true });
+window.addEventListener("keydown", unlockAudio);
 function selectTool(next: Tool) {
   tool = next;
   rotation = 0;
   selected = null;
   moveFrom = null;
   editMode = "place";
-  sound(330, 0.035, "triangle");
+  soundtrack.play("rotate", 0.35);
   refresh(true);
 }
 function clickCell(cell: Cell) {
@@ -83,7 +67,7 @@ function clickCell(cell: Cell) {
   selected = cell;
   if (editMode === "erase") {
     sim.remove(cell);
-    sound(180, 0.05, "triangle");
+    soundtrack.play("remove");
   } else if (editMode === "move") {
     if (!moveFrom) {
       if (sim.tiles.some((t) => key(t) === key(cell))) moveFrom = cell;
@@ -92,11 +76,11 @@ function clickCell(cell: Cell) {
       if (tile && sim.place(cell, tile.kind, tile.rotation)) {
         if (key(moveFrom) !== key(cell)) sim.remove(moveFrom);
         moveFrom = null;
-        sound(380, 0.06, "triangle");
+        soundtrack.play("place");
       }
     }
   } else if (sim.place(cell, tool, rotation)) {
-    sound(300 + (cell.x % 3) * 60, 0.045, "triangle");
+    soundtrack.play("place");
   }
   refresh(true);
 }
@@ -108,7 +92,7 @@ function rotate() {
     rotation = tile.rotation;
     tool = tile.kind;
   } else rotation = (rotation + 1) % (tool === "corner" ? 8 : 4);
-  sound(480, 0.035, "triangle");
+  soundtrack.play("rotate");
   refresh(true);
 }
 function buildPalette() {
@@ -161,6 +145,7 @@ function status() {
     : "קראו את ההזמנה ובנו מסלול. עצירה מחזירה לעריכה.";
 }
 function refresh(force = false) {
+  soundtrack.setPaused(sim.mode === "paused");
   const signature = [
     sim.level,
     sim.mode,
@@ -197,6 +182,8 @@ function refresh(force = false) {
   $("pause").setAttribute("aria-pressed", String(sim.mode === "paused"));
   $("mute").setAttribute("aria-pressed", String(muted));
   $("mute").textContent = muted ? "♩" : "♪";
+  ($("speak") as HTMLButtonElement).disabled = muted;
+  $("speak").title = muted ? "בטלו השתקה כדי לשמוע את ההזמנה" : "הקראת ההזמנה";
   $("motion").setAttribute("aria-pressed", String(reduced));
   $("move").setAttribute("aria-pressed", String(editMode === "move"));
   $("erase").setAttribute("aria-pressed", String(editMode === "erase"));
@@ -238,7 +225,12 @@ function refresh(force = false) {
   } catch {}
 }
 function run() {
-  sound(180, 0.13, "triangle");
+  const stopping = sim.mode === "running";
+  soundtrack.play(stopping ? "remove" : "start");
+  if (!stopping) {
+    soundtrack.resetRun();
+    lastDeliveries = 0;
+  }
   sim.run();
   selected = null;
   moveFrom = null;
@@ -255,6 +247,7 @@ function closeDialog() {
   ($("dialog") as HTMLDialogElement).close();
   if (dialogPaused && sim.mode === "paused") sim.pause();
   dialogPaused = false;
+  let speechVersion = 0;
   refresh(true);
 }
 $("close-dialog").onclick = closeDialog;
@@ -300,6 +293,8 @@ $("erase").onclick = () => {
   refresh(true);
 };
 $("restart").onclick = () => {
+  stopSpeech();
+  soundtrack.resetRun();
   sim.log("restart");
   sim.load(sim.level);
   tool = "belt";
@@ -309,6 +304,8 @@ $("restart").onclick = () => {
   refresh(true);
 };
 $("next").onclick = () => {
+  stopSpeech();
+  soundtrack.resetRun();
   sim.load((sim.level + 1) % 5);
   tool = "belt";
   rotation = 0;
@@ -336,9 +333,35 @@ $("receiver").onclick = () => {
 $("mute").onclick = () => {
   muted = !muted;
   localStorage.setItem("sf-mute", String(muted));
-  if (!muted) sound();
+  soundtrack.setMuted(muted);
+  if (muted) stopSpeech();
+  void soundtrack.unlock();
   refresh(true);
 };
+const musicToggle = $("music-enabled") as HTMLInputElement;
+const effectsToggle = $("effects-enabled") as HTMLInputElement;
+const musicVolume = $("music-volume") as HTMLInputElement;
+const effectsVolume = $("effects-volume") as HTMLInputElement;
+musicToggle.checked = soundtrack.musicEnabled;
+effectsToggle.checked = soundtrack.effectsEnabled;
+musicVolume.value = String(Math.round(soundtrack.musicVolume * 100));
+effectsVolume.value = String(Math.round(soundtrack.effectsVolume * 100));
+$("music-mix").onclick = () => {
+  const open = $("audio-panel").hidden;
+  $("audio-panel").hidden = !open;
+  $("music-mix").setAttribute("aria-expanded", String(open));
+};
+$("close-audio").onclick = () => {
+  $("audio-panel").hidden = true;
+  $("music-mix").setAttribute("aria-expanded", "false");
+};
+musicToggle.onchange = () => soundtrack.setMusicEnabled(musicToggle.checked);
+effectsToggle.onchange = () =>
+  soundtrack.setEffectsEnabled(effectsToggle.checked);
+musicVolume.oninput = () =>
+  soundtrack.setMusicVolume(Number(musicVolume.value) / 100);
+effectsVolume.oninput = () =>
+  soundtrack.setEffectsVolume(Number(effectsVolume.value) / 100);
 $("motion").onclick = () => {
   reduced = !reduced;
   localStorage.setItem("sf-motion", String(reduced));
@@ -350,6 +373,11 @@ function fullscreen() {
 }
 $("fullscreen").onclick = fullscreen;
 $("camera").onclick = () => workshop.resetCamera();
+function stopSpeech() {
+  speechVersion++;
+  if ("speechSynthesis" in window) speechSynthesis.cancel();
+  soundtrack.setReading(false);
+}
 function voices() {
   if (!("speechSynthesis" in window)) return [] as SpeechSynthesisVoice[];
   return speechSynthesis
@@ -362,12 +390,18 @@ if ("speechSynthesis" in window)
     $("speak").hidden = !voices().length;
   };
 $("speak").onclick = () => {
+  if (muted) return;
   if (sim.mode === "running") sim.pause();
-  speechSynthesis.cancel();
+  stopSpeech();
+  soundtrack.setReading(true);
   const utterance = new SpeechSynthesisUtterance(sim.text);
   utterance.lang = "en-US";
   utterance.rate = 0.85;
   utterance.voice = voices()[0] ?? null;
+  const voiceVersion = speechVersion;
+  utterance.onend = utterance.onerror = () => {
+    if (voiceVersion === speechVersion) soundtrack.setReading(false);
+  };
   speechSynthesis.speak(utterance);
   sim.readingSupport++;
   sim.log("listen");
@@ -433,12 +467,19 @@ window.addEventListener("keydown", (e) => {
   }
 });
 window.addEventListener("blur", () => {
+  soundtrack.setBackground(true);
+  stopSpeech();
   if (sim.mode === "running") {
     sim.pause();
     refresh(true);
   }
 });
+window.addEventListener("focus", () =>
+  soundtrack.setBackground(document.hidden),
+);
 document.addEventListener("visibilitychange", () => {
+  soundtrack.setBackground(document.hidden);
+  if (document.hidden) stopSpeech();
   if (document.hidden && sim.mode === "running") {
     sim.pause();
     refresh(true);
@@ -446,13 +487,14 @@ document.addEventListener("visibilitychange", () => {
 });
 function tick(dt: number) {
   sim.step(dt);
+  soundtrack.observe(sim);
   if (sim.deliveries.length > lastDeliveries) {
     const accepted = sim.deliveries.at(-1)!.accepted;
-    sound(accepted ? 660 : 180, 0.17, "triangle");
+    soundtrack.play(accepted ? "delivery" : "mistake");
     lastDeliveries = sim.deliveries.length;
   }
   if (sim.mode === "success" && lastMode !== "success") {
-    sound(880, 0.3, "sine");
+    soundtrack.play("success");
   }
   lastMode = sim.mode;
   workshop.sync(sim, selected, sim.mode === "paused" ? 0 : dt);
@@ -534,7 +576,9 @@ Object.assign(window, {
       medals: sim.medals,
       assets: workshop?.assetStatus,
       assetInfo: workshop?.assetInfo,
+      industryAssets: workshop?.decorStatus,
       muted,
+      audioState: soundtrack.state(),
       reduced,
       performance: workshop
         ? {

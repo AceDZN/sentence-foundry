@@ -5,7 +5,7 @@ Art owner: Sentence Foundry art/assets helper. Acquisition is through the human'
 ## Inspection and generation budget
 
 - 26 October 2026: Dedicated Chrome tab `512279438`, named `🏭 Sentence Foundry`, opened `https://studio.tripo3d.ai/assets`.
-- The **My Assets** collection visibly contains owned mechanical props and earlier commissioned game assets. An existing brass pump was inspected: [owned pump](https://studio.tripo3d.ai/3d-model/brass-steampunk-pump-with-pressure-gauge-and-transparent-tube-mounted-53dc9822-02d0-4b27-9acf-6c4316955da8), prompt `brass steampunk pump with pressure gauge and transparent tube mounted on stone base`, 19,032 faces / 12,755 vertices, 2K PBR Tripo H3.1. It was not acquired for this game.
+- The **My Assets** collection visibly contains owned mechanical props and earlier commissioned game assets. An existing brass pump was inspected: [owned pump](https://studio.tripo3d.ai/3d-model/brass-steampunk-pump-with-pressure-gauge-and-transparent-tube-mounted-53dc9822-02d0-4b27-9acf-6c4316955da8), prompt `brass steampunk pump with pressure gauge and transparent tube mounted on stone base`, 19,032 faces / 12,755 vertices, 2K PBR Tripo H3.1. It was not acquired in the initial pass; the later industrial-decoration pass below reuses it.
 - Displayed account balance at inspection: **6415** credits. Text-to-model H3.1 **Generate 30** was displayed. The lead inspected the first built-in imagegen target before generation was started.
 - Budget: at most three original model generations; no purchases or upgrades. Required skeletal rig jobs would be additional only if a deforming character were used. This factory design uses rigid machines, so authored hinge/piston motion is mechanical animation, not a skeleton rig.
 
@@ -51,3 +51,25 @@ Tripo acquisition proof images: `docs/art/tripo-washer.png` and `docs/art/tripo-
 ## Verified runtime use
 
 Lead integrated both GLBs through GLTFLoader with local embedded textures and observable mesh/triangle metadata. Washer and fixed painter are central operating machines, mounted on authored supports/nozzles clear of travelling items. The fixed arm uses original PBR materials and rigid-base swivel. The detached workpiece uses the same genuine arm geometry with independently cloned gray primer/blue coat materials; it travels through the painter and changes color. No skeleton/clip playback is claimed because these exports are rigid machinery. Independent five-contract, mobile and strict-control review completed with both model statuses ready and no page/console errors. Generated concepts, Tripo acquisition proofs and actual gameplay captures remain separately named.
+
+## Industrial decoration pass — search and reuse
+
+The human requested gallery search before generation. Live signed-in Chrome inspection covered the Industrial category, Tool gallery and one public workbench detail. The public workbench had a different creator and no visible redistribution licence, so it was not downloaded. `docs/art/industry-search.md` records the candidates and selection. Existing generic machinery under **My Assets** supplied the needed workshop identity, so **no new model generation** was used and the third-generation allowance remains unused.
+
+The current pump and spotlight detail pages visibly identify the signed-in owner Alex Sindalovsky and show **Pro**, along with editable prompts and model controls. These are the user's existing own generations, rather than collected public work by someone else. The official [commercial-use guide](https://www.tripo3d.ai/help/privacy-policy/how-to-use-tripo-models-commercially) and [Terms section 5.2.2](https://www.tripo3d.ai/terms) describe broad rights for paid users' own generations. No new terms, upgrade or purchase was accepted.
+
+| Decor | Existing task / asset | Exact original prompt | Normal UI download |
+|---|---|---|---|
+| Pump | [53dc9822-02d0-4b27-9acf-6c4316955da8](https://studio.tripo3d.ai/3d-model/brass-steampunk-pump-with-pressure-gauge-and-transparent-tube-mounted-53dc9822-02d0-4b27-9acf-6c4316955da8) | `brass steampunk pump with pressure gauge and transparent tube mounted on stone base` | `/Users/acedzn/Downloads/sentence-foundry-decor-pump.glb` |
+| Spotlight | [bdafba6c-7b45-40a4-9d58-709a3fd70900](https://studio.tripo3d.ai/3d-model/brass-steampunk-spotlight-on-rocky-pedestal-with-riveted-frame-and-gla-bdafba6c-7b45-40a4-9d58-709a3fd70900) | `brass steampunk spotlight on rocky pedestal with riveted frame and glass lens` | `/Users/acedzn/Downloads/sentence-foundry-decor-spotlight.glb` |
+
+The visible Export dialog used **GLB / 1k**, and its normal download event returned the paths above. No export credit charge was displayed. Account balance changed while other crews were using the account, so balance differences are not attributed to these exports. No new generation or rig job was submitted by this pass.
+
+| Runtime file | Original/runtime bytes | SHA256 (unchanged original = runtime) | Local size (x, y, z) |
+|---|---:|---|---|
+| `public/models/decor/pump.glb` | 1,292,920 | `45da97237e0986fe13d6c827fa23a59086b1cb07e05b4bd188a2ab34a19776a3` | 1.000 × 0.491 × 0.413 |
+| `public/models/decor/spotlight.glb` | 1,127,656 | `4d6fecd566dc32d5e5349a18f207d5954f06079c033b18bc4e1c5d9c99ca814b` | 0.992 × 1.000 × 0.622 |
+
+Both models have y-minimum 0, one mesh/primitive, three embedded JPEG textures, no required extensions, skins or animation clips. The originals are preserved under `work/art/originals/decor/`. The two decor GLBs total **2,420,576 bytes**; all four Tripo runtime GLBs total **4,464,124 bytes**. Exact binary metrics are in `docs/art/decor-metrics.json`.
+
+The pump is intended as rear circulation/pressure equipment; the spotlight is intended as an outer-bench worklight. Their appearance does not create collider or production state. Keep them outside buildable cells and source/output ports. The lead owns final placement and visual testing. Proof images `docs/art/owned-pump-candidate.png` and `docs/art/owned-spotlight-candidate.png` show the original models, owner and prompt.

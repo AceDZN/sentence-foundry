@@ -24,11 +24,48 @@
         <nav aria-label="הגדרות">
           <button id="help">? <span>עזרה</span></button
           ><button id="pause">Ⅱ <span>השהיה</span></button
-          ><button id="mute" aria-label="צליל">♪</button
+          ><button id="mute" aria-label="השתקת כל הצלילים">♪</button
+          ><button
+            id="music-mix"
+            aria-label="מוזיקה וצלילי מכונות"
+            aria-expanded="false"
+          >
+            ♫</button
           ><button id="motion" aria-label="תנועה מופחתת">≈</button
           ><button id="fullscreen" aria-label="מסך מלא">⛶</button>
         </nav>
       </header>
+      <section id="audio-panel" hidden aria-label="צלילי הסדנה">
+        <button id="close-audio" aria-label="סגירת צליל">×</button>
+        <h2>צלילי הסדנה</h2>
+        <label
+          ><input id="music-enabled" type="checkbox" checked /> מוזיקה</label
+        >
+        <input
+          id="music-volume"
+          type="range"
+          min="0"
+          max="100"
+          value="50"
+          aria-label="עוצמת המוזיקה"
+        />
+        <label
+          ><input id="effects-enabled" type="checkbox" checked /> צלילי
+          מכונות</label
+        >
+        <input
+          id="effects-volume"
+          type="range"
+          min="0"
+          max="100"
+          value="65"
+          aria-label="עוצמת צלילי המכונות"
+        />
+        <p>
+          Brass &amp; Belts · מוזיקה מקורית לסדנה.<br />הצלילים מושהים בזמן
+          קריאה ובהחלפת חלון.
+        </p>
+      </section>
       <section id="contract" aria-label="הזמנת לקוח">
         <div class="contract-meta">
           <span id="level-label"></span><button id="read">⌕ מילים</button

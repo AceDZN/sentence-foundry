@@ -1,0 +1,143 @@
+{
+  "results": [
+    {
+      "name": "speech-replayed",
+      "audio": {
+        "unlocked": true,
+        "contextState": "running",
+        "loadedCues": 12,
+        "musicLoaded": true,
+        "musicEnabled": true,
+        "effectsEnabled": true,
+        "muted": false,
+        "musicVolume": 0.5,
+        "effectsVolume": 0.65,
+        "paused": false,
+        "background": false,
+        "reading": true,
+        "effectiveMusicGain": 0.0702,
+        "activeMusicLoops": 1,
+        "musicSourceCount": 1,
+        "musicStarts": 1,
+        "sfxPlayed": 0,
+        "activeEffects": 0,
+        "musicSeconds": 68.57141666666666,
+        "playhead": 1.253333333333333,
+        "error": ""
+      },
+      "mode": "editing",
+      "challenge": 1
+    },
+    {
+      "name": "speech-master-muted",
+      "audio": {
+        "unlocked": true,
+        "contextState": "suspended",
+        "loadedCues": 12,
+        "musicLoaded": true,
+        "musicEnabled": true,
+        "effectsEnabled": true,
+        "muted": true,
+        "musicVolume": 0.5,
+        "effectsVolume": 0.65,
+        "paused": false,
+        "background": false,
+        "reading": false,
+        "effectiveMusicGain": 0,
+        "activeMusicLoops": 0,
+        "musicSourceCount": 1,
+        "musicStarts": 1,
+        "sfxPlayed": 0,
+        "activeEffects": 0,
+        "musicSeconds": 68.57141666666666,
+        "playhead": 1.4400000000000004,
+        "error": ""
+      },
+      "mode": "editing",
+      "challenge": 1
+    },
+    {
+      "name": "speech-restart-canceled",
+      "audio": {
+        "unlocked": true,
+        "contextState": "running",
+        "loadedCues": 12,
+        "musicLoaded": true,
+        "musicEnabled": true,
+        "effectsEnabled": true,
+        "muted": false,
+        "musicVolume": 0.5,
+        "effectsVolume": 0.65,
+        "paused": false,
+        "background": false,
+        "reading": false,
+        "effectiveMusicGain": 0.39,
+        "activeMusicLoops": 1,
+        "musicSourceCount": 1,
+        "musicStarts": 1,
+        "sfxPlayed": 0,
+        "activeEffects": 0,
+        "musicSeconds": 68.57141666666666,
+        "playhead": 1.9146666666666663,
+        "error": ""
+      },
+      "mode": "editing",
+      "challenge": 1
+    },
+    {
+      "name": "speech-replay-native",
+      "exercised": true
+    }
+  ],
+  "requests": [
+    {
+      "file": "brass-and-belts.mp3",
+      "status": 200
+    },
+    {
+      "file": "place.mp3",
+      "status": 200
+    },
+    {
+      "file": "rotate.mp3",
+      "status": 200
+    },
+    {
+      "file": "remove.mp3",
+      "status": 200
+    },
+    {
+      "file": "start.mp3",
+      "status": 200
+    },
+    {
+      "file": "wash.mp3",
+      "status": 200
+    },
+    {
+      "file": "paint.mp3",
+      "status": 200
+    },
+    {
+      "file": "label.mp3",
+      "status": 200
+    },
+    {
+      "file": "pack.mp3",
+      "status": 200
+    },
+    {
+      "file": "delivery.mp3",
+      "status": 200
+    },
+    {
+      "file": "success.mp3",
+      "status": 200
+    },
+    {
+      "file": "mistake.mp3",
+      "status": 200
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,139 @@
+{
+  "results": [
+    {
+      "name": "mobile-mix",
+      "audio": {
+        "unlocked": true,
+        "contextState": "running",
+        "loadedCues": 12,
+        "musicLoaded": true,
+        "musicEnabled": true,
+        "effectsEnabled": true,
+        "muted": false,
+        "musicVolume": 0.23,
+        "effectsVolume": 0.65,
+        "paused": false,
+        "background": false,
+        "reading": false,
+        "effectiveMusicGain": 0.1794,
+        "activeMusicLoops": 1,
+        "musicSourceCount": 1,
+        "musicStarts": 1,
+        "sfxPlayed": 0,
+        "activeEffects": 0,
+        "musicSeconds": 68.57141666666666,
+        "playhead": 2.0106666666666664,
+        "error": ""
+      },
+      "mode": "editing",
+      "challenge": 1
+    },
+    {
+      "name": "mobile-industry-canvas",
+      "audio": {
+        "unlocked": true,
+        "contextState": "running",
+        "loadedCues": 12,
+        "musicLoaded": true,
+        "musicEnabled": true,
+        "effectsEnabled": true,
+        "muted": false,
+        "musicVolume": 0.23,
+        "effectsVolume": 0.65,
+        "paused": false,
+        "background": false,
+        "reading": false,
+        "effectiveMusicGain": 0.1794,
+        "activeMusicLoops": 1,
+        "musicSourceCount": 1,
+        "musicStarts": 1,
+        "sfxPlayed": 0,
+        "activeEffects": 0,
+        "musicSeconds": 68.57141666666666,
+        "playhead": 2.618666666666666,
+        "error": ""
+      },
+      "mode": "editing",
+      "challenge": 1
+    },
+    {
+      "name": "mobile-muted",
+      "audio": {
+        "unlocked": true,
+        "contextState": "suspended",
+        "loadedCues": 12,
+        "musicLoaded": true,
+        "musicEnabled": true,
+        "effectsEnabled": true,
+        "muted": true,
+        "musicVolume": 0.23,
+        "effectsVolume": 0.65,
+        "paused": false,
+        "background": false,
+        "reading": false,
+        "effectiveMusicGain": 0,
+        "activeMusicLoops": 0,
+        "musicSourceCount": 1,
+        "musicStarts": 1,
+        "sfxPlayed": 0,
+        "activeEffects": 0,
+        "musicSeconds": 68.57141666666666,
+        "playhead": 3.269333333333333,
+        "error": ""
+      },
+      "mode": "editing",
+      "challenge": 1
+    }
+  ],
+  "requests": [
+    {
+      "file": "brass-and-belts.mp3",
+      "status": 200
+    },
+    {
+      "file": "place.mp3",
+      "status": 200
+    },
+    {
+      "file": "rotate.mp3",
+      "status": 200
+    },
+    {
+      "file": "remove.mp3",
+      "status": 200
+    },
+    {
+      "file": "start.mp3",
+      "status": 200
+    },
+    {
+      "file": "wash.mp3",
+      "status": 200
+    },
+    {
+      "file": "pack.mp3",
+      "status": 200
+    },
+    {
+      "file": "delivery.mp3",
+      "status": 200
+    },
+    {
+      "file": "paint.mp3",
+      "status": 200
+    },
+    {
+      "file": "label.mp3",
+      "status": 200
+    },
+    {
+      "file": "mistake.mp3",
+      "status": 200
+    },
+    {
+      "file": "success.mp3",
+      "status": 200
+    }
+  ],
+  "errors": []
+}

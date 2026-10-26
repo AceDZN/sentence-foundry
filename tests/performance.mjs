@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 const b = await chromium.launch({
   headless: true,
   executablePath:
-    "/Users/acedzn/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell",
+    "/Users/acedzn/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell",
   args: ["--use-angle=metal", "--enable-webgl"],
 });
 const p = await b.newPage({ viewport: { width: 1280, height: 720 } });
@@ -12,7 +12,12 @@ await p.waitForFunction(() => typeof window.render_game_to_text === "function");
 await p.waitForFunction(
   () => {
     const s = JSON.parse(window.render_game_to_text());
-    return s.assets.washer === "ready" && s.assets.arm === "ready";
+    return (
+      s.assets.washer === "ready" &&
+      s.assets.arm === "ready" &&
+      s.industryAssets?.pump === "ready" &&
+      s.industryAssets?.spotlight === "ready"
+    );
   },
   undefined,
   { timeout: 60000 },

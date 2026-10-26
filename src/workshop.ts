@@ -113,6 +113,11 @@ export class Workshop {
   productSignature = "";
   models: Record<string, T.Group> = {};
   assetStatus: Record<string, string> = { washer: "loading", arm: "loading" };
+  decorStatus: Record<string, string> = {
+    pump: "loading",
+    spotlight: "loading",
+  };
+  industry = new T.Group();
   mechanisms: T.Object3D[] = [];
   actuators: { pivot: T.Group; tile: Tile; restYaw: number }[] = [];
   assetInfo: Record<
@@ -203,6 +208,7 @@ export class Workshop {
       this.ghost,
       this.focus,
     );
+    this.scene.add(this.industry);
     this.buildRoom();
     const ring = new T.Mesh(
       new T.BoxGeometry(1.13, 0.025, 1.13),
@@ -358,6 +364,65 @@ export class Workshop {
     for (const x of [-6.2, 6.2])
       for (const z of [-4.8, 4.8])
         box(this.environment, 0.4, 2, 0.4, x, -1.65, z, materials.dark);
+    // Industrial room surrounds the original workbench, leaving the build grid
+    // and both feed/dispatch routes completely open.
+    const wall = mat(0x636e6b, 0.32, 0.85);
+    const trim = mat(0x35494c, 0.6, 0.6);
+    const windowGlass = new T.MeshStandardMaterial({
+      color: 0xa6c3c6,
+      emissive: 0x718f94,
+      emissiveIntensity: 0.3,
+      roughness: 0.55,
+    });
+    box(this.environment, 26, 9, 0.3, 0, 1.8, -10.1, wall);
+    box(this.environment, 26, 1.6, 0.12, 0, -1.85, -9.86, trim);
+    for (let x = -12; x <= 12; x += 1.5)
+      box(this.environment, 0.055, 8.7, 0.12, x, 1.8, -9.88, materials.steel);
+    for (const x of [-8.5, -3, 3, 8.5]) {
+      box(this.environment, 3.7, 2.25, 0.1, x, 3.25, -9.83, trim);
+      box(this.environment, 3.4, 1.96, 0.08, x, 3.25, -9.75, windowGlass);
+      box(this.environment, 0.075, 2, 0.06, x, 3.25, -9.66, materials.steel);
+      box(this.environment, 3.5, 0.075, 0.06, x, 3.25, -9.65, materials.steel);
+    }
+    cylinder(this.environment, 0.15, 23, 0, 5, -9.5, materials.steel, "x");
+    for (const x of [-10.6, 10.6]) {
+      cylinder(this.environment, 0.15, 6.7, x, 1.5, -9.46, materials.steel);
+      for (const y of [-0.8, 1.3, 3.5]) {
+        cylinder(this.environment, 0.24, 0.12, x, y, -9.46, materials.brass);
+        cylinder(
+          this.environment,
+          0.055,
+          0.5,
+          x,
+          y,
+          -9.12,
+          materials.dark,
+          "z",
+        );
+        const valve = new T.Mesh(
+          new T.TorusGeometry(0.24, 0.038, 6, 16),
+          materials.brass,
+        );
+        valve.position.set(x, y, -8.87);
+        this.environment.add(valve);
+      }
+    }
+    box(this.environment, 25, 0.36, 0.42, 0, 5.9, -8.3, trim);
+    for (const x of [-6.3, 6.3]) {
+      cylinder(this.environment, 0.035, 1.4, x, 5.15, -7.6, materials.dark);
+      const shade = new T.Mesh(
+        new T.ConeGeometry(0.48, 0.35, 18, 1, true),
+        materials.dark,
+      );
+      shade.position.set(x, 4.35, -7.6);
+      this.environment.add(shade);
+      const bulb = new T.Mesh(
+        new T.SphereGeometry(0.14, 10, 8),
+        new T.MeshBasicMaterial({ color: 0xffdc8e }),
+      );
+      bulb.position.set(x, 4.2, -7.6);
+      this.environment.add(bulb);
+    }
     // Back rail, tactile tool board, spare rollers and two warm work lamps.
     box(this.environment, 14, 0.18, 0.22, 0, 0.1, -5.5, materials.dark);
     box(this.environment, 9, 3.6, 0.18, 0, 1.2, -6.5, mat(0x8b6e4a, 0, 0.9));
@@ -539,6 +604,52 @@ export class Workshop {
       }),
     );
     this.tileSignature = "";
+    await this.loadIndustry(loader);
+  }
+  async loadIndustry(loader: GLTFLoader) {
+    await Promise.allSettled(
+      ["pump", "spotlight"].map(async (id) => {
+        try {
+          const gltf = await loader.loadAsync(
+            `${import.meta.env.BASE_URL}models/decor/${id}.glb`,
+          );
+          const model = gltf.scene;
+          const bounds = new T.Box3().setFromObject(model);
+          const center = bounds.getCenter(new T.Vector3());
+          model.position.x -= center.x;
+          model.position.z -= center.z;
+          model.position.y -= bounds.min.y;
+          model.traverse((o) => {
+            if (o instanceof T.Mesh) {
+              o.castShadow = true;
+              o.receiveShadow = true;
+            }
+          });
+          const mount = new T.Group();
+          mount.add(model);
+          if (id === "pump") {
+            mount.scale.setScalar(2.15);
+            mount.position.set(-2.8, -0.12, -4.8);
+            mount.rotation.y = 0.25;
+            this.industry.add(mount);
+          } else {
+            mount.scale.setScalar(1.35);
+            mount.position.set(6.05, -0.12, -4.3);
+            mount.rotation.y = -0.8;
+            this.industry.add(mount);
+            const second = mount.clone(true);
+            second.position.set(-6.1, -0.12, 4.5);
+            second.rotation.y = 1.8;
+            this.industry.add(second);
+          }
+          this.decorStatus[id] = "ready";
+        } catch (e) {
+          this.decorStatus[id] = "missing";
+          console.warn(`Industrial prop ${id} unavailable`, e);
+        }
+      }),
+    );
+    this.batch(this.industry);
   }
   belt(group: T.Group, corner = false, flip = false) {
     if (corner) {

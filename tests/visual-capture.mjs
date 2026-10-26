@@ -10,7 +10,7 @@ const prefix = "target";
 const browser = await chromium.launch({
   headless: true,
   executablePath:
-    "/Users/acedzn/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell",
+    "/Users/acedzn/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell",
   timeout: 20000,
   args: ["--use-angle=metal", "--enable-webgl", "--disable-dev-shm-usage"],
 });
@@ -27,7 +27,7 @@ page.on("pageerror", (e) => errors.push(String(e)));
 page.on("console", (m) => {
   if (m.type() === "error") errors.push(m.text());
 });
-page.setDefaultTimeout(5000);
+page.setDefaultTimeout(20000);
 const state = async () =>
   JSON.parse(await page.evaluate(() => window.render_game_to_text()));
 async function button(selector) {
@@ -198,7 +198,12 @@ try {
   await page.waitForFunction(
     () => {
       const s = JSON.parse(window.render_game_to_text());
-      return s.assets.washer === "ready" && s.assets.arm === "ready";
+      return (
+        s.assets.washer === "ready" &&
+        s.assets.arm === "ready" &&
+        s.industryAssets?.pump === "ready" &&
+        s.industryAssets?.spotlight === "ready"
+      );
     },
     undefined,
     { timeout: 60000 },

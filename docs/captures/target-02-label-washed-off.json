@@ -706,7 +706,7 @@
           "x": 1,
           "z": 5
         },
-        "progress": 0.48,
+        "progress": 0.39,
         "blocked": null,
         "product": {
           "receiver": "crate",
@@ -722,7 +722,7 @@
     ],
     "deliveries": [],
     "accepted": 0,
-    "productionSeconds": 4.21,
+    "productionSeconds": 4.18,
     "jam": null,
     "attempts": 1,
     "hints": 0,
@@ -782,21 +782,21 @@
     ],
     "medals": [
       {
-        "time": 6.6583333333333155,
+        "time": 6.657966666666649,
         "footprint": 9,
         "attempts": 1,
         "hints": 0,
         "readingSupport": 0
       },
       {
-        "time": 8.33333333333333,
+        "time": 8.33266666666666,
         "footprint": 9,
         "attempts": 1,
         "hints": 0,
         "readingSupport": 0
       },
       {
-        "time": 7.274199999999984,
+        "time": 7.264999999999979,
         "footprint": 10,
         "attempts": 1,
         "hints": 0,
@@ -808,16 +808,6 @@
       "arm": "ready"
     },
     "assetInfo": {
-      "arm": {
-        "meshes": 1,
-        "triangles": 18108,
-        "animations": 0,
-        "size": [
-          1.0000001192092896,
-          0.892333984375,
-          0.5132446885108948
-        ]
-      },
       "washer": {
         "meshes": 1,
         "triangles": 18144,
@@ -827,16 +817,53 @@
           1,
           0.6232910752296448
         ]
+      },
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
       }
     },
+    "industryAssets": {
+      "pump": "ready",
+      "spotlight": "ready"
+    },
     "muted": false,
+    "audioState": {
+      "unlocked": true,
+      "contextState": "suspended",
+      "loadedCues": 12,
+      "musicLoaded": true,
+      "musicEnabled": true,
+      "effectsEnabled": true,
+      "muted": false,
+      "musicVolume": 0.5,
+      "effectsVolume": 0.65,
+      "paused": true,
+      "background": false,
+      "reading": false,
+      "effectiveMusicGain": 0,
+      "activeMusicLoops": 0,
+      "musicSourceCount": 1,
+      "musicStarts": 1,
+      "sfxPlayed": 119,
+      "activeEffects": 2,
+      "musicSeconds": 68.57141666666666,
+      "playhead": 25.072,
+      "error": ""
+    },
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.52,
-      "drawCalls": 166,
-      "triangles": 131219
+      "meanFrameMs": 8.57,
+      "drawCalls": 177,
+      "triangles": 252947
     }
   },
-  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n? עזרה\nⅡ השהיה\n♪\n≈\n⛶\nהזמנה 4 / 5 · לא שוטפים את התווית\n⌕ מילים\n▷ EN\n\nFirst, the crates are washed by the cleaning arm. Next, the painter coats them. Labels are attached to the crates after painting. Finally, the crates are packed.\n\nיעד: 3 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n⚒\nPainter\n4\n▣\nPacker\n5\n◈\nCleaning arm\n6\n▤\nLabel press\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nמושהה · אפשר לקרוא ולתכנן בלי קנס זמן\n13 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה",
+  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n? עזרה\nⅡ השהיה\n♪\n♫\n≈\n⛶\nהזמנה 4 / 5 · לא שוטפים את התווית\n⌕ מילים\n▷ EN\n\nFirst, the crates are washed by the cleaning arm. Next, the painter coats them. Labels are attached to the crates after painting. Finally, the crates are packed.\n\nיעד: 3 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n⚒\nPainter\n4\n▣\nPacker\n5\n◈\nCleaning arm\n6\n▤\nLabel press\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nמושהה · אפשר לקרוא ולתכנן בלי קנס זמן\n13 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה",
   "errors": []
 }

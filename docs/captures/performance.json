@@ -1,5 +1,5 @@
 {
-  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.7827.55 Safari/537.36",
   "viewport": {
     "width": 1280,
     "height": 720,
@@ -633,77 +633,118 @@
         ]
       }
     },
+    "industryAssets": {
+      "pump": "ready",
+      "spotlight": "ready"
+    },
     "muted": false,
+    "audioState": {
+      "unlocked": false,
+      "contextState": "locked",
+      "loadedCues": 0,
+      "musicLoaded": false,
+      "musicEnabled": true,
+      "effectsEnabled": true,
+      "muted": false,
+      "musicVolume": 0.5,
+      "effectsVolume": 0.65,
+      "paused": false,
+      "background": false,
+      "reading": false,
+      "effectiveMusicGain": 0,
+      "activeMusicLoops": 0,
+      "musicSourceCount": 0,
+      "musicStarts": 0,
+      "sfxPlayed": 0,
+      "activeEffects": 0,
+      "musicSeconds": 0,
+      "playhead": 0,
+      "error": ""
+    },
     "reduced": false,
     "performance": {
       "meanFrameMs": 8.33,
-      "drawCalls": 43,
-      "triangles": 49494
+      "drawCalls": 55,
+      "triangles": 171362
     }
   },
   "resources": [
     {
-      "name": "index-BCAThAH7.js",
-      "encoded": 184530,
-      "decoded": 715967,
-      "transfer": 184830,
-      "duration": 807.9000000059605
+      "name": "index-Dwz9fIWa.js",
+      "encoded": 187385,
+      "decoded": 725372,
+      "transfer": 187685,
+      "duration": 312.09999999403954
     },
     {
-      "name": "index-CUNwvLJN.css",
-      "encoded": 2767,
-      "decoded": 9010,
-      "transfer": 3067,
-      "duration": 140.40000000596046
+      "name": "index-CfDUvHnp.css",
+      "encoded": 2978,
+      "decoded": 9851,
+      "transfer": 3278,
+      "duration": 63.5
     },
     {
       "name": "heebo-latin-400-normal-BGyEuwIV.woff2",
       "encoded": 11956,
       "decoded": 11956,
       "transfer": 12256,
-      "duration": 136.6000000089407
+      "duration": 76.20000000298023
     },
     {
       "name": "heebo-latin-800-normal-CXX3wFtI.woff2",
       "encoded": 12132,
       "decoded": 12132,
       "transfer": 12432,
-      "duration": 332.79999999701977
+      "duration": 76.20000000298023
     },
     {
       "name": "heebo-hebrew-400-normal-CVTJgQVK.woff2",
       "encoded": 5084,
       "decoded": 5084,
       "transfer": 5384,
-      "duration": 285.1000000089407
+      "duration": 68.30000001192093
     },
     {
       "name": "heebo-hebrew-800-normal-CDdwy3LD.woff2",
       "encoded": 5168,
       "decoded": 5168,
       "transfer": 5468,
-      "duration": 97.59999999403954
+      "duration": 62.1000000089407
     },
     {
       "name": "washer.glb",
       "encoded": 980760,
       "decoded": 980760,
       "transfer": 981060,
-      "duration": 437.20000000298023
+      "duration": 206
     },
     {
       "name": "service-arm.glb",
       "encoded": 1062788,
       "decoded": 1062788,
       "transfer": 1063088,
-      "duration": 509.5
+      "duration": 218.70000000298023
     },
     {
       "name": "heebo-latin-600-normal-C0GLQ-RT.woff2",
       "encoded": 12256,
       "decoded": 12256,
       "transfer": 12556,
-      "duration": 66.09999999403954
+      "duration": 446.09999999403954
+    },
+    {
+      "name": "pump.glb",
+      "encoded": 1292920,
+      "decoded": 1292920,
+      "transfer": 1293220,
+      "duration": 62.79999999701977
+    },
+    {
+      "name": "spotlight.glb",
+      "encoded": 1127656,
+      "decoded": 1127656,
+      "transfer": 1127956,
+      "duration": 59.70000000298023
     }
   ]
 }

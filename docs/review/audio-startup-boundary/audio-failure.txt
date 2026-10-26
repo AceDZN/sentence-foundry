@@ -1,0 +1,12 @@
+locator.click: Timeout 5000ms exceeded.
+Call log:
+[2m  - waiting for locator('#mute')[22m
+[2m    - locator resolved to <button id="mute" aria-pressed="false" aria-label="השתקת כל הצלילים">♪</button>[22m
+[2m  - attempting click action[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - forcing action[22m
+[2m    - performing click action[22m
+
+    at button (/Users/acedzn/dev/AceDZN-exp/sentence-foundry/tests/audio-browser-review.mjs:17:53)
+    at /Users/acedzn/dev/AceDZN-exp/sentence-foundry/tests/audio-browser-review.mjs:50:9

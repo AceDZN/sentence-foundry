@@ -1,0 +1,62 @@
+[
+  {
+    "path": "public/audio/brass-and-belts.mp3",
+    "bytes": 957286,
+    "sha256": "a78d7ca59d3671a7ea243c875e5f671894ba6b119ae508fcc67fbbc36738f35f"
+  },
+  {
+    "path": "public/audio/delivery.mp3",
+    "bytes": 5383,
+    "sha256": "7bf15f3b400ba9112b7f9e27add23f09d9ce1c755ce6f1e1e94a9c90f04ec5a2"
+  },
+  {
+    "path": "public/audio/label.mp3",
+    "bytes": 2573,
+    "sha256": "ef6407fbece520364f806ab2adaf8bf6ae212f3e05b8c9958249cbe27e23ce59"
+  },
+  {
+    "path": "public/audio/mistake.mp3",
+    "bytes": 3193,
+    "sha256": "fd4851f82c3fe704ceaa5bd7fdd38af47bd4768d2163acd7edc5ba8673e33d20"
+  },
+  {
+    "path": "public/audio/pack.mp3",
+    "bytes": 2492,
+    "sha256": "72d17a74e197900476110c47e0c850e24772f75f235915a84186a83d9c76de39"
+  },
+  {
+    "path": "public/audio/paint.mp3",
+    "bytes": 3904,
+    "sha256": "d670624b2b30fb2df52148d6009ee62689ba5c5a066f94919a382b5a62c52249"
+  },
+  {
+    "path": "public/audio/place.mp3",
+    "bytes": 2103,
+    "sha256": "62a1a23c16f44f8170b769560302668a7587b1180168f6afc3fcb774738ca3a0"
+  },
+  {
+    "path": "public/audio/remove.mp3",
+    "bytes": 2103,
+    "sha256": "bcde114e4058643e92a18714ad1b39791affe3d1a18241090aa809a5d13c3bb6"
+  },
+  {
+    "path": "public/audio/rotate.mp3",
+    "bytes": 2233,
+    "sha256": "4bff7a1dc93b1b9e538866cb9ab878ba0fbc86239212faf6aecb6622c4600fb6"
+  },
+  {
+    "path": "public/audio/start.mp3",
+    "bytes": 3167,
+    "sha256": "0f4291d2c5ffe0dc9b407182b597b16a1ba2183fbf1e237358ac5ac2d780ca3d"
+  },
+  {
+    "path": "public/audio/success.mp3",
+    "bytes": 9311,
+    "sha256": "a492c7854c00196ce9684df170ae15c9e3f24bd60db8a84be5777ea7c86b031e"
+  },
+  {
+    "path": "public/audio/wash.mp3",
+    "bytes": 4686,
+    "sha256": "408e11a6541723755c0647fc546dd8ef88dfecc6e16b9435a0c5ea7cbe1b869b"
+  }
+]

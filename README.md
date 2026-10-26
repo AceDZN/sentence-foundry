@@ -37,6 +37,12 @@ The initial locked-Mac export interruption is resolved. `ASSETS.md` records the 
 
 Authored fixtures derive from Workbook comprehension scope. The game practices understanding role/receiver/process meaning; it does not assess grammar production or claim validated learning outcomes.
 
+## Music and industrial setting
+
+**Brass & Belts** is an original68.571-second,32bar workshop score with plucked melody, warm keys, bass and light mechanical percussion. Eleven separate cues cover building, processing and delivery. Click once to enable audio; the **♫** mixer separates music and machine effects with independent volume controls. **♪** mutes everything. Reading and game pause suspend the loop at its current position; English speech ducks the music. Restarts and new orders retain one music source. Preferences stay local.
+
+The industrial gallery was searched first. Two existing owned Tripo props—the pressure pump and spotlight—were acquired through normal UI exports and reused around the workbench, with authored steel wall panels, windows and pipework. No new model generation or credits were used in this pass. See `MUSIC.md`, `docs/review/AUDIO_REVIEW.md` and `docs/art/industry-search.md` for source, measurements and verification.
+
 ## Test hooks
 
 `window.render_game_to_text()` returns current observable contract, grid, sources, direction states, travelling product histories, deliveries, support/attempt records, asset status and frame metrics. Coordinates: x east, z south, y up. `window.advanceTime(ms)` deterministically advances the same simulation, respecting pause. Tests do not inject wins. Local events contain no student identity and remain in the current browser.
