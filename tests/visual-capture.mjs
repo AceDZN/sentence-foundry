@@ -141,7 +141,7 @@ async function build(cells, actions, { erase = true } = {}) {
     }
     const kind = corner
       ? "corner"
-      : i > 0 && machine < actions.length
+      : i > 2 && machine < actions.length
         ? actions[machine++]
         : "belt";
     await button(`[data-tool="${kind}"]`);
@@ -195,6 +195,14 @@ try {
   await page.waitForFunction(
     () => typeof window.render_game_to_text === "function",
   );
+  await page.waitForFunction(
+    () => {
+      const s = JSON.parse(window.render_game_to_text());
+      return s.assets.washer === "ready" && s.assets.arm === "ready";
+    },
+    undefined,
+    { timeout: 60000 },
+  );
   await advance(0);
   await build(straight, ["wash"]);
   await button("#run");
@@ -202,9 +210,14 @@ try {
   await button("#next");
   await build(straight, ["wash", "paint"]);
   await button("#run");
-  await advance(2600);
+  await advance(4500);
   await button("#pause");
+  await capture("01-running-line-overview");
+  await page.mouse.move(730, 470);
+  await page.mouse.wheel(0, -650);
+  await page.waitForTimeout(200);
   await capture("01-running-line");
+  await button("#camera");
   await button("#pause");
   assert.equal((await finish()).mode, "success");
   await button("#next");
@@ -225,6 +238,10 @@ try {
   }
   assert.ok(observed);
   await button("#pause");
+  await capture("02-label-washed-off-overview");
+  await page.mouse.move(730, 470);
+  await page.mouse.wheel(0, -300);
+  await page.waitForTimeout(200);
   await capture("02-label-washed-off");
   await fs.writeFile(
     `${root}/docs/captures/target-summary.json`,

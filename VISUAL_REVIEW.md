@@ -1,24 +1,29 @@
-# Visual review · conceptual targets versus actual gameplay
+# Sentence Foundry visual review
 
-Built-in imagegen generated two separate16:9 concepts before rendered gameplay source. Exact prompts, reference use and lead inspection are in docs/visual-targets/PROMPTS.md. These are concepts, never actual gameplay captures.
+26 October 2026. Two original Tripo GLBs are now acquired and visibly integrated. Final actual captures were inspected beside the two original built-in imagegen concepts. Exact prompts, generation mode and the lead's before-source inspection are in docs/visual-targets/PROMPTS.md. Concepts are never presented as game captures.
 
-| Intended view | Concept | Actual reachable state |
+| View | Concept | Actual1280×720 reachable state |
 |---|---|---|
-| Useful construction / washed-then-painted line | docs/visual-targets/01-build-line.png | docs/captures/target-01-running-line.png (1280×720, paused mid-production for inspection) |
-| Wrong order / paper washed off | docs/visual-targets/02-repair-line.png | docs/captures/target-02-label-washed-off.png (1280×720, paused immediately after observed removedLabel event) |
-| Receiver contrast | target2 also shows a blue spare arm | docs/review/desktop-challenge3-wrong-receiver.png and desktop-challenge3-passive-arm-success.png |
-| Changed context | same workshop grammar | docs/review/desktop-challenge5-inside-label.png and desktop-challenge5-transfer-success.png |
+| Washed-then-painted production | docs/visual-targets/01-build-line.png | docs/captures/target-01-running-line.png |
+| Paper washed off after wrong ordering | docs/visual-targets/02-repair-line.png | docs/captures/target-02-label-washed-off.png |
+| Wider grid context | same targets | corresponding `-overview.png` captures |
+| Receiver contrast | concept2's painted spare arm | docs/review/desktop-challenge3-travelling-primer-arm.png and desktop-challenge3-travelling-painted-arm.png |
+| Transfer | changed board and material | docs/review/desktop-challenge5-inside-label.png and desktop-challenge5-transfer-success.png |
 
-Side-by-side viewer: docs/captures/compare.html. Actual captures come from legal UI construction and simulation; no staged product/win mutation. Target2 combines a stripped label and painted service arm; the game records these as separate reachable contract states instead of fabricating simultaneous output. The actual English contracts are authored and may be longer than the compact target copy.
+Side-by-side viewer: docs/captures/compare.html. Every actual state was reached through legal UI construction and real simulation. Production was paused for inspection, and ordinary wheel input controls the closer view; no product/win state was staged. Concept2 combines a painted spare arm and stripped paper. Actual evidence records these as separate reachable contracts, preserving the game's rules.
 
-## Changes made from actual inspection
+## Inspection and fixes
 
-- Warm wood table, cobalt machine family, dark rollers, amber fasteners and oblique camera carry the visual thesis. The world takes most of the screen, with a small contract, edge palette and mechanical run/stop action.
-- First screenshot had flat overbright beige/metal. Reduced exposure and ambient strength, deepened wood and steel, retained warm lamps and shadows.
-- Corners originally looked straight despite turning rules. Rebuilt actual L-shaped roller/inlet geometry, mirrored according to the eight directed elbow states.
-- Mobile390×844 initially cropped source, dispatch and edge cells. Fixed OrbitControls maxDistance clamp and fitted all63 cells and ports into the interaction area. Actual touch success is captured.
-- Removed paper now produces falling paper plus spray. Packed internal labels hide both paper and text, so rejected transfer products cannot masquerade as externally labelled packages. HUD feedback distinguishes a missing label from an internal one.
+- The wooden workbench, oblique camera, dark rollers, brass fasteners, cobalt identity machinery and quiet Hebrew/LTR shell carry the target composition. Most pixels remain the construction world; no sentence tiles or quiz gates were introduced.
+- Acquired washer and arm retain their original textured PBR identities as operating machines. A local generated room environment gives the metal a readable response. The arm's detached workpiece clone uses a gray primer coat before paint and blue afterward, without mutating the fixed actor's material.
+- The first GLB placement let the washer's lower gauges cross the crate path. Mounted both bulky bodies on authored steel/brass supports above the legal conveyor volume, with nozzles over the item. Raised press heads as well. Actual washer-processing captures show the crate clearly, and independent review found no blocking silhouette in the tested routes.
+- Static batching reduced the initial scene from1333 to43 draw calls. Added genuine L-shaped roller geometry matching all eight directed corner states, rather than a straight silhouette that secretly turns items.
+- Mobile initially cropped input/output and some edge cells. Fixed the OrbitControls distance clamp; all63 cells and ports fit, and actual touch construction succeeds with the real washer visible.
+- Paper removal produces spray and a falling paper fragment. Internal package labels hide both paper and text. The HUD distinguishes a washed-off label from a label inside the package. Pause freezes the machinery and reduced motion suppresses ornamental movement while keeping product-state changes.
+- Replaced a billboard background sign that cut through the pegboard with a mounted flat sign. Closer target captures and wider overview captures are both retained.
 
-## Honest remainder · required art gate OPEN
+## Intentional differences
 
-The generated targets have substantially richer curved machinery, surface wear, workshop dressing and water effects than the current authored development geometry. Two original matching Tripo models have finished generating, but Chrome downloads are blocked by the locked Mac. No local GLBs or runtime Tripo identity are fulfilled. The current renderer's fallback washer arch/arm is visibly simpler and is NOT finished art. Final silhouette, scale, materials, occupancy and performance comparison must be repeated after normal exports and integration. This slice is behaviorally playable, but the commissioned visual/Tripo acceptance remains incomplete.
+The concepts are denser and more photoreal, with larger water splashes, additional dressing and a human hand. The playable build keeps spare construction cells, restrained effects and pointer/touch controls. The fixed painter uses the acquired cobalt arm with an amber nozzle/sign instead of copying the concept's orange booth. The English contracts are full authored orders rather than the concept's abbreviated copy; finished-output diagrams remain absent before a meaningful attempt. Labels/packing presses, connectors, table, colliders and effects are original authored geometry, not claimed as additional Tripo models.
+
+The locked-Mac acquisition interruption is resolved. Both local assets, observed normal UI exports, costs, SHA256 and unchanged1k-export byte counts are documented in ASSETS.md. Both are under3MB, and the final full slice plus mobile/settings review ran with their statuses ready. Remaining limitations concern pupil/hardware validation and headless native-focus testing, documented in PLAYTEST.md; there is no outstanding external asset gate.

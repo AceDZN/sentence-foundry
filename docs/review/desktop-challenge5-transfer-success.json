@@ -736,32 +736,29 @@
       }
     ],
     "accepted": 3,
-    "productionSeconds": 12.48,
+    "productionSeconds": 12.5,
     "jam": null,
     "attempts": 3,
     "hints": 0,
     "readingSupport": 0,
     "events": [
       {
-        "type": "edit",
+        "type": "review",
         "challenge": 5,
-        "attempt": 2,
-        "aided": false,
-        "detail": "belt"
+        "attempt": 1,
+        "aided": false
       },
       {
-        "type": "edit",
+        "type": "run",
         "challenge": 5,
         "attempt": 2,
-        "aided": false,
-        "detail": "corner"
+        "aided": false
       },
       {
-        "type": "edit",
+        "type": "stop",
         "challenge": 5,
         "attempt": 2,
-        "aided": false,
-        "detail": "belt"
+        "aided": false
       },
       {
         "type": "run",
@@ -803,43 +800,70 @@
         "time": 6.666666666666648,
         "footprint": 9,
         "attempts": 2,
-        "hints": 1
+        "hints": 1,
+        "readingSupport": 1
       },
       {
         "time": 8.349999999999994,
         "footprint": 9,
         "attempts": 2,
-        "hints": 0
+        "hints": 0,
+        "readingSupport": 2
       },
       {
-        "time": 7.283466666666645,
+        "time": 7.283333333333313,
         "footprint": 10,
         "attempts": 3,
-        "hints": 0
+        "hints": 0,
+        "readingSupport": 0
       },
       {
-        "time": 13.026300000000226,
+        "time": 13.03333333333356,
         "footprint": 13,
         "attempts": 3,
-        "hints": 0
+        "hints": 0,
+        "readingSupport": 0
       },
       {
-        "time": 12.47553333333353,
+        "time": 12.5000000000002,
         "footprint": 13,
         "attempts": 3,
-        "hints": 0
+        "hints": 0,
+        "readingSupport": 0
       }
     ],
     "assets": {
-      "washer": "missing",
-      "arm": "missing"
+      "washer": "ready",
+      "arm": "ready"
+    },
+    "assetInfo": {
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
+      },
+      "washer": {
+        "meshes": 1,
+        "triangles": 18144,
+        "animations": 0,
+        "size": [
+          0.6279907822608948,
+          1,
+          0.6232910752296448
+        ]
+      }
     },
     "muted": false,
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.57,
-      "drawCalls": 148,
-      "triangles": 57619
+      "meanFrameMs": 8.61,
+      "drawCalls": 152,
+      "triangles": 94075
     }
   },
   "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n? עזרה\nⅡ השהיה\n♪\n≈\n⛶\nהזמנה 5 / 5 · הזמנה בסדנה חדשה\n⌕ מילים\n▷ EN\n\nThe display panels are washed before packing. After they are packed, labels are attached to the outside of each package. Keep the panels unpainted.\n\nיעד: 3 תוצרים · התקבלו 3\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nהמשלוח התקבל! אפשר לשפר את השטח או להמשיך להזמנה הבאה.\n13 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה\nמשלוח הושלם\nכל חמש ההזמנות הושלמו!\n\n3 תוצרים תקינים · 12.5 שניות ייצור · 13 חלקים · 3 ניסיונות · ללא רמז. קריאה ובנייה אינן נספרות בזמן.\n\nסדנה חדשה ↺שיפור המפעל",

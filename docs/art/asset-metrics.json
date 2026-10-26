@@ -1,0 +1,34 @@
+[
+  {
+    "asset": "washer",
+    "bytes": 980760,
+    "sha256": "92849e8ec09b6893a68b57ef992dd379439fd45ee72bbcfa9bc4fcb36b148583",
+    "meshes": 1,
+    "primitives": 1,
+    "images": 3,
+    "imageMimeTypes": [
+      "image/jpeg",
+      "image/jpeg",
+      "image/jpeg"
+    ],
+    "animations": 0,
+    "skins": 0,
+    "extensionsRequired": []
+  },
+  {
+    "asset": "service-arm",
+    "bytes": 1062788,
+    "sha256": "ee0c1eb2888452a29aa05f65bee2546389ad71fedcd5464b6618f94d7bb2e22f",
+    "meshes": 1,
+    "primitives": 1,
+    "images": 3,
+    "imageMimeTypes": [
+      "image/jpeg",
+      "image/jpeg",
+      "image/jpeg"
+    ],
+    "animations": 0,
+    "skins": 0,
+    "extensionsRequired": []
+  }
+]

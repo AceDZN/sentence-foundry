@@ -602,17 +602,39 @@
     ],
     "medals": [],
     "assets": {
-      "washer": "missing",
-      "arm": "missing"
+      "washer": "ready",
+      "arm": "ready"
+    },
+    "assetInfo": {
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
+      },
+      "washer": {
+        "meshes": 1,
+        "triangles": 18144,
+        "animations": 0,
+        "size": [
+          0.6279907822608948,
+          1,
+          0.6232910752296448
+        ]
+      }
     },
     "muted": false,
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.33,
-      "drawCalls": 165,
+      "meanFrameMs": 12.61,
+      "drawCalls": 43,
       "triangles": 49494
     }
   },
-  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n?\nⅡ\n♪\n≈\n⛶\nהזמנה 1 / 5 · משלוח ראשון\n⌕ מילים\n▷ EN\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nיעד: 1 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nBelt\n\nMoves an item straight to the next tile.\n\nבנו מסלול לפי ההזמנה. חלקים אפשר להעביר, לסובב או להחליף.\n8 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה",
+  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n?\nⅡ\n♪\n≈\n⛶\nהזמנה 1 / 5 · משלוח ראשון\n⌕ מילים\n▷ EN\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nיעד: 1 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nBelt \n\nMoves an item straight to the next tile.\n\nבנו מסלול לפי ההזמנה. חלקים אפשר להעביר, לסובב או להחליף.\n8 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה",
   "errors": []
 }

@@ -719,25 +719,49 @@
         "time": 6.666666666666648,
         "footprint": 9,
         "attempts": 2,
-        "hints": 1
+        "hints": 1,
+        "readingSupport": 1
       },
       {
         "time": 8.349999999999994,
         "footprint": 9,
         "attempts": 2,
-        "hints": 0
+        "hints": 0,
+        "readingSupport": 2
       }
     ],
     "assets": {
-      "washer": "missing",
-      "arm": "missing"
+      "washer": "ready",
+      "arm": "ready"
+    },
+    "assetInfo": {
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
+      },
+      "washer": {
+        "meshes": 1,
+        "triangles": 18144,
+        "animations": 0,
+        "size": [
+          0.6279907822608948,
+          1,
+          0.6232910752296448
+        ]
+      }
     },
     "muted": false,
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.52,
-      "drawCalls": 94,
-      "triangles": 51495
+      "meanFrameMs": 11.25,
+      "drawCalls": 102,
+      "triangles": 124263
     }
   },
   "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n? עזרה\nⅡ השהיה\n♪\n≈\n⛶\nהזמנה 2 / 5 · אותה עבודה, מוקד חדש\n⌕ מילים\n▷ EN\n\nFirst, the crates are washed by the cleaning arm. Then they are painted by the painter. Leave them unpacked.\n\nניסוח פעיל\nיעד: 2 תוצרים · התקבלו 2\n1\n➜\nBelt\n2\n↳\nCorner\n3\n⚒\nPainter\n4\n▣\nPacker\n5\n◈\nCleaning arm\n6\n▤\nLabel press\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nהמשלוח התקבל! אפשר לשפר את השטח או להמשיך להזמנה הבאה.\n9 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה\nמשלוח הושלם\nהמשלוח יצא לדרך\n\n2 תוצרים תקינים · 8.3 שניות ייצור · 9 חלקים · 2 ניסיונות · ללא רמז. קריאה ובנייה אינן נספרות בזמן.\n\nלהזמנה הבאה ←שיפור המפעל",

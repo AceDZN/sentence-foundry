@@ -608,8 +608,30 @@
     ],
     "medals": [],
     "assets": {
-      "washer": "missing",
-      "arm": "missing"
+      "washer": "ready",
+      "arm": "ready"
+    },
+    "assetInfo": {
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
+      },
+      "washer": {
+        "meshes": 1,
+        "triangles": 18144,
+        "animations": 0,
+        "size": [
+          0.6279907822608948,
+          1,
+          0.6232910752296448
+        ]
+      }
     },
     "muted": false,
     "reduced": false,
@@ -621,67 +643,67 @@
   },
   "resources": [
     {
-      "name": "index-UjfMONXF.js",
-      "encoded": 183244,
-      "decoded": 710842,
-      "transfer": 183544,
-      "duration": 261.70000000298023
+      "name": "index-BCAThAH7.js",
+      "encoded": 184530,
+      "decoded": 715967,
+      "transfer": 184830,
+      "duration": 807.9000000059605
     },
     {
       "name": "index-CUNwvLJN.css",
       "encoded": 2767,
       "decoded": 9010,
       "transfer": 3067,
-      "duration": 22.799999997019768
+      "duration": 140.40000000596046
     },
     {
       "name": "heebo-latin-400-normal-BGyEuwIV.woff2",
       "encoded": 11956,
       "decoded": 11956,
       "transfer": 12256,
-      "duration": 108.40000000596046
+      "duration": 136.6000000089407
     },
     {
       "name": "heebo-latin-800-normal-CXX3wFtI.woff2",
       "encoded": 12132,
       "decoded": 12132,
       "transfer": 12432,
-      "duration": 114.79999999701977
+      "duration": 332.79999999701977
     },
     {
       "name": "heebo-hebrew-400-normal-CVTJgQVK.woff2",
       "encoded": 5084,
       "decoded": 5084,
       "transfer": 5384,
-      "duration": 56.70000000298023
+      "duration": 285.1000000089407
     },
     {
       "name": "heebo-hebrew-800-normal-CDdwy3LD.woff2",
       "encoded": 5168,
       "decoded": 5168,
       "transfer": 5468,
-      "duration": 57.1000000089407
+      "duration": 97.59999999403954
     },
     {
       "name": "washer.glb",
-      "encoded": 1334,
-      "decoded": 2969,
-      "transfer": 1634,
-      "duration": 268.1000000089407
+      "encoded": 980760,
+      "decoded": 980760,
+      "transfer": 981060,
+      "duration": 437.20000000298023
     },
     {
       "name": "service-arm.glb",
-      "encoded": 1334,
-      "decoded": 2969,
-      "transfer": 1634,
-      "duration": 266.3999999910593
+      "encoded": 1062788,
+      "decoded": 1062788,
+      "transfer": 1063088,
+      "duration": 509.5
     },
     {
       "name": "heebo-latin-600-normal-C0GLQ-RT.woff2",
       "encoded": 12256,
       "decoded": 12256,
       "transfer": 12556,
-      "duration": 398.59999999403954
+      "duration": 66.09999999403954
     }
   ]
 }

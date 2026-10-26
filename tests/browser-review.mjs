@@ -17,10 +17,14 @@ const executablePath =
   process.env.SF_REVIEW_EXECUTABLE ||
   (existsSync(installedMacShell) ? installedMacShell : undefined);
 const mobile = process.argv.includes("--mobile");
+const inspectModels = process.argv.includes("--inspect-models");
 const settingsOnly = process.argv.includes("--settings-only");
-const flowOnly = process.argv.includes("--flow-only");
+const flowOnly = process.argv.includes("--flow-only") || inspectModels;
+const requireModels = process.argv.includes("--require-models") || inspectModels;
 const prefix = mobile
   ? "mobile"
+  : inspectModels
+    ? "desktop-model-inspection"
   : settingsOnly
     ? "desktop-settings"
     : "desktop";
@@ -68,6 +72,13 @@ async function cell(x, z) {
 }
 async function capture(name) {
   const s = await state();
+  if (requireModels) {
+    assert.deepEqual(s.assets, { washer: "ready", arm: "ready" }, "both acquired Tripo models loaded");
+    for (const id of ["washer", "arm"]) {
+      assert.ok(s.assetInfo?.[id]?.meshes > 0, `${id} contains actual GLB meshes`);
+      assert.ok(s.assetInfo?.[id]?.triangles > 0, `${id} contains actual GLB geometry`);
+    }
+  }
   const text = await page.locator("body").innerText();
   await fs.writeFile(
     `${root}/docs/review/${prefix}-${name}.json`,
@@ -99,6 +110,7 @@ async function capture(name) {
     accepted: s.accepted,
     attempts: s.attempts,
     assets: s.assets,
+    assetInfo: s.assetInfo,
   });
   console.log(prefix + " " + name + " " + s.mode + " " + s.accepted);
   return s;
@@ -251,6 +263,12 @@ try {
   await page.waitForFunction(
     () => typeof window.render_game_to_text === "function",
   );
+  if (requireModels) {
+    await page.waitForFunction(() => {
+      const s = JSON.parse(window.render_game_to_text());
+      return s.assets?.washer === "ready" && s.assets?.arm === "ready";
+    }, undefined, { timeout: 20000 });
+  }
   await advance(0);
   await capture("initial");
   if (mobile) {
@@ -415,6 +433,14 @@ try {
       assert.match((await state()).contract, /cleaning arm washes the crates/);
       assert.deepEqual((await state()).tiles, tiles);
       await button("#run");
+      if (requireModels) {
+        await advance(1500);
+        await button("#pause");
+        await capture("challenge2-GLB-washer-processing");
+        await button("#pause");
+        await advance(800);
+        await capture("challenge2-GLB-machines-running");
+      }
       assert.equal((await finish()).mode, "success");
       await capture("challenge2-active-success");
       await button("#try-again");
@@ -423,6 +449,7 @@ try {
       await button("#run");
       assert.equal((await finish()).mode, "success");
       await capture("challenge2-passive-success");
+      if (!inspectModels) {
       await button("#next");
       await build(crateRoute, ["paint"]);
       await button("#run");
@@ -440,6 +467,18 @@ try {
       await button("#receiver");
       await build(armRoute, ["paint"]);
       await button("#run");
+      if (requireModels) {
+        await advance(400);
+        assert.ok((await state()).pieces.some(p => p.product.receiver === "service-arm" && !p.product.painted), "primer arm enters before painting");
+        await button("#pause");
+        await capture("challenge3-travelling-primer-arm");
+        await button("#pause");
+        await advance(1900);
+        assert.ok((await state()).pieces.some(p => p.product.receiver === "service-arm" && p.product.painted), "detached arm travels after receiving paint");
+        await button("#pause");
+        await capture("challenge3-travelling-painted-arm");
+        await button("#pause");
+      }
       assert.equal((await finish()).mode, "success");
       await capture("challenge3-passive-arm-success");
       await button("#next");
@@ -482,6 +521,7 @@ try {
       await button("#run");
       assert.equal((await finish()).mode, "success");
       await capture("challenge5-transfer-success");
+      }
     }
   }
   assert.deepEqual(errors, []);

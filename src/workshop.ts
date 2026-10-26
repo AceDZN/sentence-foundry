@@ -2,6 +2,7 @@ import * as T from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { type Cell, type Tile, key, DIRECTIONS } from "./grid";
 import type { Product } from "./semantics";
 import type { Foundry } from "./simulation";
@@ -113,6 +114,11 @@ export class Workshop {
   models: Record<string, T.Group> = {};
   assetStatus: Record<string, string> = { washer: "loading", arm: "loading" };
   mechanisms: T.Object3D[] = [];
+  actuators: { pivot: T.Group; tile: Tile; restYaw: number }[] = [];
+  assetInfo: Record<
+    string,
+    { meshes: number; triangles: number; animations: number; size: number[] }
+  > = {};
   particles: { mesh: T.Mesh; life: number; velocity: T.Vector3 }[] = [];
   lastHistory = new Map<number, number>();
   productMeshes = new Map<string, { signature: string; group: T.Group }>();
@@ -140,6 +146,12 @@ export class Workshop {
     this.renderer.outputColorSpace = T.SRGBColorSpace;
     this.renderer.toneMapping = T.ACESFilmicToneMapping;
     this.renderer.toneMappingExposure = 1.15;
+    const room = new RoomEnvironment();
+    const pmrem = new T.PMREMGenerator(this.renderer);
+    this.scene.environment = pmrem.fromScene(room, 0.04).texture;
+    this.scene.environmentIntensity = 0.38;
+    room.dispose();
+    pmrem.dispose();
     container.appendChild(this.renderer.domElement);
     this.renderer.domElement.tabIndex = 0;
     this.renderer.domElement.setAttribute(
@@ -410,8 +422,17 @@ export class Workshop {
         materials.steel,
         "z",
       );
-    const plaque = textSprite("SENTENCE FOUNDRY", "#ffe8b7", "#254552", 3);
-    plaque.position.set(0, 2.5, -6.1);
+    const plaqueLabel = textSprite("SENTENCE FOUNDRY", "#ffe8b7", "#254552", 3);
+    // A mounted sign stays parallel to the pegboard; a billboard would cut into it.
+    const plaque = new T.Mesh(
+      new T.PlaneGeometry(3, 0.75),
+      new T.MeshBasicMaterial({
+        map: (plaqueLabel.material as T.SpriteMaterial).map,
+        side: T.DoubleSide,
+      }),
+    );
+    plaqueLabel.material.dispose();
+    plaque.position.set(0, 2.5, -6.25);
     this.environment.add(plaque);
     this.batch(this.environment);
   }
@@ -493,6 +514,22 @@ export class Workshop {
           model.position.y += size.y / 2;
           wrapper.add(model);
           wrapper.scale.setScalar(1 / Math.max(size.x, size.z, size.y * 0.72));
+          let meshes = 0,
+            triangles = 0;
+          model.traverse((o) => {
+            if (o instanceof T.Mesh) {
+              meshes++;
+              triangles +=
+                (o.geometry.index?.count ??
+                  o.geometry.getAttribute("position").count) / 3;
+            }
+          });
+          this.assetInfo[id] = {
+            meshes,
+            triangles,
+            animations: gltf.animations.length,
+            size: size.toArray(),
+          };
           this.models[id] = wrapper;
           this.assetStatus[id] = "ready";
         } catch (e) {
@@ -600,8 +637,25 @@ export class Workshop {
     if ((kind === "wash" || kind === "paint") && model) {
       const clone = model.clone(true);
       clone.scale.multiplyScalar(kind === "wash" ? 0.98 : 0.85);
-      clone.position.set(0, 0.29, kind === "wash" ? -0.1 : -0.5);
-      if (kind === "paint") clone.rotation.y = Math.PI / 2;
+      // Mount bulky generated bodies above the legal conveyor volume. Their
+      // decorative gauges/base must never intersect a travelling workpiece.
+      clone.position.set(0, kind === "wash" ? 1.12 : 1.04, -0.55);
+      for (const x of [-0.35, 0.35]) {
+        box(group, 0.09, 1.12, 0.09, x, 0.62, -0.55, materials.steel);
+        box(group, 0.19, 0.1, 0.23, x, 0.13, -0.55, materials.brass);
+      }
+      box(group, 0.86, 0.1, 0.63, 0, 1.1, -0.55, materials.dark);
+      const nozzle = cylinder(group, 0.055, 0.3, 0, 1.23, 0, materials.brass);
+      nozzle.userData.kind = "nozzle";
+      box(group, 0.1, 0.1, 0.55, 0, 1.27, -0.23, color);
+      if (kind === "paint") {
+        clone.rotation.y = Math.PI / 2;
+        // Preserve this rigid assembly for mechanical base swivel, not skinning.
+        clone.traverse((o) => {
+          if (o instanceof T.Mesh) o.userData.kind = "painter-body";
+        });
+        this.actuators.push({ pivot: clone, tile, restYaw: clone.rotation.y });
+      }
       group.add(clone);
     } else if (kind === "wash") {
       for (const z of [-0.45, 0.45])
@@ -615,10 +669,10 @@ export class Workshop {
       for (const z of [-0.42, 0.42])
         box(group, 0.2, 0.94, 0.14, 0, 0.72, z, color);
       box(group, 0.7, 0.16, 1.04, 0, 1.2, 0, color);
-      const piston = cylinder(group, 0.09, 0.45, 0, 0.96, 0, materials.steel);
+      const piston = cylinder(group, 0.09, 0.24, 0, 1.13, 0, materials.steel);
       piston.userData.kind = kind;
       this.mechanisms.push(piston);
-      box(group, 0.5, 0.1, 0.6, 0, 0.76, 0, color);
+      box(group, 0.5, 0.08, 0.6, 0, 1.07, 0, color);
       if (kind === "label")
         cylinder(group, 0.22, 0.55, -0.25, 1.32, -0.2, materials.paper, "z");
       else box(group, 0.55, 0.3, 0.65, -0.2, 1.38, -0.18, materials.wood);
@@ -629,7 +683,11 @@ export class Workshop {
       `#${C[kind].toString(16)}`,
       0.9,
     );
-    sign.position.set(0, 1.57, -0.18);
+    sign.position.set(
+      0,
+      kind === "wash" ? 2.64 : kind === "paint" ? 2.0 : 1.57,
+      -0.18,
+    );
     group.add(sign);
   }
   makeProduct(product: Product) {
@@ -647,19 +705,25 @@ export class Workshop {
         const arm = model.clone(true);
         arm.scale.multiplyScalar(0.49);
         arm.position.y = 0.16;
-        if (product.painted)
-          arm.traverse((o) => {
-            if (o instanceof T.Mesh) {
-              const tint = (original: T.Material) => {
-                const m = original.clone();
-                if (m instanceof T.MeshStandardMaterial) m.color.set(0x2779c4);
-                return m;
-              };
-              o.material = Array.isArray(o.material)
-                ? o.material.map(tint)
-                : tint(o.material);
-            }
-          });
+        // This detached workpiece has a visible primer/paint state. The fixed
+        // painter keeps the original PBR materials, so actor and receiver differ.
+        arm.traverse((o) => {
+          if (o instanceof T.Mesh) {
+            const coat = (original: T.Material) => {
+              const m = original.clone();
+              if (m instanceof T.MeshStandardMaterial) {
+                m.map = null;
+                m.color.set(product.painted ? 0x258bd1 : 0xa9ada6);
+                m.metalness = product.painted ? 0.3 : 0.65;
+                m.roughness = product.painted ? 0.4 : 0.65;
+              }
+              return m;
+            };
+            o.material = Array.isArray(o.material)
+              ? o.material.map(coat)
+              : coat(o.material);
+          }
+        });
         g.add(arm);
       } else {
         box(g, 0.17, 0.32, 0.2, 0, 0.3, 0, wood);
@@ -752,7 +816,11 @@ export class Workshop {
           "#395867",
           1.6,
         );
-        label.position.set(-0.25, 0.8, 0);
+        label.position.set(
+          -0.25,
+          source.receiver === "service-arm" ? 1.12 : 0.8,
+          0,
+        );
         g.add(label);
         this.ports.add(g);
       }
@@ -770,6 +838,7 @@ export class Workshop {
       this.tileSignature = ts;
       this.tiles.clear();
       this.mechanisms = [];
+      this.actuators = [];
       for (const tile of sim.tiles) {
         const g = new T.Group();
         g.position.copy(this.position(tile));
@@ -783,7 +852,11 @@ export class Workshop {
     const visible = new Set<string>();
     const obtain = (id: string, product: Product) => {
       visible.add(id);
-      const signature = JSON.stringify({ ...product, history: undefined });
+      const signature = JSON.stringify({
+        ...product,
+        history: undefined,
+        assets: this.assetStatus,
+      });
       let cached = this.productMeshes.get(id);
       if (!cached || cached.signature !== signature) {
         if (cached) this.products.remove(cached.group);
@@ -845,11 +918,27 @@ export class Workshop {
         this.products.remove(cached.group);
         this.productMeshes.delete(id);
       }
+    const machineryActive =
+      sim.mode === "running" ||
+      (sim.mode === "paused" && sim.previousMode === "running");
     for (const mech of this.mechanisms)
       mech.scale.y =
-        !this.reduced && sim.mode === "running"
+        !this.reduced && machineryActive
           ? 1 + Math.sin(this.time * 5) * 0.15
           : 1;
+    for (const actuator of this.actuators) {
+      const working =
+        machineryActive &&
+        sim.pieces.some(
+          (p) =>
+            key(p.cell) === key(actuator.tile) &&
+            p.progress >= 1 &&
+            p.dwell > 0,
+        );
+      actuator.pivot.rotation.y =
+        actuator.restYaw +
+        (!this.reduced && working ? Math.sin(this.time * 12) * 0.13 : 0);
+    }
     this.focus.visible = !!focusCell;
     if (focusCell) this.focus.position.copy(this.position(focusCell));
     for (const particle of this.particles) {

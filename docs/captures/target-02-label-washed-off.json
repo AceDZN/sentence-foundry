@@ -57,7 +57,7 @@
       {
         "x": 1,
         "z": 4,
-        "kind": "label",
+        "kind": "belt",
         "rotation": 1
       },
       {
@@ -69,25 +69,25 @@
       {
         "x": 2,
         "z": 5,
-        "kind": "wash",
+        "kind": "label",
         "rotation": 0
       },
       {
         "x": 3,
         "z": 5,
-        "kind": "paint",
+        "kind": "wash",
         "rotation": 0
       },
       {
         "x": 4,
         "z": 5,
-        "kind": "pack",
+        "kind": "paint",
         "rotation": 0
       },
       {
         "x": 5,
         "z": 5,
-        "kind": "belt",
+        "kind": "pack",
         "rotation": 0
       },
       {
@@ -126,71 +126,71 @@
         "x": 0,
         "z": 0,
         "screen": {
-          "x": 579,
-          "y": 228
+          "x": 570,
+          "y": 210
         }
       },
       {
         "x": 1,
         "z": 0,
         "screen": {
-          "x": 614,
-          "y": 242
+          "x": 610,
+          "y": 225
         }
       },
       {
         "x": 2,
         "z": 0,
         "screen": {
-          "x": 650,
-          "y": 256
+          "x": 652,
+          "y": 241
         }
       },
       {
         "x": 3,
         "z": 0,
         "screen": {
-          "x": 688,
-          "y": 271
+          "x": 696,
+          "y": 258
         }
       },
       {
         "x": 4,
         "z": 0,
         "screen": {
-          "x": 728,
-          "y": 287
+          "x": 742,
+          "y": 276
         }
       },
       {
         "x": 5,
         "z": 0,
         "screen": {
-          "x": 770,
-          "y": 303
+          "x": 790,
+          "y": 294
         }
       },
       {
         "x": 6,
         "z": 0,
         "screen": {
-          "x": 814,
-          "y": 320
+          "x": 842,
+          "y": 314
         }
       },
       {
         "x": 7,
         "z": 0,
         "screen": {
-          "x": 860,
-          "y": 338
+          "x": 896,
+          "y": 335
         }
       },
       {
         "x": 8,
         "z": 0,
         "screen": {
-          "x": 909,
+          "x": 954,
           "y": 357
         }
       },
@@ -198,63 +198,63 @@
         "x": 0,
         "z": 1,
         "screen": {
-          "x": 549,
-          "y": 246
+          "x": 537,
+          "y": 230
         }
       },
       {
         "x": 1,
         "z": 1,
         "screen": {
-          "x": 585,
-          "y": 261
+          "x": 577,
+          "y": 247
         }
       },
       {
         "x": 2,
         "z": 1,
         "screen": {
-          "x": 622,
-          "y": 276
+          "x": 619,
+          "y": 264
         }
       },
       {
         "x": 3,
         "z": 1,
         "screen": {
-          "x": 660,
-          "y": 292
+          "x": 663,
+          "y": 282
         }
       },
       {
         "x": 4,
         "z": 1,
         "screen": {
-          "x": 701,
-          "y": 308
+          "x": 710,
+          "y": 300
         }
       },
       {
         "x": 5,
         "z": 1,
         "screen": {
-          "x": 743,
-          "y": 326
+          "x": 760,
+          "y": 320
         }
       },
       {
         "x": 6,
         "z": 1,
         "screen": {
-          "x": 788,
-          "y": 344
+          "x": 812,
+          "y": 342
         }
       },
       {
         "x": 7,
         "z": 1,
         "screen": {
-          "x": 835,
+          "x": 868,
           "y": 364
         }
       },
@@ -262,112 +262,112 @@
         "x": 8,
         "z": 1,
         "screen": {
-          "x": 885,
-          "y": 384
+          "x": 927,
+          "y": 388
         }
       },
       {
         "x": 0,
         "z": 2,
         "screen": {
-          "x": 518,
-          "y": 265
+          "x": 500,
+          "y": 252
         }
       },
       {
         "x": 1,
         "z": 2,
         "screen": {
-          "x": 554,
-          "y": 281
+          "x": 541,
+          "y": 269
         }
       },
       {
         "x": 2,
         "z": 2,
         "screen": {
-          "x": 591,
-          "y": 297
+          "x": 584,
+          "y": 287
         }
       },
       {
         "x": 3,
         "z": 2,
         "screen": {
-          "x": 630,
-          "y": 314
+          "x": 629,
+          "y": 307
         }
       },
       {
         "x": 4,
         "z": 2,
         "screen": {
-          "x": 671,
-          "y": 332
+          "x": 676,
+          "y": 327
         }
       },
       {
         "x": 5,
         "z": 2,
         "screen": {
-          "x": 715,
-          "y": 350
+          "x": 727,
+          "y": 349
         }
       },
       {
         "x": 6,
         "z": 2,
         "screen": {
-          "x": 760,
-          "y": 370
+          "x": 781,
+          "y": 372
         }
       },
       {
         "x": 7,
         "z": 2,
         "screen": {
-          "x": 808,
-          "y": 391
+          "x": 837,
+          "y": 396
         }
       },
       {
         "x": 8,
         "z": 2,
         "screen": {
-          "x": 859,
-          "y": 412
+          "x": 898,
+          "y": 422
         }
       },
       {
         "x": 0,
         "z": 3,
         "screen": {
-          "x": 485,
-          "y": 286
+          "x": 462,
+          "y": 275
         }
       },
       {
         "x": 1,
         "z": 3,
         "screen": {
-          "x": 521,
-          "y": 302
+          "x": 503,
+          "y": 293
         }
       },
       {
         "x": 2,
         "z": 3,
         "screen": {
-          "x": 559,
-          "y": 319
+          "x": 546,
+          "y": 313
         }
       },
       {
         "x": 3,
         "z": 3,
         "screen": {
-          "x": 598,
-          "y": 337
+          "x": 592,
+          "y": 334
         }
       },
       {
@@ -382,63 +382,63 @@
         "x": 5,
         "z": 3,
         "screen": {
-          "x": 684,
-          "y": 376
+          "x": 691,
+          "y": 379
         }
       },
       {
         "x": 6,
         "z": 3,
         "screen": {
-          "x": 730,
-          "y": 397
+          "x": 746,
+          "y": 404
         }
       },
       {
         "x": 7,
         "z": 3,
         "screen": {
-          "x": 779,
-          "y": 420
+          "x": 804,
+          "y": 430
         }
       },
       {
         "x": 8,
         "z": 3,
         "screen": {
-          "x": 831,
-          "y": 443
+          "x": 867,
+          "y": 459
         }
       },
       {
         "x": 0,
         "z": 4,
         "screen": {
-          "x": 449,
-          "y": 308
+          "x": 420,
+          "y": 300
         }
       },
       {
         "x": 1,
         "z": 4,
         "screen": {
-          "x": 486,
-          "y": 325
+          "x": 461,
+          "y": 320
         }
       },
       {
         "x": 2,
         "z": 4,
         "screen": {
-          "x": 524,
-          "y": 343
+          "x": 505,
+          "y": 341
         }
       },
       {
         "x": 3,
         "z": 4,
         "screen": {
-          "x": 564,
+          "x": 551,
           "y": 363
         }
       },
@@ -446,184 +446,184 @@
         "x": 4,
         "z": 4,
         "screen": {
-          "x": 606,
-          "y": 383
+          "x": 601,
+          "y": 387
         }
       },
       {
         "x": 5,
         "z": 4,
         "screen": {
-          "x": 651,
-          "y": 404
+          "x": 653,
+          "y": 412
         }
       },
       {
         "x": 6,
         "z": 4,
         "screen": {
-          "x": 698,
-          "y": 427
+          "x": 709,
+          "y": 439
         }
       },
       {
         "x": 7,
         "z": 4,
-        "screen": {
-          "x": 748,
-          "y": 451
-        }
-      },
-      {
-        "x": 8,
-        "z": 4,
-        "screen": {
-          "x": 800,
-          "y": 476
-        }
-      },
-      {
-        "x": 0,
-        "z": 5,
-        "screen": {
-          "x": 412,
-          "y": 331
-        }
-      },
-      {
-        "x": 1,
-        "z": 5,
-        "screen": {
-          "x": 449,
-          "y": 349
-        }
-      },
-      {
-        "x": 2,
-        "z": 5,
-        "screen": {
-          "x": 487,
-          "y": 369
-        }
-      },
-      {
-        "x": 3,
-        "z": 5,
-        "screen": {
-          "x": 528,
-          "y": 390
-        }
-      },
-      {
-        "x": 4,
-        "z": 5,
-        "screen": {
-          "x": 570,
-          "y": 411
-        }
-      },
-      {
-        "x": 5,
-        "z": 5,
-        "screen": {
-          "x": 616,
-          "y": 434
-        }
-      },
-      {
-        "x": 6,
-        "z": 5,
-        "screen": {
-          "x": 663,
-          "y": 459
-        }
-      },
-      {
-        "x": 7,
-        "z": 5,
-        "screen": {
-          "x": 714,
-          "y": 484
-        }
-      },
-      {
-        "x": 8,
-        "z": 5,
         "screen": {
           "x": 768,
-          "y": 512
+          "y": 468
+        }
+      },
+      {
+        "x": 8,
+        "z": 4,
+        "screen": {
+          "x": 832,
+          "y": 499
+        }
+      },
+      {
+        "x": 0,
+        "z": 5,
+        "screen": {
+          "x": 375,
+          "y": 326
+        }
+      },
+      {
+        "x": 1,
+        "z": 5,
+        "screen": {
+          "x": 417,
+          "y": 348
+        }
+      },
+      {
+        "x": 2,
+        "z": 5,
+        "screen": {
+          "x": 461,
+          "y": 371
+        }
+      },
+      {
+        "x": 3,
+        "z": 5,
+        "screen": {
+          "x": 508,
+          "y": 395
+        }
+      },
+      {
+        "x": 4,
+        "z": 5,
+        "screen": {
+          "x": 558,
+          "y": 421
+        }
+      },
+      {
+        "x": 5,
+        "z": 5,
+        "screen": {
+          "x": 611,
+          "y": 448
+        }
+      },
+      {
+        "x": 6,
+        "z": 5,
+        "screen": {
+          "x": 668,
+          "y": 478
+        }
+      },
+      {
+        "x": 7,
+        "z": 5,
+        "screen": {
+          "x": 729,
+          "y": 509
+        }
+      },
+      {
+        "x": 8,
+        "z": 5,
+        "screen": {
+          "x": 794,
+          "y": 543
         }
       },
       {
         "x": 0,
         "z": 6,
         "screen": {
-          "x": 372,
-          "y": 356
+          "x": 327,
+          "y": 355
         }
       },
       {
         "x": 1,
         "z": 6,
         "screen": {
-          "x": 409,
-          "y": 375
+          "x": 369,
+          "y": 378
         }
       },
       {
         "x": 2,
         "z": 6,
         "screen": {
-          "x": 447,
-          "y": 396
+          "x": 413,
+          "y": 403
         }
       },
       {
         "x": 3,
         "z": 6,
         "screen": {
-          "x": 488,
-          "y": 418
+          "x": 461,
+          "y": 429
         }
       },
       {
         "x": 4,
         "z": 6,
         "screen": {
-          "x": 532,
-          "y": 442
+          "x": 511,
+          "y": 457
         }
       },
       {
         "x": 5,
         "z": 6,
         "screen": {
-          "x": 578,
-          "y": 467
+          "x": 565,
+          "y": 487
         }
       },
       {
         "x": 6,
         "z": 6,
         "screen": {
-          "x": 626,
-          "y": 493
+          "x": 623,
+          "y": 520
         }
       },
       {
         "x": 7,
         "z": 6,
         "screen": {
-          "x": 678,
-          "y": 521
+          "x": 686,
+          "y": 554
         }
       },
       {
         "x": 8,
         "z": 6,
         "screen": {
-          "x": 733,
-          "y": 550
+          "x": 753,
+          "y": 592
         }
       }
     ],
@@ -631,11 +631,11 @@
       {
         "id": 5,
         "from": {
-          "x": 1,
+          "x": 2,
           "z": 5
         },
         "cell": {
-          "x": 2,
+          "x": 3,
           "z": 5
         },
         "progress": 1,
@@ -670,13 +670,13 @@
         "id": 6,
         "from": {
           "x": 1,
-          "z": 4
-        },
-        "cell": {
-          "x": 1,
           "z": 5
         },
-        "progress": 0.18,
+        "cell": {
+          "x": 2,
+          "z": 5
+        },
+        "progress": 1,
         "blocked": null,
         "product": {
           "receiver": "crate",
@@ -700,13 +700,13 @@
         "id": 7,
         "from": {
           "x": 1,
-          "z": 3
+          "z": 4
         },
         "cell": {
           "x": 1,
-          "z": 4
+          "z": 5
         },
-        "progress": 0.18,
+        "progress": 0.48,
         "blocked": null,
         "product": {
           "receiver": "crate",
@@ -722,53 +722,50 @@
     ],
     "deliveries": [],
     "accepted": 0,
-    "productionSeconds": 3.62,
+    "productionSeconds": 4.21,
     "jam": null,
     "attempts": 1,
     "hints": 0,
     "readingSupport": 0,
     "events": [
       {
-        "type": "edit",
-        "challenge": 4,
-        "attempt": 0,
+        "type": "success",
+        "challenge": 2,
+        "attempt": 1,
         "aided": false,
-        "detail": "belt"
+        "detail": "practice"
       },
       {
-        "type": "edit",
-        "challenge": 4,
+        "type": "contract",
+        "challenge": 3,
         "attempt": 0,
-        "aided": false,
-        "detail": "belt"
+        "aided": false
       },
       {
-        "type": "edit",
-        "challenge": 4,
-        "attempt": 0,
-        "aided": false,
-        "detail": "corner"
+        "type": "run",
+        "challenge": 3,
+        "attempt": 1,
+        "aided": false
       },
       {
-        "type": "edit",
-        "challenge": 4,
-        "attempt": 0,
+        "type": "delivery",
+        "challenge": 3,
+        "attempt": 1,
         "aided": false,
-        "detail": "belt"
+        "detail": ""
       },
       {
-        "type": "edit",
-        "challenge": 4,
-        "attempt": 0,
+        "type": "success",
+        "challenge": 3,
+        "attempt": 1,
         "aided": false,
-        "detail": "corner"
+        "detail": "practice"
       },
       {
-        "type": "edit",
+        "type": "contract",
         "challenge": 4,
         "attempt": 0,
-        "aided": false,
-        "detail": "belt"
+        "aided": false
       },
       {
         "type": "run",
@@ -785,34 +782,59 @@
     ],
     "medals": [
       {
-        "time": 6.658033333333314,
+        "time": 6.6583333333333155,
         "footprint": 9,
         "attempts": 1,
-        "hints": 0
+        "hints": 0,
+        "readingSupport": 0
       },
       {
-        "time": 8.333233333333327,
+        "time": 8.33333333333333,
         "footprint": 9,
         "attempts": 1,
-        "hints": 0
+        "hints": 0,
+        "readingSupport": 0
       },
       {
-        "time": 7.274833333333313,
+        "time": 7.274199999999984,
         "footprint": 10,
         "attempts": 1,
-        "hints": 0
+        "hints": 0,
+        "readingSupport": 0
       }
     ],
     "assets": {
-      "washer": "missing",
-      "arm": "missing"
+      "washer": "ready",
+      "arm": "ready"
+    },
+    "assetInfo": {
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
+      },
+      "washer": {
+        "meshes": 1,
+        "triangles": 18144,
+        "animations": 0,
+        "size": [
+          0.6279907822608948,
+          1,
+          0.6232910752296448
+        ]
+      }
     },
     "muted": false,
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.33,
-      "drawCalls": 153,
-      "triangles": 58319
+      "meanFrameMs": 8.52,
+      "drawCalls": 166,
+      "triangles": 131219
     }
   },
   "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n? עזרה\nⅡ השהיה\n♪\n≈\n⛶\nהזמנה 4 / 5 · לא שוטפים את התווית\n⌕ מילים\n▷ EN\n\nFirst, the crates are washed by the cleaning arm. Next, the painter coats them. Labels are attached to the crates after painting. Finally, the crates are packed.\n\nיעד: 3 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n⚒\nPainter\n4\n▣\nPacker\n5\n◈\nCleaning arm\n6\n▤\nLabel press\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nמושהה · אפשר לקרוא ולתכנן בלי קנס זמן\n13 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה",

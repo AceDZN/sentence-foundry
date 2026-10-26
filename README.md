@@ -27,13 +27,15 @@ Choose a tool and click/tap a grid cell. Move selects a part then its destinatio
 
 Five authored contracts: one washed shipment; equivalent active/passive orders; crate versus detached service-arm receiver; wash/paint/label/pack with destructive mistakes; transfer to display panels with labels outside the package. Multiple factory layouts work. Efficiency (production time/footprint) is separate from first decisions and reading support.
 
-## Current state and open requirements
+## Implemented slice
 
-The five-contract construction simulation, Hebrew/LTR interface, machine mechanics, controls, state hooks and independent semantic/solvability tests are implemented. Two built-in imagegen targets were generated and inspected before source implementation, with exact prompts in `docs/visual-targets/PROMPTS.md`.
+Five complete construction challenges, a stateful production simulation, Hebrew/LTR interface, real travelling workpieces, mechanical motion, pause/restart/mute/reduced motion/fullscreen, pointer/keyboard/touch controls, and independent semantic/solvability tests. Both genuine local Tripo GLBs are visible as the washer and fixed painter; the same arm geometry is a detachable gray workpiece that turns blue. Their combined size is 2,043,548 bytes. The machines use rigid mechanical motion; no skeleton or animation clips are claimed.
 
-**Required Tripo integration remains OPEN until local downloads are verified.** Two original models are complete in the human's Tripo account; the Mac is locked and CUA cannot unlock it, blocking Chrome exports. `ASSETS.md` records actual observed tasks, costs and boundary. The renderer's temporary authored machine geometry is a development fallback, not completed Tripo art. No skeletal rig is required by this rigid machinery design. Final visual comparison and full Tripo-visible playtest remain open while these files are unavailable.
+Two built-in imagegen targets were generated and inspected before rendered gameplay source. Exact prompts are in `docs/visual-targets/PROMPTS.md`; actual captures and a side-by-side viewer are in `docs/captures/`. Final independent review completed all five contracts, wrong/recoverable outcomes, transfer, mobile touch play and strict controls with both models ready and no browser errors. `npm test` passes31 tests. No production deployment was performed.
 
-See GAME_IDENTITY.md, CURRICULUM.md, ASSETS.md, VISUAL_REVIEW.md and PLAYTEST.md for evidence and exact limitations. Generated concepts and actual captures are stored separately. Authored game fixtures derive from Workbook comprehension scope; this game does not assess grammar production or claim validated learning outcomes.
+The initial locked-Mac export interruption is resolved. `ASSETS.md` records the normal Chrome acquisition method, source tasks, costs, files, byte counts and SHA256. `PLAYTEST.md` and `VISUAL_REVIEW.md` record verification and practical limitations, including the headless environment's inability to produce a native focus transition. Focus-loss listeners are implemented; explicit pause and reading freeze are verified. Human pupil playtesting is still needed to establish fun or learning gains.
+
+Authored fixtures derive from Workbook comprehension scope. The game practices understanding role/receiver/process meaning; it does not assess grammar production or claim validated learning outcomes.
 
 ## Test hooks
 

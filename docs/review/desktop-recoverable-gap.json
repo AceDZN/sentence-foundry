@@ -611,52 +611,14 @@
     ],
     "deliveries": [],
     "accepted": 0,
-    "productionSeconds": 15.12,
+    "productionSeconds": 15.03,
     "jam": "gap",
     "attempts": 1,
     "hints": 0,
     "readingSupport": 0,
     "events": [
       {
-        "type": "edit",
-        "challenge": 1,
-        "attempt": 0,
-        "aided": false,
-        "detail": "belt"
-      },
-      {
-        "type": "remove",
-        "challenge": 1,
-        "attempt": 0,
-        "aided": false
-      },
-      {
-        "type": "rotate",
-        "challenge": 1,
-        "attempt": 0,
-        "aided": false
-      },
-      {
-        "type": "rotate",
-        "challenge": 1,
-        "attempt": 0,
-        "aided": false
-      },
-      {
-        "type": "rotate",
-        "challenge": 1,
-        "attempt": 0,
-        "aided": false
-      },
-      {
-        "type": "edit",
-        "challenge": 1,
-        "attempt": 0,
-        "aided": false,
-        "detail": "belt"
-      },
-      {
-        "type": "remove",
+        "type": "contract",
         "challenge": 1,
         "attempt": 0,
         "aided": false
@@ -670,13 +632,35 @@
     ],
     "medals": [],
     "assets": {
-      "washer": "missing",
-      "arm": "missing"
+      "washer": "ready",
+      "arm": "ready"
+    },
+    "assetInfo": {
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
+      },
+      "washer": {
+        "meshes": 1,
+        "triangles": 18144,
+        "animations": 0,
+        "size": [
+          0.6279907822608948,
+          1,
+          0.6232910752296448
+        ]
+      }
     },
     "muted": false,
     "reduced": false,
     "performance": {
-      "meanFrameMs": 9.77,
+      "meanFrameMs": 18.55,
       "drawCalls": 65,
       "triangles": 49758
     }

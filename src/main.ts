@@ -533,6 +533,7 @@ Object.assign(window, {
       events: sim.events.slice(-8),
       medals: sim.medals,
       assets: workshop?.assetStatus,
+      assetInfo: workshop?.assetInfo,
       muted,
       reduced,
       performance: workshop

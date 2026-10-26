@@ -7,8 +7,30 @@
       "accepted": 0,
       "attempts": 0,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     },
     {
@@ -18,8 +40,30 @@
       "accepted": 0,
       "attempts": 1,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     },
     {
@@ -29,8 +73,96 @@
       "accepted": 1,
       "attempts": 2,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
+      }
+    },
+    {
+      "name": "challenge2-GLB-washer-processing",
+      "mode": "paused",
+      "challenge": 2,
+      "accepted": 0,
+      "attempts": 1,
+      "assets": {
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
+      }
+    },
+    {
+      "name": "challenge2-GLB-machines-running",
+      "mode": "running",
+      "challenge": 2,
+      "accepted": 0,
+      "attempts": 1,
+      "assets": {
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     },
     {
@@ -40,8 +172,30 @@
       "accepted": 2,
       "attempts": 1,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     },
     {
@@ -51,8 +205,30 @@
       "accepted": 2,
       "attempts": 2,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     },
     {
@@ -62,8 +238,30 @@
       "accepted": 0,
       "attempts": 1,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     },
     {
@@ -73,8 +271,96 @@
       "accepted": 1,
       "attempts": 2,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
+      }
+    },
+    {
+      "name": "challenge3-travelling-primer-arm",
+      "mode": "paused",
+      "challenge": 3,
+      "accepted": 0,
+      "attempts": 3,
+      "assets": {
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
+      }
+    },
+    {
+      "name": "challenge3-travelling-painted-arm",
+      "mode": "paused",
+      "challenge": 3,
+      "accepted": 0,
+      "attempts": 3,
+      "assets": {
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     },
     {
@@ -84,8 +370,30 @@
       "accepted": 1,
       "attempts": 3,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     },
     {
@@ -95,8 +403,30 @@
       "accepted": 0,
       "attempts": 1,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     },
     {
@@ -106,8 +436,30 @@
       "accepted": 3,
       "attempts": 3,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     },
     {
@@ -117,8 +469,30 @@
       "accepted": 0,
       "attempts": 1,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     },
     {
@@ -128,8 +502,30 @@
       "accepted": 3,
       "attempts": 3,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      },
+      "assetInfo": {
+        "arm": {
+          "meshes": 1,
+          "triangles": 18108,
+          "animations": 0,
+          "size": [
+            1.0000001192092896,
+            0.892333984375,
+            0.5132446885108948
+          ]
+        },
+        "washer": {
+          "meshes": 1,
+          "triangles": 18144,
+          "animations": 0,
+          "size": [
+            0.6279907822608948,
+            1,
+            0.6232910752296448
+          ]
+        }
       }
     }
   ],

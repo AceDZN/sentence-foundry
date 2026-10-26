@@ -679,19 +679,42 @@
         "time": 6.666666666666648,
         "footprint": 9,
         "attempts": 2,
-        "hints": 1
+        "hints": 1,
+        "readingSupport": 1
       }
     ],
     "assets": {
-      "washer": "missing",
-      "arm": "missing"
+      "washer": "ready",
+      "arm": "ready"
+    },
+    "assetInfo": {
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
+      },
+      "washer": {
+        "meshes": 1,
+        "triangles": 18144,
+        "animations": 0,
+        "size": [
+          0.6279907822608948,
+          1,
+          0.6232910752296448
+        ]
+      }
     },
     "muted": false,
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.89,
-      "drawCalls": 69,
-      "triangles": 51085
+      "meanFrameMs": 15.07,
+      "drawCalls": 73,
+      "triangles": 87541
     }
   },
   "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n? עזרה\nⅡ השהיה\n♪\n≈\n⛶\nהזמנה 1 / 5 · משלוח ראשון\n⌕ מילים\n▷ EN\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nיעד: 1 תוצרים · התקבלו 1\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nCleaning arm\n\nWashes an unpacked item. Water removes paint and paper labels.\n\nיציאה: ימינה\nהמשלוח התקבל! אפשר לשפר את השטח או להמשיך להזמנה הבאה.\n9 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה\nמשלוח הושלם\nהמשלוח יצא לדרך\n\n1 תוצרים תקינים · 6.7 שניות ייצור · 9 חלקים · 2 ניסיונות · בעזרת רמז. קריאה ובנייה אינן נספרות בזמן.\n\nלהזמנה הבאה ←שיפור המפעל",

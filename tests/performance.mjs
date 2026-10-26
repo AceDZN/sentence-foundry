@@ -9,20 +9,26 @@ const b = await chromium.launch({
 const p = await b.newPage({ viewport: { width: 1280, height: 720 } });
 await p.goto("http://localhost:4233");
 await p.waitForFunction(() => typeof window.render_game_to_text === "function");
+await p.waitForFunction(
+  () => {
+    const s = JSON.parse(window.render_game_to_text());
+    return s.assets.washer === "ready" && s.assets.arm === "ready";
+  },
+  undefined,
+  { timeout: 60000 },
+);
 await p.waitForTimeout(1800);
 const report = await p.evaluate(() => ({
   userAgent: navigator.userAgent,
   viewport: { width: innerWidth, height: innerHeight, dpr: devicePixelRatio },
   state: JSON.parse(window.render_game_to_text()),
-  resources: performance
-    .getEntriesByType("resource")
-    .map((r) => ({
-      name: r.name.split("/").pop(),
-      encoded: r.encodedBodySize,
-      decoded: r.decodedBodySize,
-      transfer: r.transferSize,
-      duration: r.duration,
-    })),
+  resources: performance.getEntriesByType("resource").map((r) => ({
+    name: r.name.split("/").pop(),
+    encoded: r.encodedBodySize,
+    decoded: r.decodedBodySize,
+    transfer: r.transferSize,
+    duration: r.duration,
+  })),
 }));
 await fs.writeFile(
   "docs/captures/performance.json",

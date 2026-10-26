@@ -1,0 +1,63 @@
+{
+  "results": [
+    {
+      "name": "initial",
+      "mode": "editing",
+      "challenge": 1,
+      "accepted": 0,
+      "attempts": 0,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "camera-rotated",
+      "mode": "editing",
+      "challenge": 1,
+      "accepted": 0,
+      "attempts": 0,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "fullscreen-and-focused-help",
+      "passed": true,
+      "escapeExited": true
+    },
+    {
+      "name": "focus-loss-pause",
+      "exercised": false,
+      "beforeFocus": {
+        "hidden": false,
+        "focus": true
+      },
+      "afterFocus": {
+        "hidden": false,
+        "focus": true
+      }
+    },
+    {
+      "name": "keyboard-build",
+      "passed": true
+    },
+    {
+      "name": "space-after-palette-placement",
+      "passed": true
+    },
+    {
+      "name": "settings-complete",
+      "mode": "editing",
+      "challenge": 1,
+      "accepted": 0,
+      "attempts": 0,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    }
+  ],
+  "errors": []
+}

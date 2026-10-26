@@ -1,14 +1,36 @@
 {
   "results": [
     {
+      "name": "01-running-line-overview",
+      "mode": "paused",
+      "challenge": 2,
+      "accepted": 0,
+      "attempts": 1,
+      "assets": {
+        "washer": "ready",
+        "arm": "ready"
+      }
+    },
+    {
       "name": "01-running-line",
       "mode": "paused",
       "challenge": 2,
       "accepted": 0,
       "attempts": 1,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
+      }
+    },
+    {
+      "name": "02-label-washed-off-overview",
+      "mode": "paused",
+      "challenge": 4,
+      "accepted": 0,
+      "attempts": 1,
+      "assets": {
+        "washer": "ready",
+        "arm": "ready"
       }
     },
     {
@@ -18,8 +40,8 @@
       "accepted": 0,
       "attempts": 1,
       "assets": {
-        "washer": "missing",
-        "arm": "missing"
+        "washer": "ready",
+        "arm": "ready"
       }
     }
   ],

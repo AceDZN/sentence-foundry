@@ -1,6 +1,6 @@
 # Acquired-task silhouette notes
 
-Two original Tripo H3.1 tasks are generated in the human's account. Local download is currently blocked by the locked Mac; ASSETS.md records the exact observed boundary.
+Two original Tripo H3.1 tasks are generated in the human's account. Both models are now acquired locally; ASSETS.md records the resolved interruption and exact provenance.
 
 ## Washer
 
@@ -12,8 +12,12 @@ Task `3bda26ef-1f5a-4be0-af19-c531aef27d90`, 18,108 triangles. Cobalt square ped
 
 ## Alignment and loading
 
-- Runtime paths intended: `public/models/washer.glb`, `public/models/service-arm.glb` after UI exports complete.
+- Runtime paths intended: `public/models/washer.glb`, `public/models/service-arm.glb` (UI exports complete).
 - Each intended normalized machine envelope: approximately 0.9 × 1.5 × 0.9 world units, uniform scale preserving silhouette, minimum y aligned to 0.
 - Use authored collision boxes and production-grid state; generated meshes are appearance only.
 - Keep at least these two GLBs clearly visible as operating central machines rather than hidden decoration.
 - Lead owns renderer/GLTFLoader integration. Art owner owns downloaded models and provenance.
+
+## Final authored mounting
+
+Integrated model-only bounds are uniformly normalized as described. Because the washer's decorative gauges and the painter's base cross a low conveyor volume if placed directly on it, final runtime mounts the washer model at local y1.12 and painter at y1.04 on authored steel/brass supports behind the belt, with nozzles above the workpiece. The washer's top is consequently about2.48world units including its support. This keeps the real generated silhouette visible and crates/arms clear; the generated meshes still do not change grid ports or authoritative colliders. Final actual captures and independent review verified the normal processing routes.

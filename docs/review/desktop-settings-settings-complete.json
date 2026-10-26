@@ -99,7 +99,7 @@
         "x": 2,
         "z": 0,
         "screen": {
-          "x": 733,
+          "x": 732,
           "y": 320
         }
       },
@@ -107,7 +107,7 @@
         "x": 3,
         "z": 0,
         "screen": {
-          "x": 781,
+          "x": 780,
           "y": 339
         }
       },
@@ -115,7 +115,7 @@
         "x": 4,
         "z": 0,
         "screen": {
-          "x": 831,
+          "x": 830,
           "y": 358
         }
       },
@@ -148,7 +148,7 @@
         "z": 0,
         "screen": {
           "x": 1056,
-          "y": 447
+          "y": 446
         }
       },
       {
@@ -163,7 +163,7 @@
         "x": 1,
         "z": 1,
         "screen": {
-          "x": 651,
+          "x": 650,
           "y": 326
         }
       },
@@ -188,7 +188,7 @@
         "z": 1,
         "screen": {
           "x": 796,
-          "y": 386
+          "y": 385
         }
       },
       {
@@ -380,7 +380,7 @@
         "z": 4,
         "screen": {
           "x": 527,
-          "y": 406
+          "y": 407
         }
       },
       {
@@ -491,7 +491,7 @@
         "x": 6,
         "z": 5,
         "screen": {
-          "x": 749,
+          "x": 750,
           "y": 573
         }
       },
@@ -508,7 +508,7 @@
         "z": 5,
         "screen": {
           "x": 880,
-          "y": 640
+          "y": 639
         }
       },
       {
@@ -516,7 +516,7 @@
         "z": 6,
         "screen": {
           "x": 385,
-          "y": 444
+          "y": 445
         }
       },
       {
@@ -524,7 +524,7 @@
         "z": 6,
         "screen": {
           "x": 431,
-          "y": 469
+          "y": 470
         }
       },
       {
@@ -532,7 +532,7 @@
         "z": 6,
         "screen": {
           "x": 479,
-          "y": 495
+          "y": 496
         }
       },
       {
@@ -548,7 +548,7 @@
         "z": 6,
         "screen": {
           "x": 585,
-          "y": 552
+          "y": 553
         }
       },
       {
@@ -571,7 +571,7 @@
         "x": 7,
         "z": 6,
         "screen": {
-          "x": 767,
+          "x": 768,
           "y": 651
         }
       },
@@ -594,11 +594,16 @@
     "readingSupport": 0,
     "events": [
       {
-        "type": "edit",
+        "type": "restart",
+        "challenge": 1,
+        "attempt": 1,
+        "aided": false
+      },
+      {
+        "type": "contract",
         "challenge": 1,
         "attempt": 0,
-        "aided": false,
-        "detail": "wash"
+        "aided": false
       },
       {
         "type": "restart",
@@ -611,13 +616,6 @@
         "challenge": 1,
         "attempt": 0,
         "aided": false
-      },
-      {
-        "type": "edit",
-        "challenge": 1,
-        "attempt": 0,
-        "aided": false,
-        "detail": "belt"
       },
       {
         "type": "run",
@@ -646,15 +644,37 @@
     ],
     "medals": [],
     "assets": {
-      "washer": "missing",
-      "arm": "missing"
+      "washer": "ready",
+      "arm": "ready"
+    },
+    "assetInfo": {
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
+      },
+      "washer": {
+        "meshes": 1,
+        "triangles": 18144,
+        "animations": 0,
+        "size": [
+          0.6279907822608948,
+          1,
+          0.6232910752296448
+        ]
+      }
     },
     "muted": false,
     "reduced": false,
     "performance": {
-      "meanFrameMs": 9.22,
-      "drawCalls": 43,
-      "triangles": 49494
+      "meanFrameMs": 10.8,
+      "drawCalls": 45,
+      "triangles": 50759
     }
   },
   "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n? עזרה\nⅡ השהיה\n♪\n≈\n⛶\nהזמנה 1 / 5 · משלוח ראשון\n⌕ מילים\n▷ EN\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nיעד: 1 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nבנו מסלול לפי ההזמנה. חלקים אפשר להעביר, לסובב או להחליף.\n8 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה",

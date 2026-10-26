@@ -642,39 +642,37 @@
     "readingSupport": 0,
     "events": [
       {
-        "type": "edit",
-        "challenge": 3,
-        "attempt": 0,
-        "aided": false,
-        "detail": "belt"
+        "type": "run",
+        "challenge": 2,
+        "attempt": 2,
+        "aided": true
       },
       {
-        "type": "edit",
-        "challenge": 3,
-        "attempt": 0,
-        "aided": false,
-        "detail": "corner"
+        "type": "delivery",
+        "challenge": 2,
+        "attempt": 2,
+        "aided": true,
+        "detail": ""
       },
       {
-        "type": "edit",
-        "challenge": 3,
-        "attempt": 0,
-        "aided": false,
-        "detail": "corner"
+        "type": "delivery",
+        "challenge": 2,
+        "attempt": 2,
+        "aided": true,
+        "detail": ""
       },
       {
-        "type": "edit",
-        "challenge": 3,
-        "attempt": 0,
-        "aided": false,
-        "detail": "belt"
+        "type": "success",
+        "challenge": 2,
+        "attempt": 2,
+        "aided": true,
+        "detail": "practice"
       },
       {
-        "type": "edit",
+        "type": "contract",
         "challenge": 3,
         "attempt": 0,
-        "aided": false,
-        "detail": "belt"
+        "aided": false
       },
       {
         "type": "run",
@@ -701,25 +699,49 @@
         "time": 6.666666666666648,
         "footprint": 9,
         "attempts": 2,
-        "hints": 1
+        "hints": 1,
+        "readingSupport": 1
       },
       {
         "time": 8.349999999999994,
         "footprint": 9,
         "attempts": 2,
-        "hints": 0
+        "hints": 0,
+        "readingSupport": 2
       }
     ],
     "assets": {
-      "washer": "missing",
-      "arm": "missing"
+      "washer": "ready",
+      "arm": "ready"
+    },
+    "assetInfo": {
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
+      },
+      "washer": {
+        "meshes": 1,
+        "triangles": 18144,
+        "animations": 0,
+        "size": [
+          0.6279907822608948,
+          1,
+          0.6232910752296448
+        ]
+      }
     },
     "muted": false,
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.75,
-      "drawCalls": 75,
-      "triangles": 52796
+      "meanFrameMs": 9.5,
+      "drawCalls": 79,
+      "triangles": 125276
     }
   },
   "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n? עזרה\nⅡ השהיה\n♪\n≈\n⛶\nהזמנה 3 / 5 · מי מקבל צבע?\n⌕ מילים\n▷ EN\n\nThe service arm is painted by the painter. Send it to the exit unpacked.\n\nהזמנת לקוח אחרת\nיעד: 1 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nנשלח חפץ אחר מזה שבהזמנה. עצרו ונתבו את הכניסה המתאימה.\n10 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה",

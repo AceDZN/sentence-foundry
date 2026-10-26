@@ -1,0 +1,137 @@
+{
+  "results": [
+    {
+      "name": "initial",
+      "mode": "editing",
+      "challenge": 1,
+      "accepted": 0,
+      "attempts": 0,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "recoverable-gap",
+      "mode": "running",
+      "challenge": 1,
+      "accepted": 0,
+      "attempts": 1,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "challenge1-success",
+      "mode": "success",
+      "challenge": 1,
+      "accepted": 1,
+      "attempts": 2,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "challenge2-active-success",
+      "mode": "success",
+      "challenge": 2,
+      "accepted": 2,
+      "attempts": 1,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "challenge2-passive-success",
+      "mode": "success",
+      "challenge": 2,
+      "accepted": 2,
+      "attempts": 2,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "challenge3-wrong-receiver",
+      "mode": "review",
+      "challenge": 3,
+      "accepted": 0,
+      "attempts": 1,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "challenge3-active-crate-success",
+      "mode": "success",
+      "challenge": 3,
+      "accepted": 1,
+      "attempts": 2,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "challenge3-passive-arm-success",
+      "mode": "success",
+      "challenge": 3,
+      "accepted": 1,
+      "attempts": 3,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "challenge4-washed-label",
+      "mode": "review",
+      "challenge": 4,
+      "accepted": 0,
+      "attempts": 1,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "challenge4-success",
+      "mode": "success",
+      "challenge": 4,
+      "accepted": 3,
+      "attempts": 3,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "challenge5-inside-label",
+      "mode": "review",
+      "challenge": 5,
+      "accepted": 0,
+      "attempts": 1,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "challenge5-transfer-success",
+      "mode": "success",
+      "challenge": 5,
+      "accepted": 3,
+      "attempts": 3,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    }
+  ],
+  "errors": []
+}
