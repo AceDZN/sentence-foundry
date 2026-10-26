@@ -1,0 +1,245 @@
+{
+  "classification": "Exploratory blend evidence; G1 pending; no accepted concept or supported void claim",
+  "corpus": "data/assisted-2026-10-23/corpus",
+  "n": 73466,
+  "neighborhood_k": 50,
+  "pairs": [
+    {
+      "slug": "rooftop-radio",
+      "domain": "directions and route comparisons",
+      "seeds": [
+        "A Short Hike",
+        "Crazy Taxi"
+      ],
+      "pairwise_sim": 0.27658095955848694,
+      "relatedness_gate_passed": true,
+      "centroid_nn_sim": 0.7989423871040344,
+      "centroid_isolation_percentile": 16.866305501864808,
+      "density_proxy_mean_top_k_sim": 0.6495933532714844,
+      "centroid_specificity": 0.11628217995166779,
+      "neighborhood_reviews": 32573,
+      "nearest": [
+        {
+          "title": "A Short Hike",
+          "sim": 0.7989423871040344
+        },
+        {
+          "title": "Crazy Taxi",
+          "sim": 0.7989257574081421
+        },
+        {
+          "title": "Mountain Taxi Driver",
+          "sim": 0.719853937625885
+        },
+        {
+          "title": "Rooftops & Alleys: The Parkour Game",
+          "sim": 0.6707906126976013
+        },
+        {
+          "title": "Highway Game",
+          "sim": 0.6690763235092163
+        }
+      ],
+      "leans_toward": [
+        "Driving",
+        "Cycling",
+        "Motocross",
+        "Offroad",
+        "Parkour",
+        "Mini Golf",
+        "Skiing",
+        "Automobile Sim"
+      ]
+    },
+    {
+      "slug": "rooftop-radio-physics",
+      "domain": "directions and landmarks",
+      "seeds": [
+        "Tinykin",
+        "Totally Reliable Delivery Service"
+      ],
+      "pairwise_sim": 0.4000820517539978,
+      "relatedness_gate_passed": true,
+      "centroid_nn_sim": 0.836758017539978,
+      "centroid_isolation_percentile": 10.038657338088367,
+      "density_proxy_mean_top_k_sim": 0.6940498352050781,
+      "centroid_specificity": 0.09036426246166229,
+      "neighborhood_reviews": 17528,
+      "nearest": [
+        {
+          "title": "Totally Reliable Delivery Service",
+          "sim": 0.836758017539978
+        },
+        {
+          "title": "Tinykin",
+          "sim": 0.836542546749115
+        },
+        {
+          "title": "RAGDOLL UNIVERSE",
+          "sim": 0.713196873664856
+        },
+        {
+          "title": "Ragdoll Playground",
+          "sim": 0.7128006219863892
+        },
+        {
+          "title": "Pingo Adventure",
+          "sim": 0.7127119898796082
+        }
+      ],
+      "leans_toward": [
+        "Physics",
+        "3D Platformer",
+        "Transportation",
+        "Robots",
+        "Funny",
+        "Cartoony",
+        "Sokoban",
+        "6DOF"
+      ]
+    },
+    {
+      "slug": "critter-safari-identify",
+      "domain": "relative clauses and descriptions",
+      "seeds": [
+        "Bugsnax",
+        "Untitled Goose Game"
+      ],
+      "pairwise_sim": 0.4016171097755432,
+      "relatedness_gate_passed": true,
+      "centroid_nn_sim": 0.8371938467025757,
+      "centroid_isolation_percentile": 9.976043339776224,
+      "density_proxy_mean_top_k_sim": 0.6695370674133301,
+      "centroid_specificity": 0.12152665853500366,
+      "neighborhood_reviews": 71404,
+      "nearest": [
+        {
+          "title": "Untitled Goose Game",
+          "sim": 0.8371938467025757
+        },
+        {
+          "title": "Bugsnax",
+          "sim": 0.8371027708053589
+        },
+        {
+          "title": "Just Crow Things",
+          "sim": 0.7095254063606262
+        },
+        {
+          "title": "Knights And Bikes",
+          "sim": 0.7049293518066406
+        },
+        {
+          "title": "Dung Beetle Strike",
+          "sim": 0.6917778253555298
+        }
+      ],
+      "leans_toward": [
+        "Funny",
+        "Cute",
+        "Birds",
+        "Comedy",
+        "Satire",
+        "Dog",
+        "Creature Collector",
+        "Cats"
+      ]
+    },
+    {
+      "slug": "critter-safari",
+      "domain": "descriptions and comparisons",
+      "seeds": [
+        "Bugsnax",
+        "Slime Rancher"
+      ],
+      "pairwise_sim": 0.5183548927307129,
+      "relatedness_gate_passed": true,
+      "centroid_nn_sim": 0.8713310956954956,
+      "centroid_isolation_percentile": 5.861214711567255,
+      "density_proxy_mean_top_k_sim": 0.701332151889801,
+      "centroid_specificity": 0.10841549932956696,
+      "neighborhood_reviews": 203024,
+      "nearest": [
+        {
+          "title": "Slime Rancher",
+          "sim": 0.8713310956954956
+        },
+        {
+          "title": "Bugsnax",
+          "sim": 0.8712776303291321
+        },
+        {
+          "title": "Slime Farm",
+          "sim": 0.7688854932785034
+        },
+        {
+          "title": "Suramon",
+          "sim": 0.7524675130844116
+        },
+        {
+          "title": "Slime Rancher 2",
+          "sim": 0.7454850673675537
+        }
+      ],
+      "leans_toward": [
+        "Creature Collector",
+        "Cute",
+        "Farming",
+        "Exploration",
+        "Fishing",
+        "Sandbox",
+        "Farming Sim",
+        "Lara Croft"
+      ]
+    },
+    {
+      "slug": "sentence-foundry",
+      "domain": "active passive and processes",
+      "seeds": [
+        "Infinifactory",
+        "Automachef"
+      ],
+      "pairwise_sim": 0.5484791398048401,
+      "relatedness_gate_passed": true,
+      "centroid_nn_sim": 0.8799415826797485,
+      "centroid_isolation_percentile": 5.090790297552609,
+      "density_proxy_mean_top_k_sim": 0.6883127689361572,
+      "centroid_specificity": 0.12973499298095703,
+      "neighborhood_reviews": 265891,
+      "nearest": [
+        {
+          "title": "Infinifactory",
+          "sim": 0.8799415826797485
+        },
+        {
+          "title": "Automachef",
+          "sim": 0.879871129989624
+        },
+        {
+          "title": "Captain Contraption's Chocolate Factory",
+          "sim": 0.7340030670166016
+        },
+        {
+          "title": "Neon Noodles",
+          "sim": 0.7252473831176758
+        },
+        {
+          "title": "SpaceChem",
+          "sim": 0.717571496963501
+        }
+      ],
+      "leans_toward": [
+        "Automation",
+        "Resource Management",
+        "Sokoban",
+        "Farming Sim",
+        "Job Simulator",
+        "Crafting",
+        "Cooking",
+        "Inventory Management"
+      ]
+    }
+  ],
+  "round2_note": "Existing measurements reused without new computation. Source: reports/english-games-2026-10-25/pair-evidence.json",
+  "source_sha256": "734955ab48e20e9e7884bf21a622cd9d3130cbaba820eaefd918b19c725edb85"
+}

@@ -1,0 +1,3 @@
+Original prompt: "Let's build another 3 English games." Continue the human's standing commission: real fun web-browser 3D games, grade-7/8 Workbook English for Hebrew-speaking students; built-in imagegen gameplay targets before implementation, Tripo models through their Chrome and appropriate character rigs, build then compare actual gameplay to targets; new public AceDZN repository, regular main commits and separate builder chat per game.
+
+2026-10-26: Parent selected Sentence Foundry from the researched ten-game backlog, seeded exact curriculum snapshots and concrete handoffs. No gameplay implementation or art fulfillment is claimed yet. Read docs/handoff and follow the required order.
