@@ -1,12 +1,15 @@
 /** Authored meaning, separate from sentence wording, grid layout and rendering.
  * This is an oracle for the five verified contracts, not an English parser.
  */
-export type Operation = 'wash' | 'paint' | 'label' | 'pack';
-export type Receiver = 'crate' | 'service-arm' | 'panel';
-export type LabelSurface = 'item' | 'package' | null;
+export type Operation = "wash" | "paint" | "label" | "pack";
+export type Receiver = "crate" | "service-arm" | "panel";
+export type LabelSurface = "item" | "package" | null;
 
 export const OPERATION_AGENTS: Readonly<Record<Operation, string>> = {
-  wash: 'cleaning-arm', paint: 'painter', label: 'label-press', pack: 'packing-press',
+  wash: "cleaning-arm",
+  paint: "painter",
+  label: "label-press",
+  pack: "packing-press",
 };
 
 /** Backwards-compatible descriptive alias for callers. */
@@ -16,7 +19,7 @@ export interface ProductionEvent {
   action: Operation;
   receiver: Receiver;
   agent: string;
-  effect: 'washed' | 'painted' | 'labelled' | 'packed' | 'sealed';
+  effect: "washed" | "painted" | "labelled" | "packed" | "sealed";
   removedPaint?: boolean;
   removedLabel?: boolean;
 }
@@ -40,8 +43,10 @@ export interface SemanticStep {
   agent?: string;
 }
 
-export type ProductProperties = Pick<Product,
-  'washed' | 'painted' | 'paintBonded' | 'labelled' | 'labelSurface' | 'packed'>;
+export type ProductProperties = Pick<
+  Product,
+  "washed" | "painted" | "paintBonded" | "labelled" | "labelSurface" | "packed"
+>;
 
 export interface ProductionSpec {
   receiver: Receiver;
@@ -57,8 +62,16 @@ export interface ProductCheck {
 }
 
 export function makeProduct(receiver: Receiver): Product {
-  return { receiver, washed: false, painted: false, paintBonded: false,
-    labelled: false, labelSurface: null, packed: false, history: [] };
+  return {
+    receiver,
+    washed: false,
+    painted: false,
+    paintBonded: false,
+    labelled: false,
+    labelSurface: null,
+    packed: false,
+    history: [],
+  };
 }
 
 /** Each machine changes the physical product. Washing removes paint and paper;
@@ -66,19 +79,27 @@ export function makeProduct(receiver: Receiver): Product {
  * a sealed package, so labelling before and after packing have distinct results.
  * An arm on the conveyor is a detached workpiece; the fixed painter remains agent.
  */
-export function applyOperation(product: Product, action: Operation,
-  agent = OPERATION_AGENTS[action]): Product {
+export function applyOperation(
+  product: Product,
+  action: Operation,
+  agent = OPERATION_AGENTS[action],
+): Product {
   const next: Product = { ...product, history: [...product.history] };
-  const event: ProductionEvent = { action, agent, receiver: product.receiver, effect: 'sealed' };
-  if (action === 'label') {
+  const event: ProductionEvent = {
+    action,
+    agent,
+    receiver: product.receiver,
+    effect: "sealed",
+  };
+  if (action === "label") {
     next.labelled = true;
-    next.labelSurface = next.packed ? 'package' : 'item';
-    event.effect = 'labelled';
-  } else if (action === 'pack') {
+    next.labelSurface = next.packed ? "package" : "item";
+    event.effect = "labelled";
+  } else if (action === "pack") {
     next.packed = true;
-    event.effect = 'packed';
-  } else if (!product.packed && action === 'wash') {
-    event.effect = 'washed';
+    event.effect = "packed";
+  } else if (!product.packed && action === "wash") {
+    event.effect = "washed";
     event.removedPaint = product.painted;
     event.removedLabel = product.labelled;
     next.washed = true;
@@ -86,8 +107,8 @@ export function applyOperation(product: Product, action: Operation,
     next.paintBonded = false;
     next.labelled = false;
     next.labelSurface = null;
-  } else if (!product.packed && action === 'paint') {
-    event.effect = 'painted';
+  } else if (!product.packed && action === "paint") {
+    event.effect = "painted";
     event.removedLabel = product.labelled;
     next.painted = true;
     next.paintBonded = product.washed;
@@ -99,18 +120,26 @@ export function applyOperation(product: Product, action: Operation,
 }
 
 function matchingEvent(event: ProductionEvent, step: SemanticStep): boolean {
-  return event.action === step.action && event.receiver === step.receiver
-    && (step.agent === undefined || event.agent === step.agent)
-    && event.effect !== 'sealed';
+  return (
+    event.action === step.action &&
+    event.receiver === step.receiver &&
+    (step.agent === undefined || event.agent === step.agent) &&
+    event.effect !== "sealed"
+  );
 }
 
 /** True if distinct observed operations can witness the authored truth graph.
  * Reworking an item is permitted: a corrected wash→paint chain can follow an
  * earlier mistake. Final properties still reject paint/labels washed off later.
  */
-export function witnessesGraph(history: ProductionEvent[], spec: ProductionSpec): boolean {
-  const candidates = spec.steps.map(step => history.flatMap((event, i) => matchingEvent(event, step) ? [i] : []));
-  if (candidates.some(items => items.length === 0)) return false;
+export function witnessesGraph(
+  history: ProductionEvent[],
+  spec: ProductionSpec,
+): boolean {
+  const candidates = spec.steps.map((step) =>
+    history.flatMap((event, i) => (matchingEvent(event, step) ? [i] : [])),
+  );
+  if (candidates.some((items) => items.length === 0)) return false;
   const assigned = new Map<string, number>();
   const used = new Set<number>();
   const search = (index: number): boolean => {
@@ -119,8 +148,12 @@ export function witnessesGraph(history: ProductionEvent[], spec: ProductionSpec)
     for (const eventIndex of candidates[index]) {
       if (used.has(eventIndex)) continue;
       assigned.set(step.id, eventIndex);
-      const valid = spec.before.every(([a, b]) => !assigned.has(a) || !assigned.has(b)
-        || assigned.get(a)! < assigned.get(b)!);
+      const valid = spec.before.every(
+        ([a, b]) =>
+          !assigned.has(a) ||
+          !assigned.has(b) ||
+          assigned.get(a)! < assigned.get(b)!,
+      );
       if (valid) {
         used.add(eventIndex);
         if (search(index + 1)) return true;
@@ -133,41 +166,59 @@ export function witnessesGraph(history: ProductionEvent[], spec: ProductionSpec)
   return search(0);
 }
 
-export function checkProduct(product: Product, spec: ProductionSpec): ProductCheck {
+export function checkProduct(
+  product: Product,
+  spec: ProductionSpec,
+): ProductCheck {
   const reasons: string[] = [];
-  if (product.receiver !== spec.receiver) reasons.push(`receiver:${spec.receiver}`);
+  if (product.receiver !== spec.receiver)
+    reasons.push(`receiver:${spec.receiver}`);
   for (const [key, expected] of Object.entries(spec.final)) {
-    if (product[key as keyof ProductProperties] !== expected) reasons.push(`final:${key}`);
+    if (product[key as keyof ProductProperties] !== expected)
+      reasons.push(`final:${key}`);
   }
-  if (!witnessesGraph(product.history, spec)) reasons.push('process:roles-or-order');
+  if (!witnessesGraph(product.history, spec))
+    reasons.push("process:roles-or-order");
   return { accepted: reasons.length === 0, reasons };
 }
 
 export function validateSpec(spec: ProductionSpec): string[] {
   const errors: string[] = [];
-  const ids = spec.steps.map(step => step.id);
-  if (new Set(ids).size !== ids.length) errors.push('duplicate-step-id');
-  if (spec.steps.some(step => step.receiver !== spec.receiver)) errors.push('receiver-mismatch');
-  if (spec.before.some(([a, b]) => !ids.includes(a) || !ids.includes(b))) errors.push('unknown-order-step');
-  const reaches = (start: string, target: string, seen = new Set<string>()): boolean => {
+  const ids = spec.steps.map((step) => step.id);
+  if (new Set(ids).size !== ids.length) errors.push("duplicate-step-id");
+  if (spec.steps.some((step) => step.receiver !== spec.receiver))
+    errors.push("receiver-mismatch");
+  if (spec.before.some(([a, b]) => !ids.includes(a) || !ids.includes(b)))
+    errors.push("unknown-order-step");
+  const reaches = (
+    start: string,
+    target: string,
+    seen = new Set<string>(),
+  ): boolean => {
     if (seen.has(start)) return false;
     seen.add(start);
-    return spec.before.some(([a, b]) => a === start && (b === target || reaches(b, target, seen)));
+    return spec.before.some(
+      ([a, b]) => a === start && (b === target || reaches(b, target, seen)),
+    );
   };
-  if (ids.some(id => reaches(id, id))) errors.push('cyclic-order');
-  if (spec.final.labelled === false && spec.final.labelSurface) errors.push('label-surface-without-label');
+  if (ids.some((id) => reaches(id, id))) errors.push("cyclic-order");
+  if (spec.final.labelled === false && spec.final.labelSurface)
+    errors.push("label-surface-without-label");
   return errors;
 }
 
 export interface PassiveFormFixture {
-  number: 'singular' | 'plural';
-  auxiliary: 'is' | 'are';
+  number: "singular" | "plural";
+  auxiliary: "is" | "are";
   action: Operation;
   participle: string;
 }
 
 const PARTICIPLES: Readonly<Record<Operation, string>> = {
-  wash: 'washed', paint: 'painted', label: 'labelled', pack: 'packed',
+  wash: "washed",
+  paint: "painted",
+  label: "labelled",
+  pack: "packed",
 };
 
 /** Checks the limited authored present-passive forms used in this slice. The
@@ -175,6 +226,7 @@ const PARTICIPLES: Readonly<Record<Operation, string>> = {
  * This is content validation, not a quiz or an arbitrary-language parser.
  */
 export function validatePassiveForm(fixture: PassiveFormFixture): boolean {
-  const agreement = fixture.auxiliary === (fixture.number === 'singular' ? 'is' : 'are');
+  const agreement =
+    fixture.auxiliary === (fixture.number === "singular" ? "is" : "are");
   return agreement && fixture.participle === PARTICIPLES[fixture.action];
 }

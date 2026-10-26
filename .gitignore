@@ -8,3 +8,10 @@ tmp/
 .DS_Store
 playwright-report/
 test-results/
+# Redundant raw canvas exports and interrupted development captures
+/docs/review/*-canvas.png
+/docs/captures/*-canvas.png
+/docs/review/*FAILED*
+/docs/review/dev-hmr-reset*
+/docs/review/*-failure.txt
+/docs/review/initial.json

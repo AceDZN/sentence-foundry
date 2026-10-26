@@ -1,0 +1,618 @@
+{
+  "state": {
+    "coordinateSystem": "grid x east/right 0..8, z south/front 0..6; world x=(gridX-4)*1.2, world z=(gridZ-3)*1.2; y up",
+    "mode": "editing",
+    "challenge": 1,
+    "title": "משלוח ראשון",
+    "contract": "The cleaning arm washes the crate. Keep the wood unpainted and unpacked.",
+    "required": 1,
+    "receiver": "crate",
+    "variant": false,
+    "tool": "belt",
+    "rotation": 0,
+    "editMode": "place",
+    "selected": null,
+    "board": {
+      "width": 9,
+      "depth": 7,
+      "sources": [
+        {
+          "x": -1,
+          "z": 3,
+          "receiver": "crate"
+        }
+      ],
+      "exit": {
+        "x": 9,
+        "z": 3
+      },
+      "obstacles": []
+    },
+    "tiles": [
+      {
+        "x": 0,
+        "z": 3,
+        "kind": "belt",
+        "rotation": 0
+      },
+      {
+        "x": 1,
+        "z": 3,
+        "kind": "belt",
+        "rotation": 0
+      },
+      {
+        "x": 3,
+        "z": 3,
+        "kind": "belt",
+        "rotation": 0
+      },
+      {
+        "x": 6,
+        "z": 3,
+        "kind": "belt",
+        "rotation": 0
+      },
+      {
+        "x": 7,
+        "z": 3,
+        "kind": "belt",
+        "rotation": 0
+      },
+      {
+        "x": 8,
+        "z": 3,
+        "kind": "belt",
+        "rotation": 0
+      },
+      {
+        "x": 2,
+        "z": 2,
+        "kind": "belt",
+        "rotation": 2
+      },
+      {
+        "x": 4,
+        "z": 4,
+        "kind": "belt",
+        "rotation": 1
+      }
+    ],
+    "cellScreen": [
+      {
+        "x": 0,
+        "z": 0,
+        "screen": {
+          "x": 466,
+          "y": 314
+        }
+      },
+      {
+        "x": 1,
+        "z": 0,
+        "screen": {
+          "x": 527,
+          "y": 312
+        }
+      },
+      {
+        "x": 2,
+        "z": 0,
+        "screen": {
+          "x": 589,
+          "y": 310
+        }
+      },
+      {
+        "x": 3,
+        "z": 0,
+        "screen": {
+          "x": 650,
+          "y": 308
+        }
+      },
+      {
+        "x": 4,
+        "z": 0,
+        "screen": {
+          "x": 711,
+          "y": 306
+        }
+      },
+      {
+        "x": 5,
+        "z": 0,
+        "screen": {
+          "x": 772,
+          "y": 303
+        }
+      },
+      {
+        "x": 6,
+        "z": 0,
+        "screen": {
+          "x": 833,
+          "y": 301
+        }
+      },
+      {
+        "x": 7,
+        "z": 0,
+        "screen": {
+          "x": 893,
+          "y": 299
+        }
+      },
+      {
+        "x": 8,
+        "z": 0,
+        "screen": {
+          "x": 954,
+          "y": 297
+        }
+      },
+      {
+        "x": 0,
+        "z": 1,
+        "screen": {
+          "x": 461,
+          "y": 358
+        }
+      },
+      {
+        "x": 1,
+        "z": 1,
+        "screen": {
+          "x": 524,
+          "y": 356
+        }
+      },
+      {
+        "x": 2,
+        "z": 1,
+        "screen": {
+          "x": 588,
+          "y": 354
+        }
+      },
+      {
+        "x": 3,
+        "z": 1,
+        "screen": {
+          "x": 651,
+          "y": 352
+        }
+      },
+      {
+        "x": 4,
+        "z": 1,
+        "screen": {
+          "x": 714,
+          "y": 350
+        }
+      },
+      {
+        "x": 5,
+        "z": 1,
+        "screen": {
+          "x": 777,
+          "y": 347
+        }
+      },
+      {
+        "x": 6,
+        "z": 1,
+        "screen": {
+          "x": 839,
+          "y": 345
+        }
+      },
+      {
+        "x": 7,
+        "z": 1,
+        "screen": {
+          "x": 902,
+          "y": 343
+        }
+      },
+      {
+        "x": 8,
+        "z": 1,
+        "screen": {
+          "x": 964,
+          "y": 341
+        }
+      },
+      {
+        "x": 0,
+        "z": 2,
+        "screen": {
+          "x": 456,
+          "y": 406
+        }
+      },
+      {
+        "x": 1,
+        "z": 2,
+        "screen": {
+          "x": 521,
+          "y": 404
+        }
+      },
+      {
+        "x": 2,
+        "z": 2,
+        "screen": {
+          "x": 587,
+          "y": 401
+        }
+      },
+      {
+        "x": 3,
+        "z": 2,
+        "screen": {
+          "x": 652,
+          "y": 399
+        }
+      },
+      {
+        "x": 4,
+        "z": 2,
+        "screen": {
+          "x": 717,
+          "y": 396
+        }
+      },
+      {
+        "x": 5,
+        "z": 2,
+        "screen": {
+          "x": 782,
+          "y": 394
+        }
+      },
+      {
+        "x": 6,
+        "z": 2,
+        "screen": {
+          "x": 846,
+          "y": 392
+        }
+      },
+      {
+        "x": 7,
+        "z": 2,
+        "screen": {
+          "x": 911,
+          "y": 389
+        }
+      },
+      {
+        "x": 8,
+        "z": 2,
+        "screen": {
+          "x": 975,
+          "y": 387
+        }
+      },
+      {
+        "x": 0,
+        "z": 3,
+        "screen": {
+          "x": 450,
+          "y": 457
+        }
+      },
+      {
+        "x": 1,
+        "z": 3,
+        "screen": {
+          "x": 518,
+          "y": 454
+        }
+      },
+      {
+        "x": 2,
+        "z": 3,
+        "screen": {
+          "x": 585,
+          "y": 451
+        }
+      },
+      {
+        "x": 3,
+        "z": 3,
+        "screen": {
+          "x": 653,
+          "y": 449
+        }
+      },
+      {
+        "x": 4,
+        "z": 3,
+        "screen": {
+          "x": 720,
+          "y": 446
+        }
+      },
+      {
+        "x": 5,
+        "z": 3,
+        "screen": {
+          "x": 787,
+          "y": 444
+        }
+      },
+      {
+        "x": 6,
+        "z": 3,
+        "screen": {
+          "x": 854,
+          "y": 441
+        }
+      },
+      {
+        "x": 7,
+        "z": 3,
+        "screen": {
+          "x": 920,
+          "y": 439
+        }
+      },
+      {
+        "x": 8,
+        "z": 3,
+        "screen": {
+          "x": 987,
+          "y": 436
+        }
+      },
+      {
+        "x": 0,
+        "z": 4,
+        "screen": {
+          "x": 444,
+          "y": 511
+        }
+      },
+      {
+        "x": 1,
+        "z": 4,
+        "screen": {
+          "x": 514,
+          "y": 508
+        }
+      },
+      {
+        "x": 2,
+        "z": 4,
+        "screen": {
+          "x": 584,
+          "y": 505
+        }
+      },
+      {
+        "x": 3,
+        "z": 4,
+        "screen": {
+          "x": 654,
+          "y": 503
+        }
+      },
+      {
+        "x": 4,
+        "z": 4,
+        "screen": {
+          "x": 723,
+          "y": 500
+        }
+      },
+      {
+        "x": 5,
+        "z": 4,
+        "screen": {
+          "x": 793,
+          "y": 497
+        }
+      },
+      {
+        "x": 6,
+        "z": 4,
+        "screen": {
+          "x": 862,
+          "y": 495
+        }
+      },
+      {
+        "x": 7,
+        "z": 4,
+        "screen": {
+          "x": 931,
+          "y": 492
+        }
+      },
+      {
+        "x": 8,
+        "z": 4,
+        "screen": {
+          "x": 999,
+          "y": 489
+        }
+      },
+      {
+        "x": 0,
+        "z": 5,
+        "screen": {
+          "x": 437,
+          "y": 569
+        }
+      },
+      {
+        "x": 1,
+        "z": 5,
+        "screen": {
+          "x": 510,
+          "y": 566
+        }
+      },
+      {
+        "x": 2,
+        "z": 5,
+        "screen": {
+          "x": 583,
+          "y": 563
+        }
+      },
+      {
+        "x": 3,
+        "z": 5,
+        "screen": {
+          "x": 655,
+          "y": 560
+        }
+      },
+      {
+        "x": 4,
+        "z": 5,
+        "screen": {
+          "x": 727,
+          "y": 557
+        }
+      },
+      {
+        "x": 5,
+        "z": 5,
+        "screen": {
+          "x": 799,
+          "y": 554
+        }
+      },
+      {
+        "x": 6,
+        "z": 5,
+        "screen": {
+          "x": 870,
+          "y": 551
+        }
+      },
+      {
+        "x": 7,
+        "z": 5,
+        "screen": {
+          "x": 942,
+          "y": 549
+        }
+      },
+      {
+        "x": 8,
+        "z": 5,
+        "screen": {
+          "x": 1013,
+          "y": 546
+        }
+      },
+      {
+        "x": 0,
+        "z": 6,
+        "screen": {
+          "x": 430,
+          "y": 631
+        }
+      },
+      {
+        "x": 1,
+        "z": 6,
+        "screen": {
+          "x": 506,
+          "y": 628
+        }
+      },
+      {
+        "x": 2,
+        "z": 6,
+        "screen": {
+          "x": 581,
+          "y": 625
+        }
+      },
+      {
+        "x": 3,
+        "z": 6,
+        "screen": {
+          "x": 656,
+          "y": 622
+        }
+      },
+      {
+        "x": 4,
+        "z": 6,
+        "screen": {
+          "x": 731,
+          "y": 619
+        }
+      },
+      {
+        "x": 5,
+        "z": 6,
+        "screen": {
+          "x": 805,
+          "y": 616
+        }
+      },
+      {
+        "x": 6,
+        "z": 6,
+        "screen": {
+          "x": 880,
+          "y": 613
+        }
+      },
+      {
+        "x": 7,
+        "z": 6,
+        "screen": {
+          "x": 953,
+          "y": 610
+        }
+      },
+      {
+        "x": 8,
+        "z": 6,
+        "screen": {
+          "x": 1027,
+          "y": 607
+        }
+      }
+    ],
+    "pieces": [],
+    "deliveries": [],
+    "accepted": 0,
+    "productionSeconds": 0,
+    "jam": null,
+    "attempts": 0,
+    "hints": 0,
+    "readingSupport": 0,
+    "events": [
+      {
+        "type": "contract",
+        "challenge": 1,
+        "attempt": 0,
+        "aided": false
+      }
+    ],
+    "medals": [],
+    "assets": {
+      "washer": "missing",
+      "arm": "missing"
+    },
+    "muted": false,
+    "reduced": false,
+    "performance": {
+      "meanFrameMs": 8.48,
+      "drawCalls": 44,
+      "triangles": 49506
+    }
+  },
+  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n? עזרה\nⅡ השהיה\n♪\n≈\n⛶\nהזמנה 1 / 5 · משלוח ראשון\n⌕ מילים\n▷ EN\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nיעד: 1 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nבנו מסלול לפי ההזמנה. חלקים אפשר להעביר, לסובב או להחליף.\n8 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה",
+  "errors": []
+}

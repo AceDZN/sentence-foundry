@@ -1,0 +1,27 @@
+{
+  "results": [
+    {
+      "name": "01-running-line",
+      "mode": "paused",
+      "challenge": 2,
+      "accepted": 0,
+      "attempts": 1,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "02-label-washed-off",
+      "mode": "paused",
+      "challenge": 4,
+      "accepted": 0,
+      "attempts": 1,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    }
+  ],
+  "errors": []
+}

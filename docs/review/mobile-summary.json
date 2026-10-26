@@ -1,0 +1,38 @@
+{
+  "results": [
+    {
+      "name": "initial",
+      "mode": "editing",
+      "challenge": 1,
+      "accepted": 0,
+      "attempts": 0,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "touch-success",
+      "mode": "success",
+      "challenge": 1,
+      "accepted": 1,
+      "attempts": 1,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    },
+    {
+      "name": "restart",
+      "mode": "editing",
+      "challenge": 1,
+      "accepted": 0,
+      "attempts": 0,
+      "assets": {
+        "washer": "missing",
+        "arm": "missing"
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#143642" />
+    <meta
+      name="description"
+      content="מפעל תלת־ממדי: בונים מסועים ומכונות לפי הזמנות באנגלית."
+    />
+    <title>Sentence Foundry · מפעל ההמצאות</title>
+  </head>
+  <body>
+    <main id="app">
+      <div id="world" aria-label="שולחן בנייה תלת ממדי"></div>
+      <header>
+        <div class="brand">
+          <strong dir="ltr">SENTENCE <b>FOUNDRY</b></strong
+          ><span>מפעל ההמצאות</span>
+        </div>
+        <nav aria-label="הגדרות">
+          <button id="help">? <span>עזרה</span></button
+          ><button id="pause">Ⅱ <span>השהיה</span></button
+          ><button id="mute" aria-label="צליל">♪</button
+          ><button id="motion" aria-label="תנועה מופחתת">≈</button
+          ><button id="fullscreen" aria-label="מסך מלא">⛶</button>
+        </nav>
+      </header>
+      <section id="contract" aria-label="הזמנת לקוח">
+        <div class="contract-meta">
+          <span id="level-label"></span><button id="read">⌕ מילים</button
+          ><button id="speak" aria-label="הקראת ההזמנה">▷ EN</button>
+        </div>
+        <p id="order" lang="en" dir="ltr"></p>
+        <div class="contract-actions">
+          <button id="paraphrase" hidden>ניסוח אחר</button
+          ><button id="receiver" hidden>הזמנת לקוח אחרת</button
+          ><span id="quantity"></span>
+        </div>
+      </section>
+      <aside id="palette" aria-label="כלי בנייה"></aside>
+      <section id="inspector">
+        <strong id="tool-title" dir="ltr"></strong>
+        <p id="tool-description" dir="ltr" lang="en"></p>
+        <span id="orientation"></span>
+      </section>
+      <section id="status" role="status">
+        <span id="status-text"></span><span id="build-size"></span>
+      </section>
+      <footer>
+        <div class="edit-controls">
+          <button id="move" title="העברת חלק">↔ העברה</button
+          ><button id="rotate">↻ סיבוב <kbd>R</kbd></button
+          ><button id="erase">⌫ מחיקה</button><button id="camera">◌ מבט</button>
+        </div>
+        <button id="run" class="primary">
+          ▶ <span>הפעלת המפעל</span><small>SPACE</small></button
+        ><button id="restart" title="איפוס ההזמנה">↺</button
+        ><button id="hint">רמז</button>
+      </footer>
+      <div id="keyboard-help">
+        לחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה /
+        עצירה
+      </div>
+      <dialog id="dialog">
+        <button id="close-dialog" aria-label="סגירה">×</button>
+        <div id="dialog-content"></div>
+      </dialog>
+      <div id="loading">מכינים את שולחן העבודה…</div>
+      <section id="result" hidden>
+        <span class="eyebrow">משלוח הושלם</span>
+        <h1 id="result-title"></h1>
+        <p id="result-detail"></p>
+        <button id="next" class="primary">להזמנה הבאה ←</button
+        ><button id="try-again">שיפור המפעל</button>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
