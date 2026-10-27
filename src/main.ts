@@ -105,10 +105,6 @@ const labels: Record<Tool, string> = {
 const macKeyboard = /Mac|iPhone|iPad/.test(navigator.platform);
 function decorateControl(button: HTMLElement, binding: ControlBinding) {
   button.querySelectorAll(":scope > kbd").forEach(k => k.remove());
-  const cap = document.createElement("kbd");
-  cap.dir = "ltr";
-  cap.textContent = shortcutKey(binding, macKeyboard);
-  button.append(cap);
   button.title = `${binding.label} (${shortcutKey(binding, macKeyboard)})`;
   button.setAttribute("aria-keyshortcuts", shortcutAria(binding));
 }
@@ -203,7 +199,7 @@ function buildPalette() {
   $("palette").innerHTML = order
     .map(
       (kind, i) =>
-        `<button data-tool="${kind}" title="${labels[kind]} · מקש ${i + 1}" aria-label="${labels[kind]}" aria-keyshortcuts="${i + 1}" aria-pressed="${tool === kind}"><kbd>${i + 1}</kbd><span class="symbol">${symbols[kind]}</span><small lang="en">${labels[kind]}</small></button>`,
+        `<button data-tool="${kind}" title="${labels[kind]} · מקש ${i + 1}" aria-label="${labels[kind]}" aria-keyshortcuts="${i + 1}" aria-pressed="${tool === kind}"><span class="symbol">${symbols[kind]}</span><small lang="en">${labels[kind]}</small></button>`,
     )
     .join("");
   document
@@ -283,8 +279,8 @@ function refresh(force = false) {
     ? "הקו עובד · לחצו עצירה כדי לסובב, להעביר או למחוק חלקים"
     : editMode === "move" ? (moveFrom ? "↔ עכשיו לחצו על המקום החדש · Esc מבטל העברה" : "↔ שלב 1: לחצו על החלק שרוצים להעביר")
     : editMode === "erase" ? "⌫ לחצו על חלק למחיקה · X שוב או Esc מבטלים את מצב המחיקה"
-    : selectedTile ? `נבחר: ${"\u2066" + labels[selectedTile.kind] + "\u2069"} · ↻ / R לסיבוב · ↔ / M להעברה · Delete למחיקה · Esc ביטול בחירה`
-    : `בנייה: ${"\u2066" + labels[tool] + "\u2069"} · לחצו על משבצת פנויה · ↻ / R משנה כיוון`;
+    : selectedTile ? `נבחר: ${"\u2066" + labels[selectedTile.kind] + "\u2069"} · ↻ / R לסיבוב · ↔ / M להעברה`
+    : `בנייה: ${"\u2066" + labels[tool] + "\u2069"} · לחצו על משבצת פנויה`;
   ($("cancel-edit") as HTMLButtonElement).disabled = !["editing", "review"].includes(sim.mode) || !(selected || moveFrom || editMode !== "place" || rotation !== 0);
   ($("undo") as HTMLButtonElement).disabled = !undoHistory.length || !["editing", "review"].includes(sim.mode);
   for (const id of ["move", "rotate", "erase"]) ($<HTMLButtonElement>(id)).disabled = !["editing", "review"].includes(sim.mode);
@@ -305,7 +301,7 @@ function refresh(force = false) {
   $("mute").setAttribute("aria-pressed", String(muted));
   controlLabel("mute", muted ? "♩" : "♪");
   ($("speak") as HTMLButtonElement).disabled = muted;
-  $("speak").title = muted ? "בטלו השתקה כדי לשמוע את ההזמנה" : "הקראת ההזמנה (Y)";
+  $("speak").title = muted ? "בטלו השתקה כדי לשמוע את ההזמנה (Y)" : "הקראת ההזמנה (Y)";
   $("motion").setAttribute("aria-pressed", String(reduced));
   $("move").setAttribute("aria-pressed", String(editMode === "move"));
   $("erase").setAttribute("aria-pressed", String(editMode === "erase"));
@@ -388,7 +384,7 @@ $("close-dialog").onclick = closeDialog;
 });
 $("help").onclick = () =>
   openDialog(
-    `<h2>כפתור או מקש — אותה פעולה</h2><div class="control-lesson"><p><b>① בנייה</b> · בחרו כלי מהמדף ולחצו על משבצת פנויה. לחיצה על חלק קיים בוחרת אותו.</p><p><b>② סיבוב</b> · בחרו חלק ואז לחצו ↻ או R. החץ שלו מראה את כיוון היציאה.</p><p><b>③ העברה</b> · לחצו ↔ או M, בחרו חלק, ואז משבצת פנויה. אין צורך לגרור.</p><p><b>מחיקה וביטול</b> · X מפעיל מצב מחיקה; Delete מוחק מיד את החלק הנבחר. ${macKeyboard ? "⌘ Z" : "Ctrl Z"} מחזיר את העריכה האחרונה. Esc מבטל את הבחירה או הכלי בלי לשנות חלקים שכבר נבנו.</p></div><dl class="shortcut-list">${CONTROL_BINDINGS.filter(b => b.id !== "next").map(b => `<dt><kbd dir="ltr">${shortcutKey(b, macKeyboard)}</kbd></dt><dd>${b.label}</dd>`).join("")}</dl><p><b dir="ltr">1–8</b> כלים · <b dir="ltr">WASD / arrows</b> מיקוד משבצת · <b dir="ltr">Enter</b> בנייה / המשך אחרי הצלחה. כל הכפתורים זמינים גם עם Tab ואז Enter או Space. גרירה ימנית או גרירת אצבע מסובבת את המבט; גלגלת או צביטה משנה מרחק.</p><p>קריאה, תרגום ותכנון אינם גורעים מציון. זמן הייצור ושטח המפעל הם אתגרי יעילות נפרדים. המידע נשמר רק בדפדפן זה, ללא שמות תלמידים.</p>`,
+    `<h2>שליטה במפעל</h2><div class="control-lesson"><p><b>① בנייה</b> · בחרו כלי מהמדף ולחצו על משבצת פנויה. לחיצה על חלק קיים בוחרת אותו.</p><p><b>② סיבוב</b> · בחרו חלק ואז לחצו ↻ או R. החץ שלו מראה את כיוון היציאה.</p><p><b>③ העברה</b> · לחצו ↔ או M, בחרו חלק, ואז משבצת פנויה. אין צורך לגרור.</p><p><b>מחיקה וביטול</b> · X מפעיל מצב מחיקה; Delete מוחק מיד את החלק הנבחר. ${macKeyboard ? "⌘ Z" : "Ctrl Z"} מחזיר את העריכה האחרונה. Esc מבטל את הבחירה או הכלי בלי לשנות חלקים שכבר נבנו.</p></div><dl class="shortcut-list">${CONTROL_BINDINGS.filter(b => b.id !== "next").map(b => `<dt><kbd dir="ltr">${shortcutKey(b, macKeyboard)}</kbd></dt><dd>${b.label}</dd>`).join("")}</dl><p><b dir="ltr">1–8</b> כלים · <b dir="ltr">WASD / arrows</b> מיקוד משבצת · <b dir="ltr">Enter</b> בנייה / המשך אחרי הצלחה. כל הכפתורים זמינים גם עם Tab ואז Enter או Space. גרירה ימנית או גרירת אצבע מסובבת את המבט; גלגלת או צביטה משנה מרחק.</p><p>קריאה, תרגום ותכנון אינם גורעים מציון. זמן הייצור ושטח המפעל הם אתגרי יעילות נפרדים. המידע נשמר רק בדפדפן זה, ללא שמות תלמידים.</p>`,
   );
 $("read").onclick = () => {
   sim.readingSupport++;
@@ -516,6 +512,7 @@ $("music-mix").onclick = () => {
 $("close-audio").onclick = () => {
   $("audio-panel").hidden = true;
   $("music-mix").setAttribute("aria-expanded", "false");
+  $("music-mix").focus({ preventScroll: true });
 };
 musicToggle.onchange = () => soundtrack.setMusicEnabled(musicToggle.checked);
 effectsToggle.onchange = () =>

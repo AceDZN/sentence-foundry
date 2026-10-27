@@ -1,4 +1,5 @@
 {
+  "phase": "tail-recheck",
   "reports": [
     {
       "scope": "desktop",
@@ -40,100 +41,12 @@
     },
     {
       "scope": "desktop",
-      "name": "modifier-guards",
-      "navigations": 0
-    },
-    {
-      "scope": "desktop",
-      "name": "occupied-move-canceled",
-      "challenge": 1,
-      "mode": "editing",
-      "controls": {
-        "coachVisible": true,
-        "learned": [
-          "rotate"
-        ],
-        "moveFrom": null,
-        "undoCount": 0,
-        "shortcuts": {
-          "move": "M",
-          "rotate": "R",
-          "erase": "X",
-          "undo": "⌘ Z",
-          "camera": "V",
-          "cancel-edit": "Esc",
-          "run": "Space",
-          "pause": "P",
-          "restart": "Shift R",
-          "hint": "I",
-          "campaign-open": "L",
-          "help": "H",
-          "mute": "U",
-          "music-mix": "B",
-          "motion": "N",
-          "fullscreen": "F",
-          "read": "T",
-          "speak": "Y",
-          "paraphrase": "O",
-          "receiver": "Shift O",
-          "contract-toggle": "C",
-          "next": "Enter"
-        }
-      },
-      "selected": null,
-      "editMode": "place"
-    },
-    {
-      "scope": "desktop",
-      "name": "erase-delete-undo",
-      "challenge": 1,
-      "mode": "editing",
-      "controls": {
-        "coachVisible": true,
-        "learned": [
-          "rotate",
-          "move"
-        ],
-        "moveFrom": null,
-        "undoCount": 1,
-        "shortcuts": {
-          "move": "M",
-          "rotate": "R",
-          "erase": "X",
-          "undo": "⌘ Z",
-          "camera": "V",
-          "cancel-edit": "Esc",
-          "run": "Space",
-          "pause": "P",
-          "restart": "Shift R",
-          "hint": "I",
-          "campaign-open": "L",
-          "help": "H",
-          "mute": "U",
-          "music-mix": "B",
-          "motion": "N",
-          "fullscreen": "F",
-          "read": "T",
-          "speak": "Y",
-          "paraphrase": "O",
-          "receiver": "Shift O",
-          "contract-toggle": "C",
-          "next": "Enter"
-        }
-      },
-      "selected": null,
-      "editMode": "place"
-    },
-    {
-      "scope": "desktop",
       "name": "reading-campaign-bindings",
       "challenge": 3,
       "mode": "editing",
       "controls": {
         "coachVisible": true,
         "learned": [
-          "rotate",
-          "move",
           "place"
         ],
         "moveFrom": null,

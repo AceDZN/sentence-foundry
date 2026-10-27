@@ -665,16 +665,6 @@
       "arm": "ready"
     },
     "assetInfo": {
-      "washer": {
-        "meshes": 1,
-        "triangles": 18144,
-        "animations": 0,
-        "size": [
-          0.6279907822608948,
-          1,
-          0.6232910752296448
-        ]
-      },
       "arm": {
         "meshes": 1,
         "triangles": 18108,
@@ -683,6 +673,16 @@
           1.0000001192092896,
           0.892333984375,
           0.5132446885108948
+        ]
+      },
+      "washer": {
+        "meshes": 1,
+        "triangles": 18144,
+        "animations": 0,
+        "size": [
+          0.6279907822608948,
+          1,
+          0.6232910752296448
         ]
       }
     },
@@ -694,8 +694,8 @@
     "audioState": {
       "unlocked": true,
       "contextState": "running",
-      "loadedCues": 13,
-      "musicLoaded": false,
+      "loadedCues": 14,
+      "musicLoaded": true,
       "musicEnabled": true,
       "effectsEnabled": true,
       "muted": false,
@@ -705,19 +705,19 @@
       "background": false,
       "reading": false,
       "effectiveMusicGain": 0.39,
-      "activeMusicLoops": 0,
-      "musicSourceCount": 0,
-      "musicStarts": 0,
-      "sfxPlayed": 6,
-      "activeEffects": 0,
-      "musicSeconds": 0,
-      "playhead": 0,
+      "activeMusicLoops": 1,
+      "musicSourceCount": 1,
+      "musicStarts": 1,
+      "sfxPlayed": 2,
+      "activeEffects": 1,
+      "musicSeconds": 68.57141666666666,
+      "playhead": 0.1226666666666667,
       "error": ""
     },
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.43,
-      "drawCalls": 56,
+      "meanFrameMs": 13.16,
+      "drawCalls": 57,
       "triangles": 171374,
       "resources": {
         "geometries": 35,
@@ -728,5 +728,5 @@
       }
     }
   },
-  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n☷\nהזמנות\nL\n?\nעזרה\nH\nⅡ\nהשהיה\nP\n♪\nU\n♫\nB\n≈\nN\n⛶\nF\nהזמנה 1 / 45 · משלוח ראשון\n⌃C\n⌕ מיליםT\n▷ ENY\nפרק 1 · המשמרת הראשונה\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nיעד: 1 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\n×\nכפתור או מקש — אותה פעולה\n① כלי 1–8 ואז לחיצה על משבצת\n② סיבוב R · העברה M\n③ מחיקה X · ביטול פעולה ⌘ Z\nמבט V · ביטול בחירה Esc\nבנייה: ⁦Belt⁩ · לחצו על משבצת פנויה · ↻ / R משנה כיוון\nבנו מסלול לפי ההזמנה. חלקים אפשר להעביר, לסובב או להחליף.\n8 חלקים\n↔\nהעברה\nM\n↻\nסיבוב\nR\n⌫\nמחיקה\nX\n↶\nביטול פעולה\n⌘ Z\n◉\nמבט\nV\n×\nביטול בחירה\nEsc\n▶ הפעלת המפעלSpace\n↺ איפוסShift R\nרמזI\nלחיצה על חלק לבחירה · העברה: חלק ואז מקום חדש · Delete מחיקת נבחר · גרירה ימנית לסיבוב המבט · H כל המקשים"
+  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n☷\nהזמנות\n?\nעזרה\nⅡ\nהשהיה\n♪\n♫\n≈\n⛶\nהזמנה 1 / 45 · משלוח ראשון\n⌃\n⌕ מילים\n▷ EN\nפרק 1 · המשמרת הראשונה\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nיעד: 1 תוצרים · התקבלו 0\n➜\nBelt\n↳\nCorner\n◈\nCleaning arm\n⚒\nPainter\n▤\nLabel press\n▣\nPacker\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\n×\nבונים. מפעילים. מתקנים.\n① בוחרים כלי ולוחצים על משבצת פנויה\n② בוחרים חלק כדי לסובב או להעביר אותו\n③ כל המקשים נמצאים בעזרה\nבנייה: ⁦Belt⁩ · לחצו על משבצת פנויה\nבנו מסלול לפי ההזמנה. חלקים אפשר להעביר, לסובב או להחליף.\n8 חלקים\n↔\nהעברה\n↻\nסיבוב\n⌫\nמחיקה\n↶\nביטול פעולה\n◉\nמבט\n×\nביטול בחירה\n▶ הפעלת המפעל\n↺ איפוס\nרמז\nלחיצה על חלק לבחירה · העברה: חלק ואז מקום חדש · Delete מחיקת נבחר · גרירה ימנית לסיבוב המבט · קיצורי מקשים בעזרה"
 }

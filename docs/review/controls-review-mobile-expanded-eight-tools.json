@@ -656,16 +656,6 @@
       "arm": "ready"
     },
     "assetInfo": {
-      "arm": {
-        "meshes": 1,
-        "triangles": 18108,
-        "animations": 0,
-        "size": [
-          1.0000001192092896,
-          0.892333984375,
-          0.5132446885108948
-        ]
-      },
       "washer": {
         "meshes": 1,
         "triangles": 18144,
@@ -674,6 +664,16 @@
           0.6279907822608948,
           1,
           0.6232910752296448
+        ]
+      },
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
         ]
       }
     },
@@ -702,16 +702,16 @@
       "sfxPlayed": 3,
       "activeEffects": 0,
       "musicSeconds": 68.57141666666666,
-      "playhead": 6.922666666666667,
+      "playhead": 0.8533333333333334,
       "error": ""
     },
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.33,
+      "meanFrameMs": 8.7,
       "drawCalls": 40,
       "triangles": 197846,
       "resources": {
-        "geometries": 23,
+        "geometries": 22,
         "textures": 16,
         "programs": 9,
         "productGroups": 0,
@@ -719,5 +719,5 @@
       }
     }
   },
-  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n☷\nL\n?\nH\nⅡ\nP\n♪\nU\n♫\nB\n≈\nN\n⛶\nF\nהזמנה 45 / 45 · משלוח הגמר לתערוכה\n⌃C\n⌕ מיליםT\n▷ ENY\nפרק 9 · המשלוח לתערוכה\n\nThe cleaning arm washes the service arms before the painter coats them. Cure the paint and attach an identity label to each arm; either job may come first. Pack the arms, open the packages for inspection, and seal them again without losing their identity labels. Finally, attach a dispatch label outside every package.\n\nיעד: 3 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\n7\n☀\nDryer\n8\n⋈\nUnpacker\nBelt\n\nMoves an item straight to the next tile.\n\nבנייה: ⁦Belt⁩ · לחצו על משבצת פנויה · ↻ / R משנה כיוון\nקראו את ההזמנה ובנו מסלול. עצירה מחזירה לעריכה.\n0 חלקים\n↔\nהעברה\nM\n↻\nסיבוב\nR\n⌫\nמחיקה\nX\n↶\nביטול פעולה\n⌘ Z\n◉\nמבט\nV\n×\nביטול בחירה\nEsc\n▶ הפעלת המפעלSpace\n↺ Shift R\nרמזI\nלחיצה על חלק לבחירה · העברה: חלק ואז מקום חדש · Delete מחיקת נבחר · גרירה ימנית לסיבוב המבט · H כל המקשים"
+  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n☷\n?\nⅡ\n♪\n♫\n≈\n⛶\nהזמנה 45 / 45 · משלוח הגמר לתערוכה\n⌃\n⌕ מילים\n▷ EN\nפרק 9 · המשלוח לתערוכה\n\nThe cleaning arm washes the service arms before the painter coats them. Cure the paint and attach an identity label to each arm; either job may come first. Pack the arms, open the packages for inspection, and seal them again without losing their identity labels. Finally, attach a dispatch label outside every package.\n\nיעד: 3 תוצרים · התקבלו 0\n➜\nBelt\n↳\nCorner\n◈\nCleaning arm\n⚒\nPainter\n▤\nLabel press\n▣\nPacker\n☀\nDryer\n⋈\nUnpacker\nBelt\n\nMoves an item straight to the next tile.\n\nבנייה: ⁦Belt⁩ · לחצו על משבצת פנויה\nקראו את ההזמנה ובנו מסלול. עצירה מחזירה לעריכה.\n0 חלקים\n↔\nהעברה\n↻\nסיבוב\n⌫\nמחיקה\n↶\nביטול פעולה\n◉\nמבט\n×\nביטול בחירה\n▶ הפעלת המפעל\n↺\nרמז\nלחיצה על חלק לבחירה · העברה: חלק ואז מקום חדש · Delete מחיקת נבחר · גרירה ימנית לסיבוב המבט · קיצורי מקשים בעזרה"
 }

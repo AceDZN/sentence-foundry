@@ -16,8 +16,6 @@
     "controls": {
       "coachVisible": true,
       "learned": [
-        "rotate",
-        "move",
         "place"
       ],
       "moveFrom": null,
@@ -652,7 +650,7 @@
     ],
     "medals": [
       {
-        "time": 6.658133333333316,
+        "time": 6.667033333333315,
         "footprint": 11,
         "attempts": 1,
         "hints": 0,
@@ -707,15 +705,15 @@
       "activeMusicLoops": 0,
       "musicSourceCount": 1,
       "musicStarts": 1,
-      "sfxPlayed": 18,
-      "activeEffects": 3,
+      "sfxPlayed": 7,
+      "activeEffects": 7,
       "musicSeconds": 68.57141666666666,
-      "playhead": 3.8986666666666667,
+      "playhead": 0,
       "error": ""
     },
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.34,
+      "meanFrameMs": 13.96,
       "drawCalls": 44,
       "triangles": 197796,
       "resources": {
@@ -727,5 +725,5 @@
       }
     }
   },
-  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n☷\nהזמנות\nL\n?\nעזרה\nH\nⅡ\nהשהיה\nP\n♩\nU\n♫\nB\n≈\nN\n⛶\nF\nהזמנה 3 / 45 · מי מקבל צבע?\n⌃C\n⌕ מיליםT\n▷ ENY\nפרק 1 · המשמרת הראשונה\n\nThe painter paints the crate. Send it to the exit unpacked.\n\nהזמנת לקוח אחרתShift O\nיעד: 1 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nבנייה: ⁦Belt⁩ · לחצו על משבצת פנויה · ↻ / R משנה כיוון\nקראו את ההזמנה ובנו מסלול. עצירה מחזירה לעריכה.\n0 חלקים\n↔\nהעברה\nM\n↻\nסיבוב\nR\n⌫\nמחיקה\nX\n↶\nביטול פעולה\n⌘ Z\n◉\nמבט\nV\n×\nביטול בחירה\nEsc\n▶ הפעלת המפעלSpace\n↺ איפוסShift R\nרמזI\nלחיצה על חלק לבחירה · העברה: חלק ואז מקום חדש · Delete מחיקת נבחר · גרירה ימנית לסיבוב המבט · H כל המקשים"
+  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n☷\nהזמנות\n?\nעזרה\nⅡ\nהשהיה\n♩\n♫\n≈\n⛶\nהזמנה 3 / 45 · מי מקבל צבע?\n⌃\n⌕ מילים\n▷ EN\nפרק 1 · המשמרת הראשונה\n\nThe painter paints the crate. Send it to the exit unpacked.\n\nהזמנת לקוח אחרת\nיעד: 1 תוצרים · התקבלו 0\n➜\nBelt\n↳\nCorner\n◈\nCleaning arm\n⚒\nPainter\n▤\nLabel press\n▣\nPacker\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nבנייה: ⁦Belt⁩ · לחצו על משבצת פנויה\nקראו את ההזמנה ובנו מסלול. עצירה מחזירה לעריכה.\n0 חלקים\n↔\nהעברה\n↻\nסיבוב\n⌫\nמחיקה\n↶\nביטול פעולה\n◉\nמבט\n×\nביטול בחירה\n▶ הפעלת המפעל\n↺ איפוס\nרמז\nלחיצה על חלק לבחירה · העברה: חלק ואז מקום חדש · Delete מחיקת נבחר · גרירה ימנית לסיבוב המבט · קיצורי מקשים בעזרה"
 }

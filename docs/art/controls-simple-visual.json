@@ -1,0 +1,218 @@
+[
+  {
+    "name": "desktop-six",
+    "errors": [],
+    "buttonKeycaps": 0,
+    "layout": [
+      {
+        "id": "palette",
+        "text": "➜\nBelt\n↳\nCorner\n◈\nCleaning arm\n⚒\nPainter\n▤\nLabel press\n▣\nPacker",
+        "rect": {
+          "x": 1272,
+          "y": 86,
+          "width": 147,
+          "height": 224,
+          "top": 86,
+          "right": 1419,
+          "bottom": 310,
+          "left": 1272
+        }
+      },
+      {
+        "id": "inspector",
+        "text": "Belt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה",
+        "rect": {
+          "x": 1270,
+          "y": 332,
+          "width": 148,
+          "height": 97.1875,
+          "top": 332,
+          "right": 1418,
+          "bottom": 429.1875,
+          "left": 1270
+        }
+      },
+      {
+        "id": "control-coach",
+        "text": "×\nבונים. מפעילים. מתקנים.\n① בוחרים כלי ולוחצים על משבצת פנויה\n② בוחרים חלק כדי לסובב או להעביר אותו\n③ כל המקשים נמצאים בעזרה",
+        "rect": {
+          "x": 24,
+          "y": 595.609375,
+          "width": 300,
+          "height": 121.390625,
+          "top": 595.609375,
+          "right": 324,
+          "bottom": 717,
+          "left": 24
+        }
+      },
+      {
+        "id": "status",
+        "text": "בנו מסלול לפי ההזמנה. חלקים אפשר להעביר, לסובב או להחליף.\n8 חלקים",
+        "rect": {
+          "x": 24,
+          "y": 735,
+          "width": 1392,
+          "height": 35,
+          "top": 735,
+          "right": 1416,
+          "bottom": 770,
+          "left": 24
+        }
+      },
+      {
+        "id": "FOOTER",
+        "text": "↔\nהעברה\n↻\nסיבוב\n⌫\nמחיקה\n↶\nביטול פעולה\n◉\nמבט\n×\nביטול בחירה\n▶ הפעלת המפעל\n↺ איפוס\nרמז",
+        "rect": {
+          "x": 24,
+          "y": 818,
+          "width": 1392,
+          "height": 53,
+          "top": 818,
+          "right": 1416,
+          "bottom": 871,
+          "left": 24
+        }
+      }
+    ]
+  },
+  {
+    "name": "mobile-six",
+    "errors": [],
+    "buttonKeycaps": 0,
+    "layout": [
+      {
+        "id": "palette",
+        "text": "➜\nBelt\n↳\nCorner\n◈\nCleaning arm\n⚒\nPainter\n▤\nLabel press\n▣\nPacker",
+        "rect": {
+          "x": 12,
+          "y": 642,
+          "width": 366,
+          "height": 55,
+          "top": 642,
+          "right": 378,
+          "bottom": 697,
+          "left": 12
+        }
+      },
+      {
+        "id": "inspector",
+        "text": "Belt\n\nMoves an item straight to the next tile.",
+        "rect": {
+          "x": 12,
+          "y": 593,
+          "width": 366,
+          "height": 43,
+          "top": 593,
+          "right": 378,
+          "bottom": 636,
+          "left": 12
+        }
+      },
+      {
+        "id": "control-coach",
+        "text": "×\nבונים. מפעילים. מתקנים.\n① בוחרים כלי ולוחצים על משבצת פנויה\n② בוחרים חלק כדי לסובב או להעביר אותו\n③ כל המקשים נמצאים בעזרה",
+        "rect": {
+          "x": 12,
+          "y": 455,
+          "width": 366,
+          "height": 83,
+          "top": 455,
+          "right": 378,
+          "bottom": 538,
+          "left": 12
+        }
+      },
+      {
+        "id": "status",
+        "text": "בנו מסלול לפי ההזמנה. חלקים אפשר להעביר, לסובב או להחליף.\n8 חלקים",
+        "rect": {
+          "x": 12,
+          "y": 552,
+          "width": 366,
+          "height": 26,
+          "top": 552,
+          "right": 378,
+          "bottom": 578,
+          "left": 12
+        }
+      },
+      {
+        "id": "FOOTER",
+        "text": "↔\nהעברה\n↻\nסיבוב\n⌫\nמחיקה\n↶\nביטול פעולה\n◉\nמבט\n×\nביטול בחירה\n▶ הפעלת המפעל\n↺\nרמז",
+        "rect": {
+          "x": 12,
+          "y": 723,
+          "width": 366,
+          "height": 96,
+          "top": 723,
+          "right": 378,
+          "bottom": 819,
+          "left": 12
+        }
+      }
+    ]
+  },
+  {
+    "name": "mobile-eight",
+    "buttonKeycaps": 0,
+    "layout": [
+      {
+        "id": "palette",
+        "text": "➜\nBelt\n↳\nCorner\n◈\nCleaning arm\n⚒\nPainter\n▤\nLabel press\n▣\nPacker\n☀\nDryer\n⋈\nUnpacker",
+        "rect": {
+          "x": 12,
+          "y": 605,
+          "width": 366,
+          "height": 92,
+          "top": 605,
+          "right": 378,
+          "bottom": 697,
+          "left": 12
+        }
+      },
+      {
+        "id": "inspector",
+        "text": "Belt\n\nMoves an item straight to the next tile.",
+        "rect": {
+          "x": 12,
+          "y": 554,
+          "width": 366,
+          "height": 43,
+          "top": 554,
+          "right": 378,
+          "bottom": 597,
+          "left": 12
+        }
+      },
+      {
+        "id": "status",
+        "text": "קראו את ההזמנה ובנו מסלול. עצירה מחזירה לעריכה.\n0 חלקים",
+        "rect": {
+          "x": 12,
+          "y": 513,
+          "width": 366,
+          "height": 26,
+          "top": 513,
+          "right": 378,
+          "bottom": 539,
+          "left": 12
+        }
+      },
+      {
+        "id": "FOOTER",
+        "text": "↔\nהעברה\n↻\nסיבוב\n⌫\nמחיקה\n↶\nביטול פעולה\n◉\nמבט\n×\nביטול בחירה\n▶ הפעלת המפעל\n↺\nרמז",
+        "rect": {
+          "x": 12,
+          "y": 723,
+          "width": 366,
+          "height": 96,
+          "top": 723,
+          "right": 378,
+          "bottom": 819,
+          "left": 12
+        }
+      }
+    ]
+  }
+]

@@ -775,16 +775,10 @@ body.reduced * { animation:none!important; }
 
 @media(max-width:700px){#inspector{text-align:left;direction:ltr;}#inspector strong{display:block;margin-bottom:2px;}#inspector p{display:block;margin:0;font-size:9px;}}
 
-/* Every action advertises the same shortcut used by keyboard dispatch. */
-kbd { display:inline-block; direction:ltr; white-space:nowrap; font-family:Arial,sans-serif; font-size:10px; line-height:1.35; opacity:1; padding:2px 4px; border:1px solid #ac9c7b; border-bottom-width:2px; border-radius:4px; background:#fff9e8; color:#31454b; margin:0; font-weight:600; }
+/* Shortcut reference stays in help; the workshop buttons remain quiet. */
 .edit-controls button {display:inline-flex;align-items:center;justify-content:center;gap:5px;}
-footer button>kbd {margin-inline-start:4px;}
 nav button {display:inline-flex;align-items:center;justify-content:center;gap:5px;}
-nav kbd {font-size:8px;padding:1px 3px;background:#355866;color:#fff0cb;border-color:#657879;}
-.contract-meta kbd,.contract-actions kbd {font-size:8px;padding:0 3px;margin-inline-start:4px;}
-#run>kbd {font-size:9px;background:#eaf3de;color:#315040;border-color:#93af80;}
-#control-coach kbd {font-size:9px;padding:0 3px;}
-#control-coach {width:320px;}
+#dialog kbd {display:inline-block;direction:ltr;white-space:nowrap;font-family:Arial,sans-serif;font-size:11px;line-height:1.35;padding:2px 5px;border:1px solid #c7b48f;border-radius:3px;background:#fff9e8;color:#31454b;opacity:1;margin:0;}
 #dialog .shortcut-list {grid-template-columns:80px 1fr;gap:10px 14px;align-items:center;}
 #dialog .shortcut-list dt {text-align:center;}
 #dialog .shortcut-list dd {font-size:12px;line-height:1.5;}
@@ -797,25 +791,21 @@ nav kbd {font-size:8px;padding:1px 3px;background:#355866;color:#fff0cb;border-c
   #control-coach {bottom:219px;}
 }
 @media(max-width:700px) {
-  nav button {flex-direction:column;gap:1px;min-width:28px;height:42px;padding:3px 4px;line-height:1;}
-  nav kbd {font-size:8px;line-height:1.05;padding:1px 2px;}
+  nav button {min-width:28px;min-height:33px;padding:5px;}
   .edit-controls {display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;width:100%;}
-  .edit-controls button {display:flex;flex-direction:column;gap:3px;padding:5px 1px;min-height:62px;font-size:14px;white-space:normal;}
+  .edit-controls button {display:flex;flex-direction:column;gap:3px;padding:5px 1px;min-height:46px;font-size:14px;white-space:normal;}
   .edit-controls button>span {font-size:9px;line-height:1.1;white-space:nowrap;}
-  .edit-controls button>kbd {display:inline-block;font-size:9px;padding:1px 3px;margin:0;}
-  footer>#restart {padding:6px 8px;font-size:12px;}
+  footer>#restart {padding:6px 9px;font-size:12px;}
   footer>#restart>span {display:none;}
-  footer>#hint {padding:6px 9px;}
-  footer .primary {min-width:170px;padding:6px 10px;}
-  footer .primary>kbd {font-size:8px;}
-  #control-tip {bottom:146px;font-size:9px;}
-  #palette {bottom:167px;}
-  #inspector {bottom:228px;}
-  #status {bottom:286px;}
-  body:has(#palette.expanded) #inspector {bottom:267px;}
-  body:has(#palette.expanded) #status {bottom:325px;}
-  #control-coach {width:calc(100% - 24px);bottom:326px;padding-block:8px;}
-  #control-coach span {line-height:1.8;}
+  footer>#hint {padding:6px 10px;}
+  footer .primary {min-width:175px;padding:6px 14px;}
+  #control-tip {bottom:127px;font-size:10px;}
+  #palette {bottom:147px;}
+  #inspector {bottom:208px;}
+  #status {bottom:266px;}
+  body:has(#palette.expanded) #inspector {bottom:247px;}
+  body:has(#palette.expanded) #status {bottom:305px;}
+  #control-coach {bottom:306px;padding-block:9px;}
+  #control-coach span {line-height:1.6;}
   #keyboard-help {font-size:8px;line-height:1.3;}
 }
-#palette kbd {color:#31454b;}
