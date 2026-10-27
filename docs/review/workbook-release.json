@@ -1,0 +1,315 @@
+{
+  "release": "2026-10-27",
+  "commit": "b0e33bf",
+  "base": "https://assets.acedzn.xyz/games/sentence-foundry/2026-10-27/",
+  "files": 34,
+  "bytes": 6658862,
+  "results": [
+    {
+      "file": "assets/heebo-hebrew-400-normal-CVTJgQVK.woff2",
+      "status": 200,
+      "bytes": 5084,
+      "sha256": "2bc607f150e17d5e334f2ce917a2385661f5f4457f212b5b3bed6a22fc1d2077",
+      "matches": true,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-hebrew-400-normal-DoqplqF9.woff",
+      "status": 200,
+      "bytes": 6544,
+      "sha256": "733f767fd2666807d86bd4fc7ccee34d5d40093b2280b77864b6fe5f11bdd762",
+      "matches": true,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-hebrew-600-normal-CGRgQ0cj.woff2",
+      "status": 200,
+      "bytes": 5108,
+      "sha256": "50bb6125e9c76367d26dc5d0e5a7b55f48ef28abe75cb4979c9ab3fe0a107927",
+      "matches": true,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-hebrew-600-normal-OHUSVRAa.woff",
+      "status": 200,
+      "bytes": 6596,
+      "sha256": "bb815bb9e583aff35a3bf49807e64d888307263e1a378fa30582e2bbd5225f99",
+      "matches": true,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-hebrew-800-normal-CDdwy3LD.woff2",
+      "status": 200,
+      "bytes": 5168,
+      "sha256": "2854acdc4dd10739eaa1daceb1a4373574523f70548128f05db6ce98ab908c5c",
+      "matches": true,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-hebrew-800-normal-DvzqWKY1.woff",
+      "status": 200,
+      "bytes": 6608,
+      "sha256": "937db032408ef998d2e3154b45b5aa4295b6b2aee199865cf162610cd0954dbb",
+      "matches": true,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-400-normal-BGyEuwIV.woff2",
+      "status": 200,
+      "bytes": 11956,
+      "sha256": "2fbe59e5561759450e111cff78825304c9278ec6ba5e808cbaff1c4a97dfa6fa",
+      "matches": true,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-400-normal-BVgBBEsj.woff",
+      "status": 200,
+      "bytes": 15636,
+      "sha256": "1933de59603701207891e7045dd2e27b105a6e47604c9719eeac260083a76cab",
+      "matches": true,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-600-normal-2W86uxnp.woff",
+      "status": 200,
+      "bytes": 15804,
+      "sha256": "b46f026a18775272f2ebcafb832c58b35e8d20087bbd2bc252561000fd685e52",
+      "matches": true,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-600-normal-C0GLQ-RT.woff2",
+      "status": 200,
+      "bytes": 12256,
+      "sha256": "b31610e11eb93ea9ee33f4847305bf9a6a3dc76e777214482877db9d7f211c94",
+      "matches": true,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-800-normal-CXX3wFtI.woff2",
+      "status": 200,
+      "bytes": 12132,
+      "sha256": "4890f322303544cf75def54d1065880f017dfe173f15d1b89a1a216e9855fe58",
+      "matches": true,
+      "contentType": "font/woff2",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/heebo-latin-800-normal-jzg0ZXtx.woff",
+      "status": 200,
+      "bytes": 15708,
+      "sha256": "768677de18dd82f90e320ed5421cc5f64f5ddbbcc6e604d26c36a4ef763adc42",
+      "matches": true,
+      "contentType": "font/woff",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/index-B90myA_Q.css",
+      "status": 200,
+      "bytes": 16861,
+      "sha256": "940168e260176732973035145941248005db4ecaf6715cc4f62b7a9786e73180",
+      "matches": true,
+      "contentType": "text/css; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/index-DyQ3ROuJ.js",
+      "status": 200,
+      "bytes": 775809,
+      "sha256": "692672ca1eb277db2e31d251aea6674c14583c06670b5fa5f09e430d480de190",
+      "matches": true,
+      "contentType": "text/javascript; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/brass-and-belts.mp3",
+      "status": 200,
+      "bytes": 957286,
+      "sha256": "a78d7ca59d3671a7ea243c875e5f671894ba6b119ae508fcc67fbbc36738f35f",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/delivery.mp3",
+      "status": 200,
+      "bytes": 5383,
+      "sha256": "7bf15f3b400ba9112b7f9e27add23f09d9ce1c755ce6f1e1e94a9c90f04ec5a2",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/dry.mp3",
+      "status": 200,
+      "bytes": 4996,
+      "sha256": "42ea7b33428535de723fcb05df84e0081e0a6ee9e1e57f40123bc43ba7f77a83",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/label.mp3",
+      "status": 200,
+      "bytes": 2573,
+      "sha256": "ef6407fbece520364f806ab2adaf8bf6ae212f3e05b8c9958249cbe27e23ce59",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/mistake.mp3",
+      "status": 200,
+      "bytes": 3193,
+      "sha256": "fd4851f82c3fe704ceaa5bd7fdd38af47bd4768d2163acd7edc5ba8673e33d20",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/pack.mp3",
+      "status": 200,
+      "bytes": 2492,
+      "sha256": "72d17a74e197900476110c47e0c850e24772f75f235915a84186a83d9c76de39",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/paint.mp3",
+      "status": 200,
+      "bytes": 3904,
+      "sha256": "d670624b2b30fb2df52148d6009ee62689ba5c5a066f94919a382b5a62c52249",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/place.mp3",
+      "status": 200,
+      "bytes": 2103,
+      "sha256": "62a1a23c16f44f8170b769560302668a7587b1180168f6afc3fcb774738ca3a0",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/remove.mp3",
+      "status": 200,
+      "bytes": 2103,
+      "sha256": "bcde114e4058643e92a18714ad1b39791affe3d1a18241090aa809a5d13c3bb6",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/rotate.mp3",
+      "status": 200,
+      "bytes": 2233,
+      "sha256": "4bff7a1dc93b1b9e538866cb9ab878ba0fbc86239212faf6aecb6622c4600fb6",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/start.mp3",
+      "status": 200,
+      "bytes": 3167,
+      "sha256": "0f4291d2c5ffe0dc9b407182b597b16a1ba2183fbf1e237358ac5ac2d780ca3d",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/success.mp3",
+      "status": 200,
+      "bytes": 9311,
+      "sha256": "a492c7854c00196ce9684df170ae15c9e3f24bd60db8a84be5777ea7c86b031e",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/unpack.mp3",
+      "status": 200,
+      "bytes": 3508,
+      "sha256": "a1a0574d10d19681fbdfa75b4f37099fefc0a9fbb428e099cf2ff0c8e2e909bd",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "audio/wash.mp3",
+      "status": 200,
+      "bytes": 4686,
+      "sha256": "408e11a6541723755c0647fc546dd8ef88dfecc6e16b9435a0c5ea7cbe1b869b",
+      "matches": true,
+      "contentType": "audio/mpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 6594,
+      "sha256": "8dacb27962c632d6bf7f2ffefe12aa1425815ebe4924b7297322a47dce256514",
+      "matches": true,
+      "contentType": "text/html; charset=utf-8",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "models/decor/pump.glb",
+      "status": 200,
+      "bytes": 1292920,
+      "sha256": "45da97237e0986fe13d6c827fa23a59086b1cb07e05b4bd188a2ab34a19776a3",
+      "matches": true,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "models/decor/spotlight.glb",
+      "status": 200,
+      "bytes": 1127656,
+      "sha256": "4d6fecd566dc32d5e5349a18f207d5954f06079c033b18bc4e1c5d9c99ca814b",
+      "matches": true,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "models/service-arm.glb",
+      "status": 200,
+      "bytes": 1062788,
+      "sha256": "ee0c1eb2888452a29aa05f65bee2546389ad71fedcd5464b6618f94d7bb2e22f",
+      "matches": true,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "models/washer.glb",
+      "status": 200,
+      "bytes": 980760,
+      "sha256": "92849e8ec09b6893a68b57ef992dd379439fd45ee72bbcfa9bc4fcb36b148583",
+      "matches": true,
+      "contentType": "model/gltf-binary",
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "poster.jpg",
+      "status": 200,
+      "bytes": 269936,
+      "sha256": "d25e8f70277d6f65e6cd355f240814f3b963ae586dbf45b2c61da9e8c3452f52",
+      "matches": true,
+      "contentType": "image/jpeg",
+      "cacheControl": "public, max-age=31536000, immutable"
+    }
+  ]
+}

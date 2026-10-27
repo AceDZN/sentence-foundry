@@ -73,3 +73,12 @@ The human rejected always-visible keycaps as visual clutter. The current build r
 ## Workbook integration
 
 All 11 dedicated bridge unit cases pass: strict level bounds, explicit trusted origins, standalone/unknown-origin silence, same-origin preview limits, event ordering/deduplication and real wrong-output→repair→acceptance. The actual iframe review opens all 45 level links with correct fresh editable contracts and real models ready, receiving exactly ready→level-start with no automatic completion. Two first shipments built and completed through normal UI around Restart/Next produce ready, start1, complete1, start1, complete1, start2: ready once, positive production durations, no invented scores/stars. An explicit level1 link overrides an actual saved level2; standalone level45 posts nothing. Browser errors are empty. The lead inspected the actual late-link and completion captures and the direct gameplay JPEG poster. The installed skill action client also completed the first shipment against the bridge-enabled build.
+
+
+### Versioned release and real Workbook app
+
+The standard acedzn-tools release command ran all **65** game checks and the build from clean source commit `b0e33bf`, then published `games/sentence-foundry/2026-10-27/`. All **34 files / 6,658,862 bytes**, including the poster, returned HTTP200 and matched the local build by SHA-256 with immutable caching (`workbook-release.json`).
+
+The existing English Games app production build passed with the new 45-level catalog. Catalog/release7 and shared lesson/analytics9 tests, catalog/player typechecks and catalog/app lint pass. `tests/workbook-app-review.mjs` exercised the actual production-built shell on localhost4217 against the real R2 rewrite: home card→detail/45 levels/two lesson links→level45, then an actual level1 shipment and Next with exact bridge events. Portrait390px level26 loaded all four models/eight tools and accepted real touch placement/moving/undo. The app's privacy UI was set to essential cookies only through its normal button. No JS or relevant HTTP failures occurred, and the lead inspected the actual parent-player captures.
+
+The catalog integration merged in [acedzn-tools PR361](https://github.com/AceDZN/acedzn-tools/pull/361), merge commit `5c9ee0fae3ccb1ba538d8a82436fda9808ba7497`. The local primary checkout was fast-forwarded while preserving its existing unrelated work. Public deployment verification follows Vercel's production build queue; the release itself is already on R2.
