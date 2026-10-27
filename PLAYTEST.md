@@ -54,3 +54,12 @@ The final installed game-skill action client, with the previously documented ren
 The audio review passes again with **14 local MP3 buffers** (score plus 13 cues), gesture lock, first-mute silence, independent mix, reading pause, native speech ducking/cancellation, reload preferences, touch mixer and one retained music source across restarts and level changes. Assets are awaited before checking their loaded state. There are no audio/page/console errors. Native focus-loss remains the earlier documented headless limitation; this expansion does not turn that unexercised transition into a passing claim.
 
 These automated results establish implemented behavior and solvability. The human's original five-level playthrough informed this expansion; human playtesting of the new difficulty curve and learning effects remains separate.
+
+
+## Control bindings follow-up
+
+After the human noted that only rotation showed a key, every primary control now displays a visible keycap and exposes aria-keyshortcuts. `src/controls.ts` supplies button hints, keyboard dispatch and the full H guide. The footer pairs M move, R rotate, X erase mode, Ctrl/⌘ Z undo, V reset view and Esc cancel; direct Delete/Backspace remains available. Cancel clears the editing selection/mode without altering built parts; Undo restores an actual previous edit.
+
+`tests/controls-browser-review.mjs` passes independent desktop and 390×844 touch review with errors=[]: selection/rotation and button parity, held-key protection, physical KeyR/KeyM with Hebrew logical values (CDP emulation, not an OS layout switch), occupied moves, cancel parity, direct deletion versus erase mode, undo, V projection reset, Shift R reset, browser-modifier/input guards, native focused-button Enter, dialogs/mixer Escape priority, explicit P pause, real first-shipment Space/Enter completion, glossary/collapse/alternate-order bindings and chapter navigation. Every visible primary button has a visible keycap and accessible shortcut; mobile buttons/keycaps stay within the viewport, and the footer does not overlap the palette or status. The original 54 pure checks and production build pass.
+
+The lead inspected the actual action-client success capture, mobile toolbar and scrollable controls guide. A final action-client run follows the documented Metal launch adaptation. The guide remains dismissible; its initial first-job coach is limited to the first order. No language content, machinery or campaign progression was changed in this pass.

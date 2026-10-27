@@ -3,6 +3,7 @@ import { FoundryAudio } from "./audio";
 import { Foundry } from "./simulation";
 import { Workshop } from "./workshop";
 import { readCampaign, nextUnfinished } from "./campaign";
+import { CONTROL_BINDINGS, shortcutAria, shortcutKey, type ControlBinding } from "./controls";
 import {
   CONTRACTS,
   CHAPTERS,
@@ -101,6 +102,37 @@ const labels: Record<Tool, string> = {
   dry: "Dryer",
   unpack: "Unpacker",
 };
+const macKeyboard = /Mac|iPhone|iPad/.test(navigator.platform);
+function decorateControl(button: HTMLElement, binding: ControlBinding) {
+  button.querySelectorAll(":scope > kbd").forEach(k => k.remove());
+  const cap = document.createElement("kbd");
+  cap.dir = "ltr";
+  cap.textContent = shortcutKey(binding, macKeyboard);
+  button.append(cap);
+  button.title = `${binding.label} (${shortcutKey(binding, macKeyboard)})`;
+  button.setAttribute("aria-keyshortcuts", shortcutAria(binding));
+}
+function controlLabel(id: string, label: string) {
+  $(id).textContent = label;
+  const binding = CONTROL_BINDINGS.find(b => b.id === id);
+  if (binding) decorateControl($(id), binding);
+}
+function showControlHints() {
+  for (const binding of CONTROL_BINDINGS) decorateControl($(binding.id), binding);
+  for (const cap of document.querySelectorAll<HTMLElement>("[data-shortcut]")) {
+    const binding = CONTROL_BINDINGS.find(b => b.id === cap.dataset.shortcut);
+    if (binding) { cap.dir = "ltr"; cap.textContent = shortcutKey(binding, macKeyboard); }
+  }
+}
+function cancelEdit() {
+  if (!["editing", "review"].includes(sim.mode)) return;
+  selected = null;
+  moveFrom = null;
+  editMode = "place";
+  rotation = 0;
+  editNotice = "";
+  refresh(true);
+}
 function unlockAudio(event: Event) {
   if ((event.target as HTMLElement).closest("#mute")) return;
   void soundtrack.unlock();
@@ -171,7 +203,7 @@ function buildPalette() {
   $("palette").innerHTML = order
     .map(
       (kind, i) =>
-        `<button data-tool="${kind}" title="${labels[kind]} · מקש ${i + 1}" aria-label="${labels[kind]}" aria-pressed="${tool === kind}"><kbd>${i + 1}</kbd><span class="symbol">${symbols[kind]}</span><small lang="en">${labels[kind]}</small></button>`,
+        `<button data-tool="${kind}" title="${labels[kind]} · מקש ${i + 1}" aria-label="${labels[kind]}" aria-keyshortcuts="${i + 1}" aria-pressed="${tool === kind}"><kbd>${i + 1}</kbd><span class="symbol">${symbols[kind]}</span><small lang="en">${labels[kind]}</small></button>`,
     )
     .join("");
   document
@@ -244,16 +276,16 @@ function refresh(force = false) {
   saveCampaign();
   $("level-label").textContent = `הזמנה ${sim.level + 1} / ${CONTRACTS.length} · ${sim.contract.titleHe}`;
   $("chapter-label").textContent = `פרק ${sim.contract.chapter + 1} · ${CHAPTERS[sim.contract.chapter].titleHe}`;
-  $("campaign-open").title = `${Object.keys(campaign.completed).length} / ${CONTRACTS.length} הושלמו · בחירת הזמנה`;
+  $("campaign-open").title = `${Object.keys(campaign.completed).length} / ${CONTRACTS.length} הושלמו · בחירת הזמנה (L)`;
   $("control-coach").hidden = !coachVisible || sim.level !== 0 || sim.mode === "running" || sim.mode === "success" || finaleVisible;
-  for (const action of ["place", "rotate", "move"]) $(`learn-${action}`).classList.toggle("learned", learned.has(action));
   const selectedTile = selected && sim.tiles.find(t => key(t) === key(selected!));
   $("control-tip").textContent = sim.mode === "running"
     ? "הקו עובד · לחצו עצירה כדי לסובב, להעביר או למחוק חלקים"
     : editMode === "move" ? (moveFrom ? "↔ עכשיו לחצו על המקום החדש · Esc מבטל העברה" : "↔ שלב 1: לחצו על החלק שרוצים להעביר")
-    : editMode === "erase" ? "⌫ לחצו על חלק למחיקה · לחיצה נוספת על מחיקה חוזרת לבנייה"
-    : selectedTile ? `נבחר: ${"\u2066" + labels[selectedTile.kind] + "\u2069"} · ↻ / R לסיבוב · ↔ / M להעברה · Delete למחיקה`
+    : editMode === "erase" ? "⌫ לחצו על חלק למחיקה · X שוב או Esc מבטלים את מצב המחיקה"
+    : selectedTile ? `נבחר: ${"\u2066" + labels[selectedTile.kind] + "\u2069"} · ↻ / R לסיבוב · ↔ / M להעברה · Delete למחיקה · Esc ביטול בחירה`
     : `בנייה: ${"\u2066" + labels[tool] + "\u2069"} · לחצו על משבצת פנויה · ↻ / R משנה כיוון`;
+  ($("cancel-edit") as HTMLButtonElement).disabled = !["editing", "review"].includes(sim.mode) || !(selected || moveFrom || editMode !== "place" || rotation !== 0);
   ($("undo") as HTMLButtonElement).disabled = !undoHistory.length || !["editing", "review"].includes(sim.mode);
   for (const id of ["move", "rotate", "erase"]) ($<HTMLButtonElement>(id)).disabled = !["editing", "review"].includes(sim.mode);
   $("order").textContent = sim.text;
@@ -261,7 +293,7 @@ function refresh(force = false) {
     `יעד: ${sim.contract.count} תוצרים · התקבלו ${sim.accepted}`;
   $("paraphrase").hidden = !sim.contract.alternateText;
   $("receiver").hidden = !sim.contract.receiverAlternative;
-  $("paraphrase").textContent = sim.activeText ? "ניסוח סביל" : "ניסוח פעיל";
+  controlLabel("paraphrase", sim.activeText ? "ניסוח סביל" : "ניסוח פעיל");
   $("status-text").textContent = status();
   $("build-size").textContent = `${sim.tiles.length}${sim.contract.maxPieces ? " / " + sim.contract.maxPieces : ""} חלקים`;
   $("run").classList.toggle("running", sim.mode === "running");
@@ -271,9 +303,9 @@ function refresh(force = false) {
   ($("run") as HTMLButtonElement).disabled = sim.mode === "paused";
   $("pause").setAttribute("aria-pressed", String(sim.mode === "paused"));
   $("mute").setAttribute("aria-pressed", String(muted));
-  $("mute").textContent = muted ? "♩" : "♪";
+  controlLabel("mute", muted ? "♩" : "♪");
   ($("speak") as HTMLButtonElement).disabled = muted;
-  $("speak").title = muted ? "בטלו השתקה כדי לשמוע את ההזמנה" : "הקראת ההזמנה";
+  $("speak").title = muted ? "בטלו השתקה כדי לשמוע את ההזמנה" : "הקראת ההזמנה (Y)";
   $("motion").setAttribute("aria-pressed", String(reduced));
   $("move").setAttribute("aria-pressed", String(editMode === "move"));
   $("erase").setAttribute("aria-pressed", String(editMode === "erase"));
@@ -310,7 +342,7 @@ function refresh(force = false) {
     const chapterEnd = (sim.level + 1) % 5 === 0;
     $("result-title").textContent = final ? "משלוח הגמר התקבל!" : chapterEnd ? `סיימתם את פרק ${sim.contract.chapter + 1}!` : "המשלוח יצא לדרך";
     $("result-detail").textContent = `${sim.contract.count} תוצרים תקינים · ${sim.time.toFixed(1)} שניות ייצור · ${sim.tiles.length} חלקים · ${sim.attempts} ניסיונות${sim.hints ? " · בעזרת רמז" : " · ללא רמז"}. הושלמו ${Object.keys(campaign.completed).length} / ${CONTRACTS.length}. קריאה ובנייה אינן נספרות בזמן.`;
-    $("next").textContent = final ? "לשאר ההזמנות ☷" : "להזמנה הבאה ←";
+    controlLabel("next", final ? "לשאר ההזמנות ☷" : "להזמנה הבאה ←");
   }
   try {
     localStorage.setItem("sf-events", JSON.stringify(sim.events));
@@ -347,7 +379,7 @@ function closeDialog() {
 $("contract-toggle").onclick = () => {
   const collapsed = $("contract").classList.toggle("collapsed");
   $("contract-toggle").setAttribute("aria-expanded", String(!collapsed));
-  $("contract-toggle").textContent = collapsed ? "⌄" : "⌃";
+  controlLabel("contract-toggle", collapsed ? "⌄" : "⌃");
 };
 $("close-dialog").onclick = closeDialog;
 ($("dialog") as HTMLDialogElement).addEventListener("cancel", (e) => {
@@ -356,7 +388,7 @@ $("close-dialog").onclick = closeDialog;
 });
 $("help").onclick = () =>
   openDialog(
-    `<h2>בונים. מסובבים. מעבירים.</h2><div class="control-lesson"><p><b>① בנייה</b> · בחרו כלי מהמדף ולחצו על משבצת פנויה.</p><p><b>② סיבוב</b> · לחצו על חלק קיים, ואז על ↻ סיבוב או R. החץ שעל החלק הוא כיוון היציאה.</p><p><b>③ העברה</b> · לחצו ↔ העברה או M, בחרו חלק, ואז לחצו על משבצת פנויה. אין צורך לגרור.</p><p><b>↶ ביטול</b> · טעיתם בעריכה? לחצו ביטול או ⌘ / Ctrl Z.</p></div><p>קראו את הזמנת הלקוח באנגלית. בחרו מסוע או מכונה, ולחצו על השולחן כדי לבנות מסלול מהכניסה אל <b dir="ltr">DISPATCH</b>. כל חץ מראה לאן החפץ ייצא. מכונה ישרה מקבלת חפץ מהצד הנגדי לחץ.</p><p>בחרו <b>העברה</b>, לחצו על חלק ואז על המקום החדש. <b>סיבוב / R</b> מסובב את החלק הנבחר, או את החלק הבא שייבנה. למסוע פנייה יש 8 מצבי כניסה ויציאה.</p><p>הפעילו וצפו בחפצים. מים מסירים צבע ונייר, צבע מכסה נייר, ואריזה אוטמת את החפץ. אפשר לעצור, להעביר מכונה ולהריץ שוב. גם תור במסוע בטוח לחפצים.</p><p>מקשים: <b dir="ltr">1–8</b> כלים · <b dir="ltr">WASD / arrows</b> מיקוד משבצת · <b dir="ltr">Enter</b> בנייה · <b dir="ltr">R</b> סיבוב · <b dir="ltr">Space</b> הפעלה/עצירה · <b dir="ltr">P / Esc</b> השהיה · <b dir="ltr">F</b> מסך מלא. גרירה ימנית או גרירת אצבע מסובבת את המבט; צביטה משנה מרחק.</p><p>קריאה, תרגום ותכנון אינם גורעים מציון. זמן הייצור ושטח המפעל הם אתגרי יעילות נפרדים. המידע נשמר רק בדפדפן זה, ללא שמות תלמידים.</p><p style="font-size:11px">תרגול הבנה לפי Workbook כיתה ח׳. המשפטים במשחק מקוריים. אין כאן מדידה של הפקת דקדוק או אישור של הישגי למידה.</p>`,
+    `<h2>כפתור או מקש — אותה פעולה</h2><div class="control-lesson"><p><b>① בנייה</b> · בחרו כלי מהמדף ולחצו על משבצת פנויה. לחיצה על חלק קיים בוחרת אותו.</p><p><b>② סיבוב</b> · בחרו חלק ואז לחצו ↻ או R. החץ שלו מראה את כיוון היציאה.</p><p><b>③ העברה</b> · לחצו ↔ או M, בחרו חלק, ואז משבצת פנויה. אין צורך לגרור.</p><p><b>מחיקה וביטול</b> · X מפעיל מצב מחיקה; Delete מוחק מיד את החלק הנבחר. ${macKeyboard ? "⌘ Z" : "Ctrl Z"} מחזיר את העריכה האחרונה. Esc מבטל את הבחירה או הכלי בלי לשנות חלקים שכבר נבנו.</p></div><dl class="shortcut-list">${CONTROL_BINDINGS.filter(b => b.id !== "next").map(b => `<dt><kbd dir="ltr">${shortcutKey(b, macKeyboard)}</kbd></dt><dd>${b.label}</dd>`).join("")}</dl><p><b dir="ltr">1–8</b> כלים · <b dir="ltr">WASD / arrows</b> מיקוד משבצת · <b dir="ltr">Enter</b> בנייה / המשך אחרי הצלחה. כל הכפתורים זמינים גם עם Tab ואז Enter או Space. גרירה ימנית או גרירת אצבע מסובבת את המבט; גלגלת או צביטה משנה מרחק.</p><p>קריאה, תרגום ותכנון אינם גורעים מציון. זמן הייצור ושטח המפעל הם אתגרי יעילות נפרדים. המידע נשמר רק בדפדפן זה, ללא שמות תלמידים.</p>`,
   );
 $("read").onclick = () => {
   sim.readingSupport++;
@@ -380,6 +412,7 @@ $("pause").onclick = () => {
 };
 $("run").onclick = run;
 $("rotate").onclick = rotate;
+$("cancel-edit").onclick = cancelEdit;
 $("move").onclick = () => {
   editMode = editMode === "move" ? "place" : "move";
   moveFrom = null;
@@ -388,6 +421,7 @@ $("move").onclick = () => {
   refresh(true);
 };
 $("erase").onclick = () => {
+  editNotice = "";
   editMode = editMode === "erase" ? "place" : "erase";
   moveFrom = null;
   refresh(true);
@@ -536,71 +570,62 @@ $("speak").onclick = () => {
   refresh(true);
 };
 window.addEventListener("keydown", (e) => {
-  if (($("dialog") as HTMLDialogElement).open) return;
-  if ((e.target as HTMLElement).tagName === "INPUT") return;
-  if (
-    (e.target as HTMLElement).closest("button") &&
-    (e.code === "Enter" || e.code === "Space")
-  )
+  if (e.isComposing || ($("dialog") as HTMLDialogElement).open) return;
+  const target = e.target instanceof HTMLElement ? e.target : document.body;
+  if (e.code === "Escape" && !e.repeat) {
+    e.preventDefault();
+    if (document.fullscreenElement) { void document.exitFullscreen(); return; }
+    if (!$("audio-panel").hidden) { $("close-audio").click(); return; }
+    if (["editing", "review"].includes(sim.mode)) cancelEdit();
+    else if (sim.mode === "running" || sim.mode === "paused") { sim.pause(); refresh(true); }
     return;
-  if (
-    [
-      "Space",
-      "ArrowUp",
-      "ArrowDown",
-      "ArrowLeft",
-      "ArrowRight",
-      "Enter",
-    ].includes(e.code)
-  )
-    e.preventDefault();
-  const tools = [...document.querySelectorAll<HTMLElement>("[data-tool]")].map(
-    (b) => b.dataset.tool as Tool,
-  );
-  if (e.code.startsWith("Digit")) {
-    const t = tools[Number(e.code.slice(-1)) - 1];
-    if (t) selectTool(t);
   }
-  if (e.code === "Escape" && document.fullscreenElement)
-    void document.exitFullscreen();
-  if ((e.ctrlKey || e.metaKey) && e.code === "KeyZ") { e.preventDefault(); $("undo").click(); return; }
-  if (e.code === "KeyM") $("move").click();
-  if (e.code === "Delete" || e.code === "Backspace") {
-    e.preventDefault();
-    if (selected) { edit(() => sim.remove(selected!)); refresh(true); }
+  if (target.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"])')) return;
+  if (e.ctrlKey || e.metaKey || e.altKey) {
+    if (!e.altKey && !e.shiftKey && (e.ctrlKey || e.metaKey) && e.code === "KeyZ") {
+      e.preventDefault();
+      if (!e.repeat) $("undo").click();
+    }
+    return; // Preserve browser shortcuts such as Cmd/Ctrl R and Cmd/Ctrl L.
   }
-  if (e.code === "Escape" && (moveFrom || editMode !== "place")) {
-    moveFrom = null; editMode = "place"; editNotice = ""; refresh(true); return;
-  }
-  if (e.code === "KeyR" && !e.repeat) rotate();
-  if (e.code === "Space" && !e.repeat) run();
-  if ((e.code === "KeyP" || e.code === "Escape") && !e.repeat) {
-    sim.pause();
-    refresh(true);
-  }
-  if (e.code === "KeyF") fullscreen();
-  const dirs: Record<string, [number, number]> = {
-    ArrowRight: [1, 0],
-    KeyD: [1, 0],
-    ArrowLeft: [-1, 0],
-    KeyA: [-1, 0],
-    ArrowUp: [0, -1],
-    KeyW: [0, -1],
-    ArrowDown: [0, 1],
-    KeyS: [0, 1],
+  if (target.closest("button") && (e.code === "Enter" || e.code === "Space")) return;
+  const directions: Record<string, [number, number]> = {
+    ArrowRight: [1, 0], KeyD: [1, 0], ArrowLeft: [-1, 0], KeyA: [-1, 0],
+    ArrowUp: [0, -1], KeyW: [0, -1], ArrowDown: [0, 1], KeyS: [0, 1],
   };
-  if (dirs[e.code]) {
+  if (directions[e.code] && !e.shiftKey && !finaleVisible) {
+    e.preventDefault();
     selected ??= { x: 4, z: 3 };
-    const [x, z] = dirs[e.code];
-    selected = {
-      x: Math.max(0, Math.min(8, selected.x + x)),
-      z: Math.max(0, Math.min(6, selected.z + z)),
-    };
+    const [x, z] = directions[e.code];
+    selected = { x: Math.max(0, Math.min(8, selected.x + x)), z: Math.max(0, Math.min(6, selected.z + z)) };
     refresh(true);
+    return;
   }
-  if (e.code === "Enter") {
-    selected ??= { x: 4, z: 3 };
-    clickCell(selected);
+  if (e.repeat) return;
+  if ((e.code === "Delete" || e.code === "Backspace") && !e.shiftKey) {
+    e.preventDefault();
+    if (selected && !finaleVisible) { edit(() => sim.remove(selected!)); refresh(true); }
+    return;
+  }
+  if (e.code.startsWith("Digit") && !e.shiftKey && !finaleVisible) {
+    const tools = [...document.querySelectorAll<HTMLElement>("[data-tool]")].map(b => b.dataset.tool as Tool);
+    const nextTool = tools[Number(e.code.slice(-1)) - 1];
+    if (nextTool) { e.preventDefault(); selectTool(nextTool); }
+    return;
+  }
+  if (e.code === "Enter" && !e.shiftKey && !finaleVisible) {
+    e.preventDefault();
+    if (sim.mode === "success") $("next").click();
+    else { selected ??= { x: 4, z: 3 }; clickCell(selected); }
+    return;
+  }
+  const binding = CONTROL_BINDINGS.find(b => !b.modifier && b.code === e.code && Boolean(b.shift) === e.shiftKey);
+  if (binding) {
+    const button = $(binding.id) as HTMLButtonElement;
+    if (!button.hidden && !button.disabled && (!finaleVisible || ["campaign-open", "help", "mute", "music-mix", "motion", "fullscreen"].includes(binding.id))) {
+      e.preventDefault();
+      button.click();
+    }
   }
 });
 window.addEventListener("blur", () => {
@@ -654,6 +679,7 @@ try {
   workshop = new Workshop($("world"), clickCell);
   void workshop.loadModels().then(() => refresh(true));
   $("loading").hidden = true;
+  showControlHints();
   refresh(true);
   requestAnimationFrame(frame);
 } catch (e) {
@@ -668,7 +694,7 @@ Object.assign(window, {
         "grid x east/right 0..8, z south/front 0..6; world x=(gridX-4)*1.2, world z=(gridZ-3)*1.2; y up",
       mode: sim.mode,
       campaign: { total: CONTRACTS.length, completed: Object.keys(campaign.completed).length, completedIds: Object.keys(campaign.completed), chapter: sim.contract.chapter + 1, layout: sim.contract.layout, finaleVisible, saved: storageAvailable },
-      controls: { coachVisible, learned: [...learned], moveFrom, undoCount: undoHistory.length },
+      controls: { coachVisible, learned: [...learned], moveFrom, undoCount: undoHistory.length, shortcuts: Object.fromEntries(CONTROL_BINDINGS.map(b => [b.id, shortcutKey(b, macKeyboard)])) },
       challenge: sim.level + 1,
       title: sim.contract.titleHe,
       contract: sim.text,

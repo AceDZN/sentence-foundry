@@ -1,0 +1,727 @@
+{
+  "state": {
+    "coordinateSystem": "grid x east/right 0..8, z south/front 0..6; world x=(gridX-4)*1.2, world z=(gridZ-3)*1.2; y up",
+    "mode": "editing",
+    "campaign": {
+      "total": 45,
+      "completed": 0,
+      "completedIds": [],
+      "chapter": 1,
+      "layout": 0,
+      "finaleVisible": false,
+      "saved": true
+    },
+    "controls": {
+      "coachVisible": true,
+      "learned": [
+        "rotate",
+        "move"
+      ],
+      "moveFrom": null,
+      "undoCount": 1,
+      "shortcuts": {
+        "move": "M",
+        "rotate": "R",
+        "erase": "X",
+        "undo": "⌘ Z",
+        "camera": "V",
+        "cancel-edit": "Esc",
+        "run": "Space",
+        "pause": "P",
+        "restart": "Shift R",
+        "hint": "I",
+        "campaign-open": "L",
+        "help": "H",
+        "mute": "U",
+        "music-mix": "B",
+        "motion": "N",
+        "fullscreen": "F",
+        "read": "T",
+        "speak": "Y",
+        "paraphrase": "O",
+        "receiver": "Shift O",
+        "contract-toggle": "C",
+        "next": "Enter"
+      }
+    },
+    "challenge": 1,
+    "title": "משלוח ראשון",
+    "contract": "The cleaning arm washes the crate. Keep the wood unpainted and unpacked.",
+    "required": 1,
+    "receiver": "crate",
+    "variant": false,
+    "tool": "belt",
+    "rotation": 0,
+    "editMode": "place",
+    "selected": null,
+    "board": {
+      "width": 9,
+      "depth": 7,
+      "sources": [
+        {
+          "x": -1,
+          "z": 3,
+          "receiver": "crate"
+        }
+      ],
+      "exit": {
+        "x": 9,
+        "z": 3
+      },
+      "obstacles": []
+    },
+    "tiles": [
+      {
+        "x": 0,
+        "z": 3,
+        "kind": "belt",
+        "rotation": 0
+      },
+      {
+        "x": 3,
+        "z": 3,
+        "kind": "belt",
+        "rotation": 0
+      },
+      {
+        "x": 6,
+        "z": 3,
+        "kind": "belt",
+        "rotation": 0
+      },
+      {
+        "x": 7,
+        "z": 3,
+        "kind": "belt",
+        "rotation": 0
+      },
+      {
+        "x": 8,
+        "z": 3,
+        "kind": "belt",
+        "rotation": 0
+      },
+      {
+        "x": 2,
+        "z": 2,
+        "kind": "belt",
+        "rotation": 2
+      },
+      {
+        "x": 4,
+        "z": 4,
+        "kind": "belt",
+        "rotation": 1
+      }
+    ],
+    "cellScreen": [
+      {
+        "x": 0,
+        "z": 0,
+        "screen": {
+          "x": 643,
+          "y": 285
+        }
+      },
+      {
+        "x": 1,
+        "z": 0,
+        "screen": {
+          "x": 687,
+          "y": 302
+        }
+      },
+      {
+        "x": 2,
+        "z": 0,
+        "screen": {
+          "x": 733,
+          "y": 320
+        }
+      },
+      {
+        "x": 3,
+        "z": 0,
+        "screen": {
+          "x": 781,
+          "y": 339
+        }
+      },
+      {
+        "x": 4,
+        "z": 0,
+        "screen": {
+          "x": 831,
+          "y": 358
+        }
+      },
+      {
+        "x": 5,
+        "z": 0,
+        "screen": {
+          "x": 883,
+          "y": 379
+        }
+      },
+      {
+        "x": 6,
+        "z": 0,
+        "screen": {
+          "x": 938,
+          "y": 400
+        }
+      },
+      {
+        "x": 7,
+        "z": 0,
+        "screen": {
+          "x": 995,
+          "y": 423
+        }
+      },
+      {
+        "x": 8,
+        "z": 0,
+        "screen": {
+          "x": 1056,
+          "y": 447
+        }
+      },
+      {
+        "x": 0,
+        "z": 1,
+        "screen": {
+          "x": 606,
+          "y": 308
+        }
+      },
+      {
+        "x": 1,
+        "z": 1,
+        "screen": {
+          "x": 651,
+          "y": 326
+        }
+      },
+      {
+        "x": 2,
+        "z": 1,
+        "screen": {
+          "x": 697,
+          "y": 345
+        }
+      },
+      {
+        "x": 3,
+        "z": 1,
+        "screen": {
+          "x": 745,
+          "y": 365
+        }
+      },
+      {
+        "x": 4,
+        "z": 1,
+        "screen": {
+          "x": 796,
+          "y": 386
+        }
+      },
+      {
+        "x": 5,
+        "z": 1,
+        "screen": {
+          "x": 849,
+          "y": 407
+        }
+      },
+      {
+        "x": 6,
+        "z": 1,
+        "screen": {
+          "x": 905,
+          "y": 430
+        }
+      },
+      {
+        "x": 7,
+        "z": 1,
+        "screen": {
+          "x": 964,
+          "y": 454
+        }
+      },
+      {
+        "x": 8,
+        "z": 1,
+        "screen": {
+          "x": 1026,
+          "y": 480
+        }
+      },
+      {
+        "x": 0,
+        "z": 2,
+        "screen": {
+          "x": 567,
+          "y": 332
+        }
+      },
+      {
+        "x": 1,
+        "z": 2,
+        "screen": {
+          "x": 612,
+          "y": 351
+        }
+      },
+      {
+        "x": 2,
+        "z": 2,
+        "screen": {
+          "x": 659,
+          "y": 371
+        }
+      },
+      {
+        "x": 3,
+        "z": 2,
+        "screen": {
+          "x": 708,
+          "y": 392
+        }
+      },
+      {
+        "x": 4,
+        "z": 2,
+        "screen": {
+          "x": 759,
+          "y": 415
+        }
+      },
+      {
+        "x": 5,
+        "z": 2,
+        "screen": {
+          "x": 813,
+          "y": 438
+        }
+      },
+      {
+        "x": 6,
+        "z": 2,
+        "screen": {
+          "x": 870,
+          "y": 462
+        }
+      },
+      {
+        "x": 7,
+        "z": 2,
+        "screen": {
+          "x": 930,
+          "y": 488
+        }
+      },
+      {
+        "x": 8,
+        "z": 2,
+        "screen": {
+          "x": 993,
+          "y": 515
+        }
+      },
+      {
+        "x": 0,
+        "z": 3,
+        "screen": {
+          "x": 526,
+          "y": 357
+        }
+      },
+      {
+        "x": 1,
+        "z": 3,
+        "screen": {
+          "x": 571,
+          "y": 378
+        }
+      },
+      {
+        "x": 2,
+        "z": 3,
+        "screen": {
+          "x": 618,
+          "y": 399
+        }
+      },
+      {
+        "x": 3,
+        "z": 3,
+        "screen": {
+          "x": 668,
+          "y": 422
+        }
+      },
+      {
+        "x": 4,
+        "z": 3,
+        "screen": {
+          "x": 720,
+          "y": 446
+        }
+      },
+      {
+        "x": 5,
+        "z": 3,
+        "screen": {
+          "x": 775,
+          "y": 470
+        }
+      },
+      {
+        "x": 6,
+        "z": 3,
+        "screen": {
+          "x": 833,
+          "y": 497
+        }
+      },
+      {
+        "x": 7,
+        "z": 3,
+        "screen": {
+          "x": 894,
+          "y": 524
+        }
+      },
+      {
+        "x": 8,
+        "z": 3,
+        "screen": {
+          "x": 958,
+          "y": 554
+        }
+      },
+      {
+        "x": 0,
+        "z": 4,
+        "screen": {
+          "x": 482,
+          "y": 385
+        }
+      },
+      {
+        "x": 1,
+        "z": 4,
+        "screen": {
+          "x": 527,
+          "y": 406
+        }
+      },
+      {
+        "x": 2,
+        "z": 4,
+        "screen": {
+          "x": 575,
+          "y": 429
+        }
+      },
+      {
+        "x": 3,
+        "z": 4,
+        "screen": {
+          "x": 625,
+          "y": 453
+        }
+      },
+      {
+        "x": 4,
+        "z": 4,
+        "screen": {
+          "x": 678,
+          "y": 479
+        }
+      },
+      {
+        "x": 5,
+        "z": 4,
+        "screen": {
+          "x": 734,
+          "y": 505
+        }
+      },
+      {
+        "x": 6,
+        "z": 4,
+        "screen": {
+          "x": 793,
+          "y": 534
+        }
+      },
+      {
+        "x": 7,
+        "z": 4,
+        "screen": {
+          "x": 855,
+          "y": 563
+        }
+      },
+      {
+        "x": 8,
+        "z": 4,
+        "screen": {
+          "x": 921,
+          "y": 595
+        }
+      },
+      {
+        "x": 0,
+        "z": 5,
+        "screen": {
+          "x": 435,
+          "y": 414
+        }
+      },
+      {
+        "x": 1,
+        "z": 5,
+        "screen": {
+          "x": 481,
+          "y": 437
+        }
+      },
+      {
+        "x": 2,
+        "z": 5,
+        "screen": {
+          "x": 529,
+          "y": 461
+        }
+      },
+      {
+        "x": 3,
+        "z": 5,
+        "screen": {
+          "x": 580,
+          "y": 487
+        }
+      },
+      {
+        "x": 4,
+        "z": 5,
+        "screen": {
+          "x": 633,
+          "y": 514
+        }
+      },
+      {
+        "x": 5,
+        "z": 5,
+        "screen": {
+          "x": 690,
+          "y": 543
+        }
+      },
+      {
+        "x": 6,
+        "z": 5,
+        "screen": {
+          "x": 749,
+          "y": 573
+        }
+      },
+      {
+        "x": 7,
+        "z": 5,
+        "screen": {
+          "x": 813,
+          "y": 605
+        }
+      },
+      {
+        "x": 8,
+        "z": 5,
+        "screen": {
+          "x": 880,
+          "y": 640
+        }
+      },
+      {
+        "x": 0,
+        "z": 6,
+        "screen": {
+          "x": 385,
+          "y": 444
+        }
+      },
+      {
+        "x": 1,
+        "z": 6,
+        "screen": {
+          "x": 431,
+          "y": 469
+        }
+      },
+      {
+        "x": 2,
+        "z": 6,
+        "screen": {
+          "x": 479,
+          "y": 495
+        }
+      },
+      {
+        "x": 3,
+        "z": 6,
+        "screen": {
+          "x": 531,
+          "y": 523
+        }
+      },
+      {
+        "x": 4,
+        "z": 6,
+        "screen": {
+          "x": 585,
+          "y": 552
+        }
+      },
+      {
+        "x": 5,
+        "z": 6,
+        "screen": {
+          "x": 642,
+          "y": 583
+        }
+      },
+      {
+        "x": 6,
+        "z": 6,
+        "screen": {
+          "x": 703,
+          "y": 616
+        }
+      },
+      {
+        "x": 7,
+        "z": 6,
+        "screen": {
+          "x": 767,
+          "y": 651
+        }
+      },
+      {
+        "x": 8,
+        "z": 6,
+        "screen": {
+          "x": 836,
+          "y": 688
+        }
+      }
+    ],
+    "pieces": [],
+    "deliveries": [],
+    "accepted": 0,
+    "productionSeconds": 0,
+    "jam": null,
+    "attempts": 0,
+    "hints": 0,
+    "readingSupport": 0,
+    "events": [
+      {
+        "type": "contract",
+        "challenge": 1,
+        "attempt": 0,
+        "aided": false
+      },
+      {
+        "type": "contract",
+        "challenge": 1,
+        "attempt": 0,
+        "aided": false
+      },
+      {
+        "type": "restart",
+        "challenge": 1,
+        "attempt": 0,
+        "aided": false
+      },
+      {
+        "type": "contract",
+        "challenge": 1,
+        "attempt": 0,
+        "aided": false
+      }
+    ],
+    "medals": [],
+    "assets": {
+      "washer": "ready",
+      "arm": "ready"
+    },
+    "assetInfo": {
+      "washer": {
+        "meshes": 1,
+        "triangles": 18144,
+        "animations": 0,
+        "size": [
+          0.6279907822608948,
+          1,
+          0.6232910752296448
+        ]
+      },
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
+      }
+    },
+    "industryAssets": {
+      "pump": "ready",
+      "spotlight": "ready"
+    },
+    "muted": false,
+    "audioState": {
+      "unlocked": true,
+      "contextState": "running",
+      "loadedCues": 14,
+      "musicLoaded": true,
+      "musicEnabled": true,
+      "effectsEnabled": true,
+      "muted": false,
+      "musicVolume": 0.5,
+      "effectsVolume": 0.65,
+      "paused": false,
+      "background": false,
+      "reading": false,
+      "effectiveMusicGain": 0.39,
+      "activeMusicLoops": 1,
+      "musicSourceCount": 1,
+      "musicStarts": 1,
+      "sfxPlayed": 8,
+      "activeEffects": 0,
+      "musicSeconds": 68.57141666666666,
+      "playhead": 1.1679999999999997,
+      "error": ""
+    },
+    "reduced": false,
+    "performance": {
+      "meanFrameMs": 9.41,
+      "drawCalls": 55,
+      "triangles": 170121,
+      "resources": {
+        "geometries": 34,
+        "textures": 14,
+        "programs": 10,
+        "productGroups": 0,
+        "particles": 0
+      }
+    }
+  },
+  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n☷\nהזמנות\nL\n?\nעזרה\nH\nⅡ\nהשהיה\nP\n♪\nU\n♫\nB\n≈\nN\n⛶\nF\nהזמנה 1 / 45 · משלוח ראשון\n⌃C\n⌕ מיליםT\n▷ ENY\nפרק 1 · המשמרת הראשונה\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nיעד: 1 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\n×\nכפתור או מקש — אותה פעולה\n① כלי 1–8 ואז לחיצה על משבצת\n② סיבוב R · העברה M\n③ מחיקה X · ביטול פעולה ⌘ Z\nמבט V · ביטול בחירה Esc\nבנייה: ⁦Belt⁩ · לחצו על משבצת פנויה · ↻ / R משנה כיוון\nבנו מסלול לפי ההזמנה. חלקים אפשר להעביר, לסובב או להחליף.\n7 חלקים\n↔\nהעברה\nM\n↻\nסיבוב\nR\n⌫\nמחיקה\nX\n↶\nביטול פעולה\n⌘ Z\n◉\nמבט\nV\n×\nביטול בחירה\nEsc\n▶ הפעלת המפעלSpace\n↺ איפוסShift R\nרמזI\nלחיצה על חלק לבחירה · העברה: חלק ואז מקום חדש · Delete מחיקת נבחר · גרירה ימנית לסיבוב המבט · H כל המקשים"
+}

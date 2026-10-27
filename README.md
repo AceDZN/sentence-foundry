@@ -21,7 +21,12 @@ Static Vercel-ready Vite output: build `npm run build`, output `dist`, relative 
 Choose a tool and click/tap a grid cell. Move selects a part then its destination; Rotate/R turns the selected part or next placement. Straight machines accept from the side opposite their output arrow. Corners have eight directed elbow states, including mirrored bends. Connect a source to DISPATCH. Only the specified receivers may be delivered; feeding both sources cannot bypass reading. Stop returns to editing and safely resets travelling pieces. Reading, translation and planning have no time penalty.
 
 - 1–8: palette tools; WASD/arrows: grid focus; Enter: build.
-- R: rotate; M: move; Delete: remove selected part; Ctrl/⌘ Z: undo; Space: run/stop; P/Escape: pause; F: fullscreen.
+- R: rotate; M: move; X: toggle removal mode; Delete/Backspace: remove the selected part.
+- V: reset the view; Ctrl/⌘ Z: undo; Esc: cancel the editing selection/mode without changing built parts.
+- Space: run/stop; P: pause/resume; Shift R: reset the current order; F: fullscreen.
+- H: controls guide; L: chapter book; I: hint; T: vocabulary; Y: English reading.
+- U: master mute; B: audio mixer; N: reduced motion; C: fold the order. O changes equivalent wording and Shift O changes receiver orders when those options are available.
+- Esc closes the audio mixer/dialog, exits fullscreen, or pauses a running line according to the visible context. Native browser and form-input shortcuts remain available.
 - Right drag / touch drag: orbit; wheel / pinch: zoom; View resets camera.
 - Help, vocabulary, hint, mute, reduced motion and restart are visible. Focus loss pauses a running line.
 
@@ -54,3 +59,5 @@ The industrial gallery was searched first. Two existing owned Tripo props—the 
 ## Campaign verification
 
 Independent literal test recipes are kept under `tests/`, outside the runtime bundle. `tests/campaign-routes.test.ts` constructs and simulates all 45 on their actual boards, then writes ignored browser plans. `tests/campaign-browser-review.mjs` uses those plans through visible controls; it checks all shipments, selection/rotation/moving/undo, saved builds, the completed chapter book, and the finale after reload. Mobile review builds and completes an advanced eight-tool order by touch. See `docs/CAMPAIGN.md` for the authored progression and `PLAYTEST.md` for actual results.
+
+All action buttons display their keyboard shortcut and expose it to assistive technology. The build toolbar keeps visible keycaps on phones as well. Undo (previous edit) and Cancel (leave the pending selection/mode) have separate buttons. Button hints, keyboard dispatch and the full H guide share `src/controls.ts`, so their bindings stay consistent. Shortcuts use physical key codes for Hebrew keyboard layouts; native Ctrl/⌘ browser combinations are not repurposed.

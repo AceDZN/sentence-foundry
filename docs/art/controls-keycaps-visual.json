@@ -1,0 +1,640 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "rects": [
+      {
+        "id": "campaign-open",
+        "text": "☷\nהזמנות\nL",
+        "visible": true,
+        "rect": {
+          "x": 447.609375,
+          "y": 14.5,
+          "width": 105.296875,
+          "height": 37
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "L"
+      },
+      {
+        "id": "help",
+        "text": "?\nעזרה\nH",
+        "visible": true,
+        "rect": {
+          "x": 356.078125,
+          "y": 14.5,
+          "width": 85.53125,
+          "height": 37
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "H"
+      },
+      {
+        "id": "pause",
+        "text": "Ⅱ\nהשהיה\nP",
+        "visible": true,
+        "rect": {
+          "x": 250.09375,
+          "y": 14.5,
+          "width": 99.984375,
+          "height": 37
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "P"
+      },
+      {
+        "id": "mute",
+        "text": "♪\nU",
+        "visible": true,
+        "rect": {
+          "x": 195.3125,
+          "y": 14.5,
+          "width": 48.78125,
+          "height": 37
+        },
+        "overflow": false,
+        "aria": "השתקת כל הצלילים",
+        "shortcuts": "U"
+      },
+      {
+        "id": "music-mix",
+        "text": "♫\nB",
+        "visible": true,
+        "rect": {
+          "x": 136.53125,
+          "y": 14.5,
+          "width": 52.78125,
+          "height": 37
+        },
+        "overflow": false,
+        "aria": "מוזיקה וצלילי מכונות",
+        "shortcuts": "B"
+      },
+      {
+        "id": "motion",
+        "text": "≈\nN",
+        "visible": true,
+        "rect": {
+          "x": 80.96875,
+          "y": 14.5,
+          "width": 49.5625,
+          "height": 37
+        },
+        "overflow": false,
+        "aria": "תנועה מופחתת",
+        "shortcuts": "N"
+      },
+      {
+        "id": "fullscreen",
+        "text": "⛶\nF",
+        "visible": true,
+        "rect": {
+          "x": 22,
+          "y": 14.5,
+          "width": 52.96875,
+          "height": 37
+        },
+        "overflow": false,
+        "aria": "מסך מלא",
+        "shortcuts": "F"
+      },
+      {
+        "id": "palette",
+        "text": "1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker",
+        "visible": true,
+        "rect": {
+          "x": 1272,
+          "y": 86,
+          "width": 147,
+          "height": 224
+        },
+        "overflow": false,
+        "aria": "כלי בנייה",
+        "shortcuts": null
+      },
+      {
+        "id": "inspector",
+        "text": "Belt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה",
+        "visible": true,
+        "rect": {
+          "x": 1270,
+          "y": 332,
+          "width": 148,
+          "height": 97.1875
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": null
+      },
+      {
+        "id": "control-coach",
+        "text": "×\nכפתור או מקש — אותה פעולה\n① כלי 1–8 ואז לחיצה על משבצת\n② סיבוב R · העברה M\n③ מחיקה X · ביטול פעולה ⌘ Z\nמבט V · ביטול בחירה Esc",
+        "visible": true,
+        "rect": {
+          "x": 24,
+          "y": 572.8125,
+          "width": 320,
+          "height": 144.1875
+        },
+        "overflow": false,
+        "aria": "איך בונים",
+        "shortcuts": null
+      },
+      {
+        "id": "status",
+        "text": "בנו מסלול לפי ההזמנה. חלקים אפשר להעביר, לסובב או להחליף.\n8 חלקים",
+        "visible": true,
+        "rect": {
+          "x": 24,
+          "y": 735,
+          "width": 1392,
+          "height": 35
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": null
+      },
+      {
+        "id": "move",
+        "text": "↔\nהעברה\nM",
+        "visible": true,
+        "rect": {
+          "x": 1299.296875,
+          "y": 823,
+          "width": 116.703125,
+          "height": 43
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "M"
+      },
+      {
+        "id": "rotate",
+        "text": "↻\nסיבוב\nR",
+        "visible": true,
+        "rect": {
+          "x": 1190.8125,
+          "y": 823,
+          "width": 101.484375,
+          "height": 43
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "R"
+      },
+      {
+        "id": "erase",
+        "text": "⌫\nמחיקה\nX",
+        "visible": true,
+        "rect": {
+          "x": 1065.671875,
+          "y": 823,
+          "width": 118.140625,
+          "height": 43
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "X"
+      },
+      {
+        "id": "undo",
+        "text": "↶\nביטול פעולה\n⌘ Z",
+        "visible": true,
+        "rect": {
+          "x": 896.984375,
+          "y": 823,
+          "width": 161.6875,
+          "height": 43
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "Control+Z Meta+Z"
+      },
+      {
+        "id": "camera",
+        "text": "◉\nמבט\nV",
+        "visible": true,
+        "rect": {
+          "x": 790.859375,
+          "y": 823,
+          "width": 99.125,
+          "height": 43
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "V"
+      },
+      {
+        "id": "cancel-edit",
+        "text": "×\nביטול בחירה\nEsc",
+        "visible": true,
+        "rect": {
+          "x": 629.203125,
+          "y": 823,
+          "width": 154.65625,
+          "height": 43
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "Escape"
+      },
+      {
+        "id": "run",
+        "text": "▶ הפעלת המפעלSpace",
+        "visible": true,
+        "rect": {
+          "x": 228.3125,
+          "y": 818,
+          "width": 219.09375,
+          "height": 53
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "Space"
+      },
+      {
+        "id": "restart",
+        "text": "↺ איפוסShift R",
+        "visible": true,
+        "rect": {
+          "x": 96.4375,
+          "y": 823.25,
+          "width": 123.875,
+          "height": 42.5
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "Shift+R"
+      },
+      {
+        "id": "hint",
+        "text": "רמזI",
+        "visible": true,
+        "rect": {
+          "x": 24,
+          "y": 823.25,
+          "width": 64.4375,
+          "height": 42.5
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "I"
+      },
+      {
+        "id": "keyboard-help",
+        "text": "לחיצה על חלק לבחירה · העברה: חלק ואז מקום חדש · Delete מחיקת נבחר · גרירה ימנית לסיבוב המבט · H כל המקשים",
+        "visible": true,
+        "rect": {
+          "x": 0,
+          "y": 882,
+          "width": 1440,
+          "height": 14
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": null
+      }
+    ],
+    "guide": {
+      "text": "×\nכפתור או מקש — אותה פעולה\n\n① בנייה · בחרו כלי מהמדף ולחצו על משבצת פנויה. לחיצה על חלק קיים בוחרת אותו.\n\n② סיבוב · בחרו חלק ואז לחצו ↻ או R. החץ שלו מראה את כיוון היציאה.\n\n③ העברה · לחצו ↔ או M, בחרו חלק, ואז משבצת פנויה. אין צורך לגרור.\n\nמחיקה וביטול · X מפעיל מצב מחיקה; Delete מוחק מיד את החלק הנבחר. ⌘ Z מחזיר את העריכה האחרונה. Esc מבטל את הבחירה או הכלי בלי לשנות חלקים שכבר נבנו.\n\nM\nהעברת חלק: בוחרים חלק ואז מקום פנוי\nR\nסיבוב החלק הנבחר או הכלי הבא\nX\nמצב מחיקה; Delete או Backspace מוחקים מיד את החלק הנבחר\n⌘ Z\nביטול פעולת העריכה האחרונה\nV\nהחזרת המבט למיקום ההתחלתי\nEsc\nיציאה מכלי וביטול הבחירה, בלי לשנות את המפעל\nSpace\nהפעלת המפעל או עצירה לעריכה\nP\nהשהיה או המשך\nShift R\nאיפוס הבנייה בהזמנה הנוכחית\nI\nרמז להזמנה\nL\nפתיחת ספר ההזמנות\nH\nעזרה ומדריך מקשים\nU\nהשתקה או הפעלת כל הצלילים\nB\nפתיחת או סגירת מערבל הצלילים\nN\nתנועה מופחתת\nF\nכניסה או יציאה ממסך מלא\nT\nמילים ותרגום בהזמנה\nY\nהקראת ההזמנה באנגלית\nO\nהחלפה בין ניסוחים שקולים, כשיש\nShift O\nהזמנה חלופית עם מקבל פעולה אחר, כשיש\nC\nקיפול או פתיחת ההזמנה\n\n1–8 כלים · WASD / arrows מיקוד משבצת · Enter בנייה / המשך אחרי הצלחה. כל הכפתורים זמינים גם עם Tab ואז Enter או Space. גרירה ימנית או גרירת אצבע מסובבת את המבט; גלגלת או צביטה משנה מרחק.\n\nקריאה, תרגום ותכנון אינם גורעים מציון. זמן הייצור ושטח המפעל הם אתגרי יעילות נפרדים. המידע נשמר רק בדפדפן זה, ללא שמות תלמידים.",
+      "rect": {
+        "x": 440,
+        "y": 63,
+        "width": 560,
+        "height": 774,
+        "top": 63,
+        "right": 1000,
+        "bottom": 837,
+        "left": 440
+      },
+      "clientHeight": 772,
+      "scrollHeight": 1135,
+      "scrollable": "auto"
+    },
+    "errors": []
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "rects": [
+      {
+        "id": "campaign-open",
+        "text": "☷\nL",
+        "visible": true,
+        "rect": {
+          "x": 189,
+          "y": 7.5,
+          "width": 28,
+          "height": 42
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "L"
+      },
+      {
+        "id": "help",
+        "text": "?\nH",
+        "visible": true,
+        "rect": {
+          "x": 159,
+          "y": 7.5,
+          "width": 28,
+          "height": 42
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "H"
+      },
+      {
+        "id": "pause",
+        "text": "Ⅱ\nP",
+        "visible": true,
+        "rect": {
+          "x": 129,
+          "y": 7.5,
+          "width": 28,
+          "height": 42
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "P"
+      },
+      {
+        "id": "mute",
+        "text": "♪\nU",
+        "visible": true,
+        "rect": {
+          "x": 99,
+          "y": 7.5,
+          "width": 28,
+          "height": 42
+        },
+        "overflow": false,
+        "aria": "השתקת כל הצלילים",
+        "shortcuts": "U"
+      },
+      {
+        "id": "music-mix",
+        "text": "♫\nB",
+        "visible": true,
+        "rect": {
+          "x": 69,
+          "y": 7.5,
+          "width": 28,
+          "height": 42
+        },
+        "overflow": false,
+        "aria": "מוזיקה וצלילי מכונות",
+        "shortcuts": "B"
+      },
+      {
+        "id": "motion",
+        "text": "≈\nN",
+        "visible": true,
+        "rect": {
+          "x": 39,
+          "y": 7.5,
+          "width": 28,
+          "height": 42
+        },
+        "overflow": false,
+        "aria": "תנועה מופחתת",
+        "shortcuts": "N"
+      },
+      {
+        "id": "fullscreen",
+        "text": "⛶\nF",
+        "visible": true,
+        "rect": {
+          "x": 9,
+          "y": 7.5,
+          "width": 28,
+          "height": 42
+        },
+        "overflow": false,
+        "aria": "מסך מלא",
+        "shortcuts": "F"
+      },
+      {
+        "id": "palette",
+        "text": "1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker",
+        "visible": true,
+        "rect": {
+          "x": 12,
+          "y": 622,
+          "width": 366,
+          "height": 55
+        },
+        "overflow": false,
+        "aria": "כלי בנייה",
+        "shortcuts": null
+      },
+      {
+        "id": "inspector",
+        "text": "Belt\n\nMoves an item straight to the next tile.",
+        "visible": true,
+        "rect": {
+          "x": 12,
+          "y": 573,
+          "width": 366,
+          "height": 43
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": null
+      },
+      {
+        "id": "control-coach",
+        "text": "×\nכפתור או מקש — אותה פעולה\n① כלי 1–8 ואז לחיצה על משבצת\n② סיבוב R · העברה M\n③ מחיקה X · ביטול פעולה ⌘ Z\nמבט V · ביטול בחירה Esc",
+        "visible": true,
+        "rect": {
+          "x": 12,
+          "y": 413,
+          "width": 366,
+          "height": 105
+        },
+        "overflow": false,
+        "aria": "איך בונים",
+        "shortcuts": null
+      },
+      {
+        "id": "status",
+        "text": "בנו מסלול לפי ההזמנה. חלקים אפשר להעביר, לסובב או להחליף.\n8 חלקים",
+        "visible": true,
+        "rect": {
+          "x": 12,
+          "y": 532,
+          "width": 366,
+          "height": 26
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": null
+      },
+      {
+        "id": "move",
+        "text": "↔\nהעברה\nM",
+        "visible": true,
+        "rect": {
+          "x": 320.34375,
+          "y": 704.96875,
+          "width": 57.65625,
+          "height": 64.03125
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "M"
+      },
+      {
+        "id": "rotate",
+        "text": "↻\nסיבוב\nR",
+        "visible": true,
+        "rect": {
+          "x": 258.671875,
+          "y": 704.96875,
+          "width": 57.671875,
+          "height": 64.03125
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "R"
+      },
+      {
+        "id": "erase",
+        "text": "⌫\nמחיקה\nX",
+        "visible": true,
+        "rect": {
+          "x": 197,
+          "y": 704.96875,
+          "width": 57.671875,
+          "height": 64.03125
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "X"
+      },
+      {
+        "id": "undo",
+        "text": "↶\nביטול פעולה\n⌘ Z",
+        "visible": true,
+        "rect": {
+          "x": 135.34375,
+          "y": 704.96875,
+          "width": 57.65625,
+          "height": 64.03125
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "Control+Z Meta+Z"
+      },
+      {
+        "id": "camera",
+        "text": "◉\nמבט\nV",
+        "visible": true,
+        "rect": {
+          "x": 73.671875,
+          "y": 704.96875,
+          "width": 57.671875,
+          "height": 64.03125
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "V"
+      },
+      {
+        "id": "cancel-edit",
+        "text": "×\nביטול בחירה\nEsc",
+        "visible": true,
+        "rect": {
+          "x": 12,
+          "y": 704.96875,
+          "width": 57.671875,
+          "height": 64.03125
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "Escape"
+      },
+      {
+        "id": "run",
+        "text": "▶ הפעלת המפעלSpace",
+        "visible": true,
+        "rect": {
+          "x": 179.484375,
+          "y": 776,
+          "width": 170,
+          "height": 43
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "Space"
+      },
+      {
+        "id": "restart",
+        "text": "↺ Shift R",
+        "visible": true,
+        "rect": {
+          "x": 100.0625,
+          "y": 777.5,
+          "width": 72.421875,
+          "height": 40
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "Shift+R"
+      },
+      {
+        "id": "hint",
+        "text": "רמזI",
+        "visible": true,
+        "rect": {
+          "x": 40.53125,
+          "y": 777.5,
+          "width": 52.53125,
+          "height": 40
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": "I"
+      },
+      {
+        "id": "keyboard-help",
+        "text": "לחיצה על חלק לבחירה · העברה: חלק ואז מקום חדש · Delete מחיקת נבחר · גרירה ימנית לסיבוב המבט · H כל המקשים",
+        "visible": true,
+        "rect": {
+          "x": 0,
+          "y": 819.21875,
+          "width": 390,
+          "height": 20.78125
+        },
+        "overflow": false,
+        "aria": null,
+        "shortcuts": null
+      }
+    ],
+    "guide": {
+      "text": "×\nכפתור או מקש — אותה פעולה\n\n① בנייה · בחרו כלי מהמדף ולחצו על משבצת פנויה. לחיצה על חלק קיים בוחרת אותו.\n\n② סיבוב · בחרו חלק ואז לחצו ↻ או R. החץ שלו מראה את כיוון היציאה.\n\n③ העברה · לחצו ↔ או M, בחרו חלק, ואז משבצת פנויה. אין צורך לגרור.\n\nמחיקה וביטול · X מפעיל מצב מחיקה; Delete מוחק מיד את החלק הנבחר. ⌘ Z מחזיר את העריכה האחרונה. Esc מבטל את הבחירה או הכלי בלי לשנות חלקים שכבר נבנו.\n\nM\nהעברת חלק: בוחרים חלק ואז מקום פנוי\nR\nסיבוב החלק הנבחר או הכלי הבא\nX\nמצב מחיקה; Delete או Backspace מוחקים מיד את החלק הנבחר\n⌘ Z\nביטול פעולת העריכה האחרונה\nV\nהחזרת המבט למיקום ההתחלתי\nEsc\nיציאה מכלי וביטול הבחירה, בלי לשנות את המפעל\nSpace\nהפעלת המפעל או עצירה לעריכה\nP\nהשהיה או המשך\nShift R\nאיפוס הבנייה בהזמנה הנוכחית\nI\nרמז להזמנה\nL\nפתיחת ספר ההזמנות\nH\nעזרה ומדריך מקשים\nU\nהשתקה או הפעלת כל הצלילים\nB\nפתיחת או סגירת מערבל הצלילים\nN\nתנועה מופחתת\nF\nכניסה או יציאה ממסך מלא\nT\nמילים ותרגום בהזמנה\nY\nהקראת ההזמנה באנגלית\nO\nהחלפה בין ניסוחים שקולים, כשיש\nShift O\nהזמנה חלופית עם מקבל פעולה אחר, כשיש\nC\nקיפול או פתיחת ההזמנה\n\n1–8 כלים · WASD / arrows מיקוד משבצת · Enter בנייה / המשך אחרי הצלחה. כל הכפתורים זמינים גם עם Tab ואז Enter או Space. גרירה ימנית או גרירת אצבע מסובבת את המבט; גלגלת או צביטה משנה מרחק.\n\nקריאה, תרגום ותכנון אינם גורעים מציון. זמן הייצור ושטח המפעל הם אתגרי יעילות נפרדים. המידע נשמר רק בדפדפן זה, ללא שמות תלמידים.",
+      "rect": {
+        "x": 13,
+        "y": 59.078125,
+        "width": 364,
+        "height": 725.828125,
+        "top": 59.078125,
+        "right": 377,
+        "bottom": 784.90625,
+        "left": 13
+      },
+      "clientHeight": 724,
+      "scrollHeight": 1279,
+      "scrollable": "auto"
+    },
+    "errors": []
+  }
+]

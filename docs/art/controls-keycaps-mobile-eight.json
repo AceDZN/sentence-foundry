@@ -1,0 +1,77 @@
+[
+  {
+    "id": "palette",
+    "rect": {
+      "x": 12,
+      "y": 585,
+      "width": 366,
+      "height": 92,
+      "top": 585,
+      "right": 378,
+      "bottom": 677,
+      "left": 12
+    },
+    "zIndex": "2",
+    "text": "1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\n7\n☀\nDryer\n8\n⋈\nUnpacker"
+  },
+  {
+    "id": "inspector",
+    "rect": {
+      "x": 12,
+      "y": 534,
+      "width": 366,
+      "height": 43,
+      "top": 534,
+      "right": 378,
+      "bottom": 577,
+      "left": 12
+    },
+    "zIndex": "auto",
+    "text": "Belt\n\nMoves an item straight to the next tile."
+  },
+  {
+    "id": "control-coach",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    },
+    "zIndex": "3",
+    "text": "\n        ×\n        כפתור או מקש — אותה פעולה\n        ① כלי 1–8 ואז לחיצה על משבצת\n        ② סיבוב R · העברה M\n        ③ מחיקה X · ביטול פעולה ⌘ Z\n        מבט V · ביטול בחירה Esc\n      "
+  },
+  {
+    "id": "status",
+    "rect": {
+      "x": 12,
+      "y": 493,
+      "width": 366,
+      "height": 26,
+      "top": 493,
+      "right": 378,
+      "bottom": 519,
+      "left": 12
+    },
+    "zIndex": "auto",
+    "text": "קראו את ההזמנה ובנו מסלול. עצירה מחזירה לעריכה.\n0 חלקים"
+  },
+  {
+    "id": "FOOTER",
+    "rect": {
+      "x": 12,
+      "y": 704.96875,
+      "width": 366,
+      "height": 114.03125,
+      "top": 704.96875,
+      "right": 378,
+      "bottom": 819,
+      "left": 12
+    },
+    "zIndex": "2",
+    "text": "↔\nהעברה\nM\n↻\nסיבוב\nR\n⌫\nמחיקה\nX\n↶\nביטול פעולה\n⌘ Z\n◉\nמבט\nV\n×\nביטול בחירה\nEsc\n▶ הפעלת המפעלSpace\n↺ Shift R\nרמזI"
+  }
+]
