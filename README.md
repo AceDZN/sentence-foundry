@@ -61,3 +61,11 @@ The industrial gallery was searched first. Two existing owned Tripo props—the 
 Independent literal test recipes are kept under `tests/`, outside the runtime bundle. `tests/campaign-routes.test.ts` constructs and simulates all 45 on their actual boards, then writes ignored browser plans. `tests/campaign-browser-review.mjs` uses those plans through visible controls; it checks all shipments, selection/rotation/moving/undo, saved builds, the completed chapter book, and the finale after reload. Mobile review builds and completes an advanced eight-tool order by touch. See `docs/CAMPAIGN.md` for the authored progression and `PLAYTEST.md` for actual results.
 
 Keyboard shortcuts stay available through button hover hints, assistive shortcut metadata and the full H help guide. The workshop uses plain icon/text buttons, with a short contextual hint when a part is selected. Undo (previous edit) and Cancel (leave the pending selection/mode) have separate buttons. Hints, keyboard dispatch and the guide share `src/controls.ts`. Physical key codes support Hebrew keyboard layouts; native Ctrl/⌘ browser combinations are preserved.
+
+## Workbook games player
+
+`?level=N` opens any of the 45 orders directly, using 1-based numbers. A valid explicit link takes priority over saved progress and opens a fresh construction board; ordinary standalone visits still resume the saved build. The clean controls and all campaign mechanics are shared by both entry points.
+
+When embedded by an allowed Workbook/localhost parent (or its own Vercel preview origin), the small `src/host.ts` bridge posts ready, level-start and level-complete messages to that explicit origin. Readiness follows the rendered workshop and model loading; completions follow actual accepted shipments. A restart starts a new entry without resending ready or an old completion. Production duration excludes reading/building time; no mastery, stars or language score is invented. Standalone play posts nothing.
+
+The Workbook catalog belongs to AceDZN/acedzn-tools, and its standard `pnpm games:release` command publishes the versioned static build and `workbook/poster.jpg` to R2. The poster is actual 1600×900 gameplay. `tests/host.test.ts` and `tests/workbook-browser-review.mjs` verify the bridge, every level link and actual completion/restart/Next behavior.

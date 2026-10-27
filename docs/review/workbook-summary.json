@@ -1,0 +1,574 @@
+{
+  "report": [
+    {
+      "level": 1,
+      "challenge": 1,
+      "layout": 0,
+      "mode": "editing",
+      "requestedLevel": 1,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 2,
+      "challenge": 2,
+      "layout": 1,
+      "mode": "editing",
+      "requestedLevel": 2,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 3,
+      "challenge": 3,
+      "layout": 2,
+      "mode": "editing",
+      "requestedLevel": 3,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 4,
+      "challenge": 4,
+      "layout": 3,
+      "mode": "editing",
+      "requestedLevel": 4,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 5,
+      "challenge": 5,
+      "layout": 4,
+      "mode": "editing",
+      "requestedLevel": 5,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 6,
+      "challenge": 6,
+      "layout": 1,
+      "mode": "editing",
+      "requestedLevel": 6,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 7,
+      "challenge": 7,
+      "layout": 5,
+      "mode": "editing",
+      "requestedLevel": 7,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 8,
+      "challenge": 8,
+      "layout": 6,
+      "mode": "editing",
+      "requestedLevel": 8,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 9,
+      "challenge": 9,
+      "layout": 8,
+      "mode": "editing",
+      "requestedLevel": 9,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 10,
+      "challenge": 10,
+      "layout": 0,
+      "mode": "editing",
+      "requestedLevel": 10,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 11,
+      "challenge": 11,
+      "layout": 1,
+      "mode": "editing",
+      "requestedLevel": 11,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 12,
+      "challenge": 12,
+      "layout": 5,
+      "mode": "editing",
+      "requestedLevel": 12,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 13,
+      "challenge": 13,
+      "layout": 8,
+      "mode": "editing",
+      "requestedLevel": 13,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 14,
+      "challenge": 14,
+      "layout": 6,
+      "mode": "editing",
+      "requestedLevel": 14,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 15,
+      "challenge": 15,
+      "layout": 7,
+      "mode": "editing",
+      "requestedLevel": 15,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 16,
+      "challenge": 16,
+      "layout": 3,
+      "mode": "editing",
+      "requestedLevel": 16,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 17,
+      "challenge": 17,
+      "layout": 5,
+      "mode": "editing",
+      "requestedLevel": 17,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 18,
+      "challenge": 18,
+      "layout": 2,
+      "mode": "editing",
+      "requestedLevel": 18,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 19,
+      "challenge": 19,
+      "layout": 8,
+      "mode": "editing",
+      "requestedLevel": 19,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 20,
+      "challenge": 20,
+      "layout": 7,
+      "mode": "editing",
+      "requestedLevel": 20,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 21,
+      "challenge": 21,
+      "layout": 0,
+      "mode": "editing",
+      "requestedLevel": 21,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 22,
+      "challenge": 22,
+      "layout": 1,
+      "mode": "editing",
+      "requestedLevel": 22,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 23,
+      "challenge": 23,
+      "layout": 6,
+      "mode": "editing",
+      "requestedLevel": 23,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 24,
+      "challenge": 24,
+      "layout": 1,
+      "mode": "editing",
+      "requestedLevel": 24,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 25,
+      "challenge": 25,
+      "layout": 0,
+      "mode": "editing",
+      "requestedLevel": 25,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 26,
+      "challenge": 26,
+      "layout": 5,
+      "mode": "editing",
+      "requestedLevel": 26,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 27,
+      "challenge": 27,
+      "layout": 8,
+      "mode": "editing",
+      "requestedLevel": 27,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 28,
+      "challenge": 28,
+      "layout": 6,
+      "mode": "editing",
+      "requestedLevel": 28,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 29,
+      "challenge": 29,
+      "layout": 3,
+      "mode": "editing",
+      "requestedLevel": 29,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 30,
+      "challenge": 30,
+      "layout": 7,
+      "mode": "editing",
+      "requestedLevel": 30,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 31,
+      "challenge": 31,
+      "layout": 8,
+      "mode": "editing",
+      "requestedLevel": 31,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 32,
+      "challenge": 32,
+      "layout": 5,
+      "mode": "editing",
+      "requestedLevel": 32,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 33,
+      "challenge": 33,
+      "layout": 2,
+      "mode": "editing",
+      "requestedLevel": 33,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 34,
+      "challenge": 34,
+      "layout": 7,
+      "mode": "editing",
+      "requestedLevel": 34,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 35,
+      "challenge": 35,
+      "layout": 3,
+      "mode": "editing",
+      "requestedLevel": 35,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 36,
+      "challenge": 36,
+      "layout": 8,
+      "mode": "editing",
+      "requestedLevel": 36,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 37,
+      "challenge": 37,
+      "layout": 5,
+      "mode": "editing",
+      "requestedLevel": 37,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 38,
+      "challenge": 38,
+      "layout": 7,
+      "mode": "editing",
+      "requestedLevel": 38,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 39,
+      "challenge": 39,
+      "layout": 6,
+      "mode": "editing",
+      "requestedLevel": 39,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 40,
+      "challenge": 40,
+      "layout": 3,
+      "mode": "editing",
+      "requestedLevel": 40,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 41,
+      "challenge": 41,
+      "layout": 8,
+      "mode": "editing",
+      "requestedLevel": 41,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 42,
+      "challenge": 42,
+      "layout": 7,
+      "mode": "editing",
+      "requestedLevel": 42,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 43,
+      "challenge": 43,
+      "layout": 6,
+      "mode": "editing",
+      "requestedLevel": 43,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 44,
+      "challenge": 44,
+      "layout": 5,
+      "mode": "editing",
+      "requestedLevel": 44,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "level": 45,
+      "challenge": 45,
+      "layout": 8,
+      "mode": "editing",
+      "requestedLevel": 45,
+      "events": [
+        "ready",
+        "level-start"
+      ]
+    },
+    {
+      "scenario": "actual shipments, Restart and Next",
+      "events": [
+        {
+          "origin": "http://localhost:4233",
+          "message": {
+            "type": "ready",
+            "source": "workbook-game",
+            "version": 1,
+            "slug": "sentence-foundry"
+          }
+        },
+        {
+          "origin": "http://localhost:4233",
+          "message": {
+            "type": "level-start",
+            "level": 1,
+            "source": "workbook-game",
+            "version": 1,
+            "slug": "sentence-foundry"
+          }
+        },
+        {
+          "origin": "http://localhost:4233",
+          "message": {
+            "type": "level-complete",
+            "level": 1,
+            "durationMs": 6641,
+            "source": "workbook-game",
+            "version": 1,
+            "slug": "sentence-foundry"
+          }
+        },
+        {
+          "origin": "http://localhost:4233",
+          "message": {
+            "type": "level-start",
+            "level": 1,
+            "source": "workbook-game",
+            "version": 1,
+            "slug": "sentence-foundry"
+          }
+        },
+        {
+          "origin": "http://localhost:4233",
+          "message": {
+            "type": "level-complete",
+            "level": 1,
+            "durationMs": 6667,
+            "source": "workbook-game",
+            "version": 1,
+            "slug": "sentence-foundry"
+          }
+        },
+        {
+          "origin": "http://localhost:4233",
+          "message": {
+            "type": "level-start",
+            "level": 2,
+            "source": "workbook-game",
+            "version": 1,
+            "slug": "sentence-foundry"
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "explicit level1 overrides actual saved level2",
+      "passed": true
+    },
+    {
+      "scenario": "standalone explicit45 sends no host messages",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

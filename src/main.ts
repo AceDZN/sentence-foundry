@@ -13,19 +13,24 @@ import {
 } from "./content";
 import type { Cell, Tile, Tool } from "./grid";
 import { key } from "./grid";
+import { initHost, parseLevelParam, postToHost, WorkbookSession } from "./host";
 const $ = <T extends HTMLElement = HTMLElement>(id: string) =>
   document.getElementById(id) as T;
+initHost("sentence-foundry");
+const hostSession = new WorkbookSession(postToHost);
+let hostReady = false;
+const requestedLevel = parseLevelParam(window.location.search, CONTRACTS.length);
 const sim = new Foundry();
 const soundtrack = new FoundryAudio();
 const campaign = readCampaign(localStorage.getItem("sf-campaign-v1"));
 const savedIndex = CONTRACTS.findIndex(c => c.id === campaign.current);
-sim.load(Math.max(0, savedIndex));
-if (campaign.draft?.id === sim.contract.id) {
+sim.load(requestedLevel ?? Math.max(0, savedIndex));
+if (requestedLevel === null && campaign.draft?.id === sim.contract.id) {
   sim.tiles = campaign.draft.tiles;
   sim.variant = campaign.draft.variant;
   sim.activeText = campaign.draft.activeText;
 }
-let finaleVisible = Boolean(campaign.endingVisible);
+let finaleVisible = requestedLevel === null && Boolean(campaign.endingVisible);
 let persisted = "";
 let storageAvailable = true;
 let lastCompletion = "";
@@ -347,6 +352,7 @@ function refresh(force = false) {
 function run() {
   if (finaleVisible || ($("dialog") as HTMLDialogElement).open) return;
   const stopping = sim.mode === "running";
+  if (sim.mode === "success") hostSession.restart();
   soundtrack.play(stopping ? "remove" : "start");
   if (!stopping) {
     soundtrack.resetRun();
@@ -426,6 +432,7 @@ function loadLevel(index: number) {
   stopSpeech();
   soundtrack.resetRun();
   sim.load(index);
+  hostSession.restart();
   tool = "belt";
   rotation = 0;
   selected = null;
@@ -476,6 +483,7 @@ $("finale-map").onclick = () => { finaleVisible = false; refresh(true); openCamp
 $("finale-replay").onclick = () => { finaleVisible = false; refresh(true); };
 $("try-again").onclick = () => {
   sim.stop();
+  hostSession.restart();
   refresh(true);
 };
 $("paraphrase").onclick = () => {
@@ -644,6 +652,14 @@ document.addEventListener("visibilitychange", () => {
     refresh(true);
   }
 });
+function syncHost() {
+  hostSession.sync({
+    ready: hostReady,
+    level: sim.level + 1,
+    complete: sim.mode === "success" || (sim.mode === "paused" && sim.previousMode === "success"),
+    durationMs: sim.time * 1000,
+  });
+}
 function tick(dt: number) {
   sim.step(dt);
   soundtrack.observe(sim);
@@ -658,6 +674,7 @@ function tick(dt: number) {
   lastMode = sim.mode;
   workshop.sync(sim, selected, sim.mode === "paused" ? 0 : dt);
   refresh();
+  syncHost();
 }
 function frame(now: number) {
   const elapsed = now - last;
@@ -674,7 +691,13 @@ try {
   const errors = validateContracts();
   if (errors.length) throw new Error(errors.join(","));
   workshop = new Workshop($("world"), clickCell);
-  void workshop.loadModels().then(() => refresh(true));
+  void workshop.loadModels().then(() => {
+    refresh(true);
+    workshop.sync(sim, selected, 0);
+    workshop.render();
+    hostReady = true;
+    syncHost();
+  }).catch(() => postToHost({ type: "error", message: "Sentence Foundry could not load its workshop. Reload to try again." }));
   $("loading").hidden = true;
   showControlHints();
   refresh(true);
@@ -682,6 +705,7 @@ try {
 } catch (e) {
   $("loading").textContent =
     "לא ניתן להפעיל תלת־ממד בדפדפן זה. נסו דפדפן עם WebGL פעיל.";
+  postToHost({ type: "error", message: "Sentence Foundry needs an active WebGL browser." });
   console.error(e);
 }
 Object.assign(window, {
@@ -690,6 +714,7 @@ Object.assign(window, {
       coordinateSystem:
         "grid x east/right 0..8, z south/front 0..6; world x=(gridX-4)*1.2, world z=(gridZ-3)*1.2; y up",
       mode: sim.mode,
+      workbook: { ready: hostReady, requestedLevel: requestedLevel === null ? null : requestedLevel + 1 },
       campaign: { total: CONTRACTS.length, completed: Object.keys(campaign.completed).length, completedIds: Object.keys(campaign.completed), chapter: sim.contract.chapter + 1, layout: sim.contract.layout, finaleVisible, saved: storageAvailable },
       controls: { coachVisible, learned: [...learned], moveFrom, undoCount: undoHistory.length, shortcuts: Object.fromEntries(CONTROL_BINDINGS.map(b => [b.id, shortcutKey(b, macKeyboard)])) },
       challenge: sim.level + 1,
