@@ -102,8 +102,8 @@ export class Foundry {
     if (this.events.length > 100) this.events.shift();
   }
   load(index: number) {
-    this.level = index;
-    this.board = boardFor(index);
+    this.level = Math.max(0, Math.min(CONTRACTS.length - 1, Math.trunc(index) || 0));
+    this.board = boardFor(this.contract.layout ?? this.level, this.contract.spec.receiver);
     this.tiles = this.board.initial.map((t) => ({ ...t }));
     this.pieces = [];
     this.deliveries = [];
@@ -120,6 +120,8 @@ export class Foundry {
   place(cell: Cell, kind: Tool, rotation: number) {
     if (this.mode !== "editing" && this.mode !== "review") return false;
     if (!canPlace(this.board, cell)) return false;
+    if (kind !== "belt" && kind !== "corner" && !this.contract.availableMachines.includes(kind)) return false;
+    if (this.contract.maxPieces && this.tiles.length >= this.contract.maxPieces && !this.tiles.some(t => same(t, cell))) return false;
     this.tiles = this.tiles.filter((t) => !same(t, cell));
     this.tiles.push({
       ...cell,
@@ -130,6 +132,15 @@ export class Foundry {
         (kind === "corner" ? 8 : 4),
     });
     this.log("edit", kind);
+    return true;
+  }
+  move(from: Cell, to: Cell): boolean {
+    if (this.mode !== "editing" && this.mode !== "review") return false;
+    const tile = this.tiles.find(t => same(t, from));
+    if (!tile || !canPlace(this.board, to) || (!same(from, to) && this.tiles.some(t => same(t, to)))) return false;
+    tile.x = to.x;
+    tile.z = to.z;
+    this.log("edit", "move");
     return true;
   }
   remove(cell: Cell) {

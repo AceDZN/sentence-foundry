@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "events": {
+    "borrowedGeometry": 0,
+    "borrowedMaterial": 0,
+    "borrowedTexture": 0,
+    "ownedGeometry": 1,
+    "ownedMaterial": 1,
+    "ownedTexture": 1,
+    "coatMaterial": 1,
+    "spriteMaterial": 1,
+    "spriteUnitGeometry": 0,
+    "batchOriginal": 1,
+    "batchMerged": 1
+  },
+  "checks": [
+    "Imported geometry/material/texture survive transient clone release.",
+    "Cloned coat material is disposed while borrowed texture survives.",
+    "Authored geometry/material/texture are disposed once, including texture reuse by a sprite.",
+    "Three Sprite unit geometry remains shared.",
+    "Batching disposes removed authored geometry and later disposes the merged geometry."
+  ]
+}

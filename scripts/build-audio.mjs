@@ -16,6 +16,8 @@ const names = [
   "paint",
   "label",
   "pack",
+  "dry",
+  "unpack",
   "delivery",
   "mistake",
   "success",

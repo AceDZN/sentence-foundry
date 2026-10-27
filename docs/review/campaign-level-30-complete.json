@@ -1,0 +1,1151 @@
+{
+  "coordinateSystem": "grid x east/right 0..8, z south/front 0..6; world x=(gridX-4)*1.2, world z=(gridZ-3)*1.2; y up",
+  "mode": "success",
+  "campaign": {
+    "total": 45,
+    "completed": 30,
+    "completedIds": [
+      "first-shipment",
+      "same-work-new-focus",
+      "receiver-switch",
+      "sequence-and-reference",
+      "new-workshop",
+      "clean-identities",
+      "plain-protection",
+      "tag-the-unit",
+      "blue-nameplates",
+      "wrapped-blue-order",
+      "dry-wood",
+      "cured-panels",
+      "wet-coat-demonstration",
+      "dry-service-return",
+      "two-drying-stages",
+      "cure-before-paper",
+      "paper-removal-test",
+      "arm-cure-and-tag",
+      "strip-the-trial-coat",
+      "outside-after-curing",
+      "compact-clear-panel",
+      "compact-cured-crates",
+      "either-after-paint",
+      "two-jobs-before-sealing",
+      "compact-wet-finish",
+      "open-for-tagging",
+      "open-before-paint",
+      "keep-the-inner-id",
+      "replace-the-wrapper-tag",
+      "return-to-clean-material"
+    ],
+    "chapter": 6,
+    "layout": 7,
+    "finaleVisible": false,
+    "saved": true
+  },
+  "controls": {
+    "coachVisible": false,
+    "learned": [
+      "place",
+      "rotate"
+    ],
+    "moveFrom": null,
+    "undoCount": 15
+  },
+  "challenge": 30,
+  "title": "חוזרים לחומר הנקי",
+  "contract": "The panels are packed and labelled outside for a delivery test. They are then unpacked, washed and dried before being packed again. The final packages have no labels, and the panels have no paint.",
+  "required": 3,
+  "receiver": "panel",
+  "variant": false,
+  "tool": "corner",
+  "rotation": 4,
+  "editMode": "place",
+  "selected": null,
+  "board": {
+    "width": 9,
+    "depth": 7,
+    "sources": [
+      {
+        "x": -1,
+        "z": 5,
+        "receiver": "panel"
+      }
+    ],
+    "exit": {
+      "x": 9,
+      "z": 1
+    },
+    "obstacles": [
+      {
+        "x": 2,
+        "z": 3
+      },
+      {
+        "x": 2,
+        "z": 4
+      },
+      {
+        "x": 2,
+        "z": 5
+      },
+      {
+        "x": 5,
+        "z": 1
+      },
+      {
+        "x": 5,
+        "z": 2
+      },
+      {
+        "x": 5,
+        "z": 3
+      }
+    ]
+  },
+  "tiles": [
+    {
+      "x": 0,
+      "z": 5,
+      "kind": "belt",
+      "rotation": 0
+    },
+    {
+      "x": 1,
+      "z": 5,
+      "kind": "corner",
+      "rotation": 7
+    },
+    {
+      "x": 1,
+      "z": 4,
+      "kind": "pack",
+      "rotation": 3
+    },
+    {
+      "x": 1,
+      "z": 3,
+      "kind": "label",
+      "rotation": 3
+    },
+    {
+      "x": 1,
+      "z": 2,
+      "kind": "corner",
+      "rotation": 0
+    },
+    {
+      "x": 2,
+      "z": 2,
+      "kind": "unpack",
+      "rotation": 0
+    },
+    {
+      "x": 3,
+      "z": 2,
+      "kind": "wash",
+      "rotation": 0
+    },
+    {
+      "x": 4,
+      "z": 2,
+      "kind": "corner",
+      "rotation": 7
+    },
+    {
+      "x": 4,
+      "z": 1,
+      "kind": "dry",
+      "rotation": 3
+    },
+    {
+      "x": 4,
+      "z": 0,
+      "kind": "corner",
+      "rotation": 0
+    },
+    {
+      "x": 5,
+      "z": 0,
+      "kind": "pack",
+      "rotation": 0
+    },
+    {
+      "x": 6,
+      "z": 0,
+      "kind": "belt",
+      "rotation": 0
+    },
+    {
+      "x": 7,
+      "z": 0,
+      "kind": "belt",
+      "rotation": 0
+    },
+    {
+      "x": 8,
+      "z": 0,
+      "kind": "corner",
+      "rotation": 1
+    },
+    {
+      "x": 8,
+      "z": 1,
+      "kind": "corner",
+      "rotation": 4
+    }
+  ],
+  "cellScreen": [
+    {
+      "x": 0,
+      "z": 0,
+      "screen": {
+        "x": 643,
+        "y": 285
+      }
+    },
+    {
+      "x": 1,
+      "z": 0,
+      "screen": {
+        "x": 687,
+        "y": 302
+      }
+    },
+    {
+      "x": 2,
+      "z": 0,
+      "screen": {
+        "x": 733,
+        "y": 320
+      }
+    },
+    {
+      "x": 3,
+      "z": 0,
+      "screen": {
+        "x": 781,
+        "y": 339
+      }
+    },
+    {
+      "x": 4,
+      "z": 0,
+      "screen": {
+        "x": 831,
+        "y": 358
+      }
+    },
+    {
+      "x": 5,
+      "z": 0,
+      "screen": {
+        "x": 883,
+        "y": 379
+      }
+    },
+    {
+      "x": 6,
+      "z": 0,
+      "screen": {
+        "x": 938,
+        "y": 400
+      }
+    },
+    {
+      "x": 7,
+      "z": 0,
+      "screen": {
+        "x": 995,
+        "y": 423
+      }
+    },
+    {
+      "x": 8,
+      "z": 0,
+      "screen": {
+        "x": 1056,
+        "y": 447
+      }
+    },
+    {
+      "x": 0,
+      "z": 1,
+      "screen": {
+        "x": 606,
+        "y": 308
+      }
+    },
+    {
+      "x": 1,
+      "z": 1,
+      "screen": {
+        "x": 651,
+        "y": 326
+      }
+    },
+    {
+      "x": 2,
+      "z": 1,
+      "screen": {
+        "x": 697,
+        "y": 345
+      }
+    },
+    {
+      "x": 3,
+      "z": 1,
+      "screen": {
+        "x": 745,
+        "y": 365
+      }
+    },
+    {
+      "x": 4,
+      "z": 1,
+      "screen": {
+        "x": 796,
+        "y": 386
+      }
+    },
+    {
+      "x": 5,
+      "z": 1,
+      "screen": {
+        "x": 849,
+        "y": 407
+      }
+    },
+    {
+      "x": 6,
+      "z": 1,
+      "screen": {
+        "x": 905,
+        "y": 430
+      }
+    },
+    {
+      "x": 7,
+      "z": 1,
+      "screen": {
+        "x": 964,
+        "y": 454
+      }
+    },
+    {
+      "x": 8,
+      "z": 1,
+      "screen": {
+        "x": 1026,
+        "y": 480
+      }
+    },
+    {
+      "x": 0,
+      "z": 2,
+      "screen": {
+        "x": 567,
+        "y": 332
+      }
+    },
+    {
+      "x": 1,
+      "z": 2,
+      "screen": {
+        "x": 612,
+        "y": 351
+      }
+    },
+    {
+      "x": 2,
+      "z": 2,
+      "screen": {
+        "x": 659,
+        "y": 371
+      }
+    },
+    {
+      "x": 3,
+      "z": 2,
+      "screen": {
+        "x": 708,
+        "y": 392
+      }
+    },
+    {
+      "x": 4,
+      "z": 2,
+      "screen": {
+        "x": 759,
+        "y": 415
+      }
+    },
+    {
+      "x": 5,
+      "z": 2,
+      "screen": {
+        "x": 813,
+        "y": 438
+      }
+    },
+    {
+      "x": 6,
+      "z": 2,
+      "screen": {
+        "x": 870,
+        "y": 462
+      }
+    },
+    {
+      "x": 7,
+      "z": 2,
+      "screen": {
+        "x": 930,
+        "y": 488
+      }
+    },
+    {
+      "x": 8,
+      "z": 2,
+      "screen": {
+        "x": 993,
+        "y": 515
+      }
+    },
+    {
+      "x": 0,
+      "z": 3,
+      "screen": {
+        "x": 526,
+        "y": 357
+      }
+    },
+    {
+      "x": 1,
+      "z": 3,
+      "screen": {
+        "x": 571,
+        "y": 378
+      }
+    },
+    {
+      "x": 2,
+      "z": 3,
+      "screen": {
+        "x": 618,
+        "y": 399
+      }
+    },
+    {
+      "x": 3,
+      "z": 3,
+      "screen": {
+        "x": 668,
+        "y": 422
+      }
+    },
+    {
+      "x": 4,
+      "z": 3,
+      "screen": {
+        "x": 720,
+        "y": 446
+      }
+    },
+    {
+      "x": 5,
+      "z": 3,
+      "screen": {
+        "x": 775,
+        "y": 470
+      }
+    },
+    {
+      "x": 6,
+      "z": 3,
+      "screen": {
+        "x": 833,
+        "y": 497
+      }
+    },
+    {
+      "x": 7,
+      "z": 3,
+      "screen": {
+        "x": 894,
+        "y": 524
+      }
+    },
+    {
+      "x": 8,
+      "z": 3,
+      "screen": {
+        "x": 958,
+        "y": 554
+      }
+    },
+    {
+      "x": 0,
+      "z": 4,
+      "screen": {
+        "x": 482,
+        "y": 385
+      }
+    },
+    {
+      "x": 1,
+      "z": 4,
+      "screen": {
+        "x": 527,
+        "y": 406
+      }
+    },
+    {
+      "x": 2,
+      "z": 4,
+      "screen": {
+        "x": 575,
+        "y": 429
+      }
+    },
+    {
+      "x": 3,
+      "z": 4,
+      "screen": {
+        "x": 625,
+        "y": 453
+      }
+    },
+    {
+      "x": 4,
+      "z": 4,
+      "screen": {
+        "x": 678,
+        "y": 479
+      }
+    },
+    {
+      "x": 5,
+      "z": 4,
+      "screen": {
+        "x": 734,
+        "y": 505
+      }
+    },
+    {
+      "x": 6,
+      "z": 4,
+      "screen": {
+        "x": 793,
+        "y": 534
+      }
+    },
+    {
+      "x": 7,
+      "z": 4,
+      "screen": {
+        "x": 855,
+        "y": 563
+      }
+    },
+    {
+      "x": 8,
+      "z": 4,
+      "screen": {
+        "x": 921,
+        "y": 595
+      }
+    },
+    {
+      "x": 0,
+      "z": 5,
+      "screen": {
+        "x": 435,
+        "y": 414
+      }
+    },
+    {
+      "x": 1,
+      "z": 5,
+      "screen": {
+        "x": 481,
+        "y": 437
+      }
+    },
+    {
+      "x": 2,
+      "z": 5,
+      "screen": {
+        "x": 529,
+        "y": 461
+      }
+    },
+    {
+      "x": 3,
+      "z": 5,
+      "screen": {
+        "x": 580,
+        "y": 487
+      }
+    },
+    {
+      "x": 4,
+      "z": 5,
+      "screen": {
+        "x": 633,
+        "y": 514
+      }
+    },
+    {
+      "x": 5,
+      "z": 5,
+      "screen": {
+        "x": 690,
+        "y": 543
+      }
+    },
+    {
+      "x": 6,
+      "z": 5,
+      "screen": {
+        "x": 749,
+        "y": 573
+      }
+    },
+    {
+      "x": 7,
+      "z": 5,
+      "screen": {
+        "x": 813,
+        "y": 605
+      }
+    },
+    {
+      "x": 8,
+      "z": 5,
+      "screen": {
+        "x": 880,
+        "y": 640
+      }
+    },
+    {
+      "x": 0,
+      "z": 6,
+      "screen": {
+        "x": 385,
+        "y": 444
+      }
+    },
+    {
+      "x": 1,
+      "z": 6,
+      "screen": {
+        "x": 431,
+        "y": 469
+      }
+    },
+    {
+      "x": 2,
+      "z": 6,
+      "screen": {
+        "x": 479,
+        "y": 495
+      }
+    },
+    {
+      "x": 3,
+      "z": 6,
+      "screen": {
+        "x": 531,
+        "y": 523
+      }
+    },
+    {
+      "x": 4,
+      "z": 6,
+      "screen": {
+        "x": 585,
+        "y": 552
+      }
+    },
+    {
+      "x": 5,
+      "z": 6,
+      "screen": {
+        "x": 642,
+        "y": 583
+      }
+    },
+    {
+      "x": 6,
+      "z": 6,
+      "screen": {
+        "x": 703,
+        "y": 616
+      }
+    },
+    {
+      "x": 7,
+      "z": 6,
+      "screen": {
+        "x": 767,
+        "y": 651
+      }
+    },
+    {
+      "x": 8,
+      "z": 6,
+      "screen": {
+        "x": 836,
+        "y": 688
+      }
+    }
+  ],
+  "pieces": [],
+  "deliveries": [
+    {
+      "product": {
+        "receiver": "panel",
+        "washed": true,
+        "painted": false,
+        "paintBonded": false,
+        "labelled": false,
+        "labelSurface": null,
+        "packed": true,
+        "dried": true,
+        "paintCured": false,
+        "itemLabelled": false,
+        "history": [
+          {
+            "action": "pack",
+            "agent": "packing-press",
+            "receiver": "panel",
+            "effect": "packed"
+          },
+          {
+            "action": "label",
+            "agent": "label-press",
+            "receiver": "panel",
+            "effect": "labelled"
+          },
+          {
+            "action": "unpack",
+            "agent": "unpacker",
+            "receiver": "panel",
+            "effect": "unpacked",
+            "removedLabel": true
+          },
+          {
+            "action": "wash",
+            "agent": "cleaning-arm",
+            "receiver": "panel",
+            "effect": "washed",
+            "removedPaint": false,
+            "removedLabel": false
+          },
+          {
+            "action": "dry",
+            "agent": "dryer",
+            "receiver": "panel",
+            "effect": "dried"
+          },
+          {
+            "action": "pack",
+            "agent": "packing-press",
+            "receiver": "panel",
+            "effect": "packed"
+          }
+        ]
+      },
+      "accepted": true,
+      "reasons": []
+    },
+    {
+      "product": {
+        "receiver": "panel",
+        "washed": true,
+        "painted": false,
+        "paintBonded": false,
+        "labelled": false,
+        "labelSurface": null,
+        "packed": true,
+        "dried": true,
+        "paintCured": false,
+        "itemLabelled": false,
+        "history": [
+          {
+            "action": "pack",
+            "agent": "packing-press",
+            "receiver": "panel",
+            "effect": "packed"
+          },
+          {
+            "action": "label",
+            "agent": "label-press",
+            "receiver": "panel",
+            "effect": "labelled"
+          },
+          {
+            "action": "unpack",
+            "agent": "unpacker",
+            "receiver": "panel",
+            "effect": "unpacked",
+            "removedLabel": true
+          },
+          {
+            "action": "wash",
+            "agent": "cleaning-arm",
+            "receiver": "panel",
+            "effect": "washed",
+            "removedPaint": false,
+            "removedLabel": false
+          },
+          {
+            "action": "dry",
+            "agent": "dryer",
+            "receiver": "panel",
+            "effect": "dried"
+          },
+          {
+            "action": "pack",
+            "agent": "packing-press",
+            "receiver": "panel",
+            "effect": "packed"
+          }
+        ]
+      },
+      "accepted": true,
+      "reasons": []
+    },
+    {
+      "product": {
+        "receiver": "panel",
+        "washed": true,
+        "painted": false,
+        "paintBonded": false,
+        "labelled": false,
+        "labelSurface": null,
+        "packed": true,
+        "dried": true,
+        "paintCured": false,
+        "itemLabelled": false,
+        "history": [
+          {
+            "action": "pack",
+            "agent": "packing-press",
+            "receiver": "panel",
+            "effect": "packed"
+          },
+          {
+            "action": "label",
+            "agent": "label-press",
+            "receiver": "panel",
+            "effect": "labelled"
+          },
+          {
+            "action": "unpack",
+            "agent": "unpacker",
+            "receiver": "panel",
+            "effect": "unpacked",
+            "removedLabel": true
+          },
+          {
+            "action": "wash",
+            "agent": "cleaning-arm",
+            "receiver": "panel",
+            "effect": "washed",
+            "removedPaint": false,
+            "removedLabel": false
+          },
+          {
+            "action": "dry",
+            "agent": "dryer",
+            "receiver": "panel",
+            "effect": "dried"
+          },
+          {
+            "action": "pack",
+            "agent": "packing-press",
+            "receiver": "panel",
+            "effect": "packed"
+          }
+        ]
+      },
+      "accepted": true,
+      "reasons": []
+    }
+  ],
+  "accepted": 3,
+  "productionSeconds": 15.32,
+  "jam": null,
+  "attempts": 1,
+  "hints": 0,
+  "readingSupport": 0,
+  "events": [
+    {
+      "type": "delivery",
+      "challenge": 29,
+      "attempt": 1,
+      "aided": false,
+      "detail": ""
+    },
+    {
+      "type": "success",
+      "challenge": 29,
+      "attempt": 1,
+      "aided": false,
+      "detail": "practice"
+    },
+    {
+      "type": "contract",
+      "challenge": 30,
+      "attempt": 0,
+      "aided": false
+    },
+    {
+      "type": "run",
+      "challenge": 30,
+      "attempt": 1,
+      "aided": false
+    },
+    {
+      "type": "delivery",
+      "challenge": 30,
+      "attempt": 1,
+      "aided": false,
+      "detail": ""
+    },
+    {
+      "type": "delivery",
+      "challenge": 30,
+      "attempt": 1,
+      "aided": false,
+      "detail": ""
+    },
+    {
+      "type": "delivery",
+      "challenge": 30,
+      "attempt": 1,
+      "aided": false,
+      "detail": ""
+    },
+    {
+      "type": "success",
+      "challenge": 30,
+      "attempt": 1,
+      "aided": false,
+      "detail": "transfer"
+    }
+  ],
+  "medals": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+      "time": 13.726266666666929,
+      "footprint": 15,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 10.200000000000086,
+      "footprint": 13,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 9.583333333333389,
+      "footprint": 11,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 13.116666666666898,
+      "footprint": 15,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 12.333333333333526,
+      "footprint": 11,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 13.116666666666898,
+      "footprint": 15,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 10.033333333333411,
+      "footprint": 10,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 11.883333333333503,
+      "footprint": 13,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 15.950000000000372,
+      "footprint": 15,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 10.566666666666771,
+      "footprint": 9,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 11.100000000000131,
+      "footprint": 9,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 11.183333333333469,
+      "footprint": 11,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 9.416666666666714,
+      "footprint": 9,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 9.950000000000074,
+      "footprint": 9,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 12.56666666666687,
+      "footprint": 15,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 11.883333333333503,
+      "footprint": 13,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 10.650000000000109,
+      "footprint": 11,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 11.800000000000166,
+      "footprint": 11,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    },
+    {
+      "time": 15.323466666667008,
+      "footprint": 15,
+      "attempts": 1,
+      "hints": 0,
+      "readingSupport": 0
+    }
+  ],
+  "assets": {
+    "washer": "ready",
+    "arm": "ready"
+  },
+  "assetInfo": {
+    "arm": {
+      "meshes": 1,
+      "triangles": 18108,
+      "animations": 0,
+      "size": [
+        1.0000001192092896,
+        0.892333984375,
+        0.5132446885108948
+      ]
+    },
+    "washer": {
+      "meshes": 1,
+      "triangles": 18144,
+      "animations": 0,
+      "size": [
+        0.6279907822608948,
+        1,
+        0.6232910752296448
+      ]
+    }
+  },
+  "industryAssets": {
+    "pump": "ready",
+    "spotlight": "ready"
+  },
+  "muted": false,
+  "audioState": {
+    "unlocked": true,
+    "contextState": "running",
+    "loadedCues": 14,
+    "musicLoaded": true,
+    "musicEnabled": true,
+    "effectsEnabled": true,
+    "muted": false,
+    "musicVolume": 0.5,
+    "effectsVolume": 0.65,
+    "paused": false,
+    "background": false,
+    "reading": false,
+    "effectiveMusicGain": 0.39,
+    "activeMusicLoops": 1,
+    "musicSourceCount": 1,
+    "musicStarts": 1,
+    "sfxPlayed": 398,
+    "activeEffects": 1,
+    "musicSeconds": 68.57141666666666,
+    "playhead": 17.354666666666667,
+    "error": ""
+  },
+  "reduced": false,
+  "performance": {
+    "meanFrameMs": 8.56,
+    "drawCalls": 195,
+    "triangles": 220831,
+    "resources": {
+      "geometries": 107,
+      "textures": 26,
+      "programs": 10,
+      "productGroups": 3,
+      "particles": 0
+    }
+  }
+}

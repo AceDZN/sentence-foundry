@@ -8,6 +8,8 @@ export type Cue =
   | "paint"
   | "label"
   | "pack"
+  | "dry"
+  | "unpack"
   | "delivery"
   | "mistake"
   | "success";
@@ -20,6 +22,8 @@ const CUES: Cue[] = [
   "paint",
   "label",
   "pack",
+  "dry",
+  "unpack",
   "delivery",
   "mistake",
   "success",

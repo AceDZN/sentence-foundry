@@ -33,7 +33,7 @@
       "audio": {
         "unlocked": true,
         "contextState": "suspended",
-        "loadedCues": 12,
+        "loadedCues": 14,
         "musicLoaded": true,
         "musicEnabled": true,
         "effectsEnabled": true,
@@ -49,7 +49,7 @@
         "musicStarts": 1,
         "sfxPlayed": 0,
         "activeEffects": 0,
-        "musicSeconds": 68.57142857142857,
+        "musicSeconds": 68.57141666666666,
         "playhead": 0,
         "error": ""
       },
@@ -89,7 +89,7 @@
       "audio": {
         "unlocked": true,
         "contextState": "running",
-        "loadedCues": 12,
+        "loadedCues": 14,
         "musicLoaded": true,
         "musicEnabled": true,
         "effectsEnabled": true,
@@ -106,7 +106,7 @@
         "sfxPlayed": 0,
         "activeEffects": 0,
         "musicSeconds": 68.57141666666666,
-        "playhead": 0.5173333333333332,
+        "playhead": 0.005333333333333412,
         "error": ""
       },
       "mode": "editing",
@@ -117,7 +117,7 @@
       "audio": {
         "unlocked": true,
         "contextState": "suspended",
-        "loadedCues": 12,
+        "loadedCues": 14,
         "musicLoaded": true,
         "musicEnabled": true,
         "effectsEnabled": true,
@@ -134,7 +134,7 @@
         "sfxPlayed": 1,
         "activeEffects": 0,
         "musicSeconds": 68.57141666666666,
-        "playhead": 37.013333333333335,
+        "playhead": 0.9600000000000001,
         "error": ""
       },
       "mode": "paused",
@@ -145,7 +145,7 @@
       "audio": {
         "unlocked": true,
         "contextState": "running",
-        "loadedCues": 12,
+        "loadedCues": 14,
         "musicLoaded": true,
         "musicEnabled": true,
         "effectsEnabled": true,
@@ -162,7 +162,7 @@
         "sfxPlayed": 1,
         "activeEffects": 0,
         "musicSeconds": 68.57141666666666,
-        "playhead": 41.80799999999999,
+        "playhead": 1.0133333333333332,
         "error": ""
       },
       "mode": "editing",
@@ -186,7 +186,7 @@
       "audio": {
         "unlocked": true,
         "contextState": "running",
-        "loadedCues": 12,
+        "loadedCues": 14,
         "musicLoaded": true,
         "musicEnabled": true,
         "effectsEnabled": true,
@@ -203,7 +203,7 @@
         "sfxPlayed": 1,
         "activeEffects": 0,
         "musicSeconds": 68.57141666666666,
-        "playhead": 50.44799999999999,
+        "playhead": 1.3279999999999998,
         "error": ""
       }
     },
@@ -212,7 +212,7 @@
       "audio": {
         "unlocked": true,
         "contextState": "running",
-        "loadedCues": 12,
+        "loadedCues": 14,
         "musicLoaded": true,
         "musicEnabled": true,
         "effectsEnabled": true,
@@ -226,10 +226,10 @@
         "activeMusicLoops": 1,
         "musicSourceCount": 1,
         "musicStarts": 1,
-        "sfxPlayed": 11,
-        "activeEffects": 0,
+        "sfxPlayed": 9,
+        "activeEffects": 6,
         "musicSeconds": 68.57141666666666,
-        "playhead": 8.911249999999995,
+        "playhead": 1.5893333333333333,
         "error": ""
       },
       "mode": "editing",
@@ -261,14 +261,14 @@
         "error": ""
       },
       "mode": "editing",
-      "challenge": 1
+      "challenge": 2
     },
     {
       "name": "mobile-mix",
       "audio": {
         "unlocked": true,
         "contextState": "running",
-        "loadedCues": 12,
+        "loadedCues": 14,
         "musicLoaded": true,
         "musicEnabled": true,
         "effectsEnabled": true,
@@ -285,7 +285,35 @@
         "sfxPlayed": 0,
         "activeEffects": 0,
         "musicSeconds": 68.57141666666666,
-        "playhead": 8.330666666666666,
+        "playhead": 0.2666666666666666,
+        "error": ""
+      },
+      "mode": "editing",
+      "challenge": 1
+    },
+    {
+      "name": "mobile-industry-canvas",
+      "audio": {
+        "unlocked": true,
+        "contextState": "running",
+        "loadedCues": 14,
+        "musicLoaded": true,
+        "musicEnabled": true,
+        "effectsEnabled": true,
+        "muted": false,
+        "musicVolume": 0.23,
+        "effectsVolume": 0.65,
+        "paused": false,
+        "background": false,
+        "reading": false,
+        "effectiveMusicGain": 0.1794,
+        "activeMusicLoops": 1,
+        "musicSourceCount": 1,
+        "musicStarts": 1,
+        "sfxPlayed": 0,
+        "activeEffects": 0,
+        "musicSeconds": 68.57141666666666,
+        "playhead": 0.384,
         "error": ""
       },
       "mode": "editing",
@@ -296,7 +324,7 @@
       "audio": {
         "unlocked": true,
         "contextState": "suspended",
-        "loadedCues": 12,
+        "loadedCues": 14,
         "musicLoaded": true,
         "musicEnabled": true,
         "effectsEnabled": true,
@@ -313,7 +341,7 @@
         "sfxPlayed": 0,
         "activeEffects": 0,
         "musicSeconds": 68.57141666666666,
-        "playhead": 11.424000000000001,
+        "playhead": 0.46933333333333327,
         "error": ""
       },
       "mode": "editing",
@@ -338,50 +366,6 @@
       "status": 200
     },
     {
-      "file": "paint.mp3",
-      "status": 200
-    },
-    {
-      "file": "start.mp3",
-      "status": 200
-    },
-    {
-      "file": "pack.mp3",
-      "status": 200
-    },
-    {
-      "file": "label.mp3",
-      "status": 200
-    },
-    {
-      "file": "wash.mp3",
-      "status": 200
-    },
-    {
-      "file": "delivery.mp3",
-      "status": 200
-    },
-    {
-      "file": "success.mp3",
-      "status": 200
-    },
-    {
-      "file": "mistake.mp3",
-      "status": 200
-    },
-    {
-      "file": "brass-and-belts.mp3",
-      "status": 200
-    },
-    {
-      "file": "place.mp3",
-      "status": 200
-    },
-    {
-      "file": "rotate.mp3",
-      "status": 200
-    },
-    {
       "file": "start.mp3",
       "status": 200
     },
@@ -390,7 +374,7 @@
       "status": 200
     },
     {
-      "file": "remove.mp3",
+      "file": "label.mp3",
       "status": 200
     },
     {
@@ -398,11 +382,15 @@
       "status": 200
     },
     {
-      "file": "label.mp3",
+      "file": "pack.mp3",
       "status": 200
     },
     {
-      "file": "pack.mp3",
+      "file": "dry.mp3",
+      "status": 200
+    },
+    {
+      "file": "unpack.mp3",
       "status": 200
     },
     {
@@ -410,11 +398,11 @@
       "status": 200
     },
     {
-      "file": "success.mp3",
+      "file": "mistake.mp3",
       "status": 200
     },
     {
-      "file": "mistake.mp3",
+      "file": "success.mp3",
       "status": 200
     },
     {
@@ -451,6 +439,70 @@
     },
     {
       "file": "pack.mp3",
+      "status": 200
+    },
+    {
+      "file": "dry.mp3",
+      "status": 200
+    },
+    {
+      "file": "unpack.mp3",
+      "status": 200
+    },
+    {
+      "file": "delivery.mp3",
+      "status": 200
+    },
+    {
+      "file": "mistake.mp3",
+      "status": 200
+    },
+    {
+      "file": "success.mp3",
+      "status": 200
+    },
+    {
+      "file": "brass-and-belts.mp3",
+      "status": 200
+    },
+    {
+      "file": "place.mp3",
+      "status": 200
+    },
+    {
+      "file": "rotate.mp3",
+      "status": 200
+    },
+    {
+      "file": "remove.mp3",
+      "status": 200
+    },
+    {
+      "file": "start.mp3",
+      "status": 200
+    },
+    {
+      "file": "wash.mp3",
+      "status": 200
+    },
+    {
+      "file": "paint.mp3",
+      "status": 200
+    },
+    {
+      "file": "label.mp3",
+      "status": 200
+    },
+    {
+      "file": "pack.mp3",
+      "status": 200
+    },
+    {
+      "file": "dry.mp3",
+      "status": 200
+    },
+    {
+      "file": "unpack.mp3",
       "status": 200
     },
     {

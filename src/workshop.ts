@@ -16,6 +16,8 @@ const C = {
   paint: 0xc87938,
   label: 0x638777,
   pack: 0x957253,
+  dry: 0xc98c39,
+  unpack: 0x378d89,
 };
 const mat = (color: number, metalness = 0.25, roughness = 0.6) =>
   new T.MeshStandardMaterial({ color, metalness, roughness });
@@ -29,6 +31,10 @@ const materials = {
   black: mat(0x1c272b, 0.3, 0.65),
   paper: mat(0xfff2cc, 0, 0.8),
 };
+const sharedPrimitiveMaterials = new Set<T.Material>([
+  ...gridMaterials,
+  ...Object.values(materials),
+]);
 function box(
   g: T.Group,
   w: number,
@@ -120,20 +126,42 @@ export class Workshop {
   industry = new T.Group();
   mechanisms: T.Object3D[] = [];
   actuators: { pivot: T.Group; tile: Tile; restYaw: number }[] = [];
+  processMechanisms: {
+    tile: Tile;
+    fan?: T.Group;
+    heat?: T.MeshStandardMaterial;
+    air?: T.Mesh[];
+    jaws?: T.Group[];
+    cutter?: T.Group;
+  }[] = [];
   assetInfo: Record<
     string,
     { meshes: number; triangles: number; animations: number; size: number[] }
   > = {};
+  sharedModelGeometries = new Set<T.BufferGeometry>();
+  sharedModelMaterials = new Set<T.Material>();
+  sharedModelTextures = new Set<T.Texture>();
   particles: { mesh: T.Mesh; life: number; velocity: T.Vector3 }[] = [];
   lastHistory = new Map<number, number>();
   productMeshes = new Map<string, { signature: string; group: T.Group }>();
   width = 1;
   height = 1;
+  boardWidth = 9;
+  boardDepth = 7;
   reduced = false;
   time = 0;
   lastPointer = { x: 0, y: 0 };
   dragStart = { x: 0, y: 0 };
   frameSamples: number[] = [];
+  get resourceInfo() {
+    return {
+      geometries: this.renderer.info.memory.geometries,
+      textures: this.renderer.info.memory.textures,
+      programs: this.renderer.info.programs?.length ?? 0,
+      productGroups: this.productMeshes.size,
+      particles: this.particles.length,
+    };
+  }
   constructor(
     public container: HTMLElement,
     public onCell: (cell: Cell) => void,
@@ -257,7 +285,11 @@ export class Workshop {
     this.resize();
   }
   position(c: Cell) {
-    return new T.Vector3((c.x - 4) * 1.2, 0, (c.z - 3) * 1.2);
+    return new T.Vector3(
+      (c.x - (this.boardWidth - 1) / 2) * 1.2,
+      0,
+      (c.z - (this.boardDepth - 1) / 2) * 1.2,
+    );
   }
   cellAt(x: number, y: number): Cell | null {
     const rect = this.renderer.domElement.getBoundingClientRect();
@@ -269,10 +301,15 @@ export class Workshop {
     const hit = new T.Vector3();
     if (!this.ray.ray.intersectPlane(this.plane, hit)) return null;
     const cell = {
-      x: Math.round(hit.x / 1.2 + 4),
-      z: Math.round(hit.z / 1.2 + 3),
+      x: Math.round(hit.x / 1.2 + (this.boardWidth - 1) / 2),
+      z: Math.round(hit.z / 1.2 + (this.boardDepth - 1) / 2),
     };
-    return cell.x >= 0 && cell.x < 9 && cell.z >= 0 && cell.z < 7 ? cell : null;
+    return cell.x >= 0 &&
+      cell.x < this.boardWidth &&
+      cell.z >= 0 &&
+      cell.z < this.boardDepth
+      ? cell
+      : null;
   }
   screen(c: Cell) {
     const p = this.position(c);
@@ -544,6 +581,9 @@ export class Workshop {
       }
       const merged = mergeGeometries(entry.geometries);
       if (merged) {
+        const originals = new Set(entry.objects.map((o) => o.geometry));
+        for (const geometry of originals)
+          if (!this.sharedModelGeometries.has(geometry)) geometry.dispose();
         entry.objects.forEach((o) => o.removeFromParent());
         const mesh = new T.Mesh(merged, entry.material);
         mesh.castShadow = true;
@@ -552,6 +592,40 @@ export class Workshop {
       }
       entry.geometries.forEach((g) => g.dispose());
     }
+  }
+  rememberModelResources(model: T.Object3D) {
+    model.traverse((o) => {
+      if (!(o instanceof T.Mesh)) return;
+      this.sharedModelGeometries.add(o.geometry);
+      for (const material of Array.isArray(o.material) ? o.material : [o.material]) {
+        this.sharedModelMaterials.add(material);
+        for (const value of Object.values(material))
+          if (value instanceof T.Texture) this.sharedModelTextures.add(value);
+      }
+    });
+  }
+  releaseResources(root: T.Object3D) {
+    const geometries = new Set<T.BufferGeometry>();
+    const ownedMaterials = new Set<T.Material>();
+    const textures = new Set<T.Texture>();
+    root.traverse((o) => {
+      if (!(o instanceof T.Mesh) && !(o instanceof T.Sprite)) return;
+      // Sprite's unit quad is shared by Three itself. GLB clones also borrow
+      // their original geometry; neither buffer belongs to a transient group.
+      if (o instanceof T.Mesh && !this.sharedModelGeometries.has(o.geometry))
+        geometries.add(o.geometry);
+      for (const material of Array.isArray(o.material) ? o.material : [o.material]) {
+        if (sharedPrimitiveMaterials.has(material) || this.sharedModelMaterials.has(material))
+          continue;
+        ownedMaterials.add(material);
+        for (const value of Object.values(material))
+          if (value instanceof T.Texture && !this.sharedModelTextures.has(value))
+            textures.add(value);
+      }
+    });
+    textures.forEach((texture) => texture.dispose());
+    ownedMaterials.forEach((material) => material.dispose());
+    geometries.forEach((geometry) => geometry.dispose());
   }
   async loadModels() {
     const loader = new GLTFLoader();
@@ -565,6 +639,7 @@ export class Workshop {
             `${import.meta.env.BASE_URL}models/${file}`,
           );
           const model = gltf.scene;
+          this.rememberModelResources(model);
           model.traverse((o) => {
             if (o instanceof T.Mesh) {
               o.castShadow = true;
@@ -614,6 +689,7 @@ export class Workshop {
             `${import.meta.env.BASE_URL}models/decor/${id}.glb`,
           );
           const model = gltf.scene;
+          this.rememberModelResources(model);
           const bounds = new T.Box3().setFromObject(model);
           const center = bounds.getCenter(new T.Vector3());
           model.position.x -= center.x;
@@ -776,6 +852,108 @@ export class Workshop {
       box(group, 0.34, 0.4, 0.35, 0, 0.54, -0.48, color);
       cylinder(group, 0.09, 0.65, 0, 0.97, -0.48, materials.brass);
       box(group, 0.12, 0.12, 0.64, 0, 1.25, -0.19, color);
+    } else if (kind === "dry") {
+      // The open hood clears the detached service arm as well as crates. All
+      // added parts are authored rigid machinery; the two Tripo cores remain.
+      for (const x of [-0.43, 0.43])
+        for (const z of [-0.47, 0.47]) {
+          box(group, 0.1, 1.23, 0.1, x, 0.91, z, materials.steel);
+          box(group, 0.17, 0.1, 0.17, x, 0.34, z, color);
+        }
+      // Rear hood plus a narrow front rail leave the travelling item visible.
+      box(group, 1.06, 0.2, 0.42, 0, 1.62, -0.3, color);
+      box(group, 1.06, 0.08, 0.08, 0, 1.62, 0.47, color);
+      for (const x of [-0.46, 0.46])
+        box(group, 0.065, 0.08, 0.83, x, 1.62, 0.04, materials.steel);
+      box(group, 0.78, 0.64, 0.16, 0, 1.2, -0.54, color);
+      cylinder(group, 0.27, 0.065, 0, 1.25, -0.43, materials.dark, "z");
+      const fan = new T.Group();
+      fan.position.set(0, 1.25, -0.375);
+      for (let i = 0; i < 4; i++) {
+        const blade = box(
+          fan,
+          0.105,
+          0.23,
+          0.028,
+          Math.sin((i * Math.PI) / 2) * 0.11,
+          Math.cos((i * Math.PI) / 2) * 0.11,
+          0,
+          materials.steel,
+        );
+        blade.rotation.z = (-i * Math.PI) / 2 + 0.25;
+        blade.userData.kind = "dryer-fan";
+      }
+      const hub = cylinder(fan, 0.055, 0.06, 0, 0, 0, materials.brass, "z");
+      hub.userData.kind = "dryer-fan";
+      group.add(fan);
+      for (const x of [-0.18, 0, 0.18])
+        box(group, 0.025, 0.49, 0.035, x, 1.25, -0.32, materials.dark);
+      const heat = new T.MeshStandardMaterial({
+        color: 0xf4b34c,
+        emissive: 0xeb8c22,
+        emissiveIntensity: 0.13,
+        metalness: 0.5,
+        roughness: 0.35,
+      });
+      for (let i = 0; i < 6; i++)
+        cylinder(group, 0.025, 0.74, -0.36 + i * 0.144, 1.49, 0, heat, "z");
+      const air: T.Mesh[] = [];
+      for (let i = 0; i < 3; i++) {
+        const ribbon = new T.Mesh(
+          new T.PlaneGeometry(0.028, 0.24),
+          new T.MeshBasicMaterial({
+            color: 0xffdc8d,
+            transparent: true,
+            opacity: 0.22,
+            depthWrite: false,
+            side: T.DoubleSide,
+          }),
+        );
+        ribbon.position.set(-0.19 + i * 0.19, 1.25, 0.18);
+        ribbon.userData.kind = "dryer-air";
+        ribbon.visible = false;
+        group.add(ribbon);
+        air.push(ribbon);
+      }
+      this.processMechanisms.push({ tile, fan, heat, air });
+    } else if (kind === "unpack") {
+      for (const z of [-0.48, 0.48]) {
+        box(group, 0.2, 1.22, 0.13, -0.35, 0.92, z, color);
+        box(group, 0.16, 0.11, 0.22, -0.35, 0.35, z, materials.brass);
+      }
+      box(group, 1.02, 0.16, 0.22, 0, 1.62, -0.41, color);
+      box(group, 1.02, 0.06, 0.06, 0, 1.62, 0.42, materials.steel);
+      for (const x of [-0.43, 0.43])
+        box(group, 0.06, 0.08, 0.85, x, 1.62, 0.01, materials.steel);
+      box(group, 0.81, 0.07, 0.12, 0, 1.5, 0, materials.steel);
+      const jaws: T.Group[] = [];
+      for (const side of [-1, 1]) {
+        const jaw = new T.Group();
+        jaw.position.set(0, 1.02, side * 0.47);
+        cylinder(jaw, 0.07, 0.72, 0, 0, 0, materials.brass, "x");
+        box(jaw, 0.61, 0.28, 0.06, 0, -0.1, 0, color);
+        box(jaw, 0.63, 0.045, 0.09, 0, -0.25, 0, materials.steel);
+        jaw.traverse((o) => {
+          if (o instanceof T.Mesh) o.userData.kind = "unpacker-jaw";
+        });
+        group.add(jaw);
+        jaws.push(jaw);
+      }
+      const cutter = new T.Group();
+      cutter.position.set(0, 1.42, 0);
+      box(cutter, 0.19, 0.12, 0.18, 0, 0, 0, materials.brass);
+      const knife = new T.Mesh(
+        new T.ConeGeometry(0.055, 0.13, 3),
+        materials.steel,
+      );
+      knife.rotation.z = Math.PI;
+      knife.position.y = -0.09;
+      cutter.add(knife);
+      cutter.traverse((o) => {
+        if (o instanceof T.Mesh) o.userData.kind = "unpacker-cutter";
+      });
+      group.add(cutter);
+      this.processMechanisms.push({ tile, jaws, cutter });
     } else {
       for (const z of [-0.42, 0.42])
         box(group, 0.2, 0.94, 0.14, 0, 0.72, z, color);
@@ -796,7 +974,11 @@ export class Workshop {
     );
     sign.position.set(
       0,
-      kind === "wash" ? 2.64 : kind === "paint" ? 2.0 : 1.57,
+      kind === "wash"
+        ? 2.64
+        : kind === "paint" || kind === "dry" || kind === "unpack"
+          ? 2.0
+          : 1.57,
       -0.18,
     );
     group.add(sign);
@@ -808,7 +990,12 @@ export class Workshop {
       : product.washed
         ? 0xc5975c
         : 0x866442;
-    const wood = mat(color, 0.08, 0.8);
+    const cured = product.painted && product.paintCured;
+    const wood = mat(
+      color,
+      cured ? 0.2 : 0.08,
+      cured ? 0.27 : product.dried ? 0.66 : 0.8,
+    );
     if (product.receiver === "service-arm" && !product.packed) {
       cylinder(g, 0.22, 0.13, 0, 0.1, 0, materials.steel);
       const model = this.models.arm;
@@ -826,7 +1013,13 @@ export class Workshop {
                 m.map = null;
                 m.color.set(product.painted ? 0x258bd1 : 0xa9ada6);
                 m.metalness = product.painted ? 0.3 : 0.65;
-                m.roughness = product.painted ? 0.4 : 0.65;
+                m.roughness = product.painted
+                  ? cured
+                    ? 0.23
+                    : 0.4
+                  : product.dried
+                    ? 0.52
+                    : 0.65;
               }
               return m;
             };
@@ -875,17 +1068,26 @@ export class Workshop {
     }
     if (product.packed) {
       box(g, 0.075, 0.51, 0.55, 0, 0.26, 0, materials.paper);
+    } else if (product.dried) {
+      // A small finish mark is visible after processing, never on source items.
+      // Paint curing also changes the actual surface finish on crates and arms.
+      const y = product.receiver === "crate" ? 0.506 : 0.2;
+      for (let i = 0; i < 3; i++)
+        box(g, 0.018, 0.009, 0.065, 0.16 + i * 0.028, y, 0.13, materials.brass);
     }
     return g;
   }
   sync(sim: Foundry, focusCell: Cell | null, dt: number) {
     this.time += dt;
-    const bs = String(sim.level) + JSON.stringify(this.assetStatus);
+    this.boardWidth = sim.board.width;
+    this.boardDepth = sim.board.depth;
+    const bs = JSON.stringify(sim.board) + JSON.stringify(this.assetStatus);
     if (bs !== this.boardSignature) {
       this.boardSignature = bs;
+      this.releaseResources(this.ports);
       this.ports.clear();
-      for (let x = 0; x < 9; x++)
-        for (let z = 0; z < 7; z++) {
+      for (let x = 0; x < sim.board.width; x++)
+        for (let z = 0; z < sim.board.depth; z++) {
           const g = new T.Group();
           g.position.copy(this.position({ x, z }));
           box(g, 1.17, 0.06, 1.17, 0, -0.08, 0, gridMaterials[(x + z) % 2]);
@@ -908,8 +1110,10 @@ export class Workshop {
         const example = this.makeProduct({
           receiver: source.receiver,
           washed: false,
+          dried: false,
           painted: false,
           paintBonded: false,
+          paintCured: false,
           labelled: false,
           labelSurface: null,
           packed: false,
@@ -944,12 +1148,17 @@ export class Workshop {
       this.ports.add(g);
       this.batch(this.ports);
     }
-    const ts = JSON.stringify(sim.tiles) + JSON.stringify(this.assetStatus);
+    const ts =
+      `${this.boardWidth},${this.boardDepth}` +
+      JSON.stringify(sim.tiles) +
+      JSON.stringify(this.assetStatus);
     if (ts !== this.tileSignature) {
       this.tileSignature = ts;
+      this.releaseResources(this.tiles);
       this.tiles.clear();
       this.mechanisms = [];
       this.actuators = [];
+      this.processMechanisms = [];
       for (const tile of sim.tiles) {
         const g = new T.Group();
         g.position.copy(this.position(tile));
@@ -959,6 +1168,7 @@ export class Workshop {
         this.tiles.add(g);
       }
       this.batch(this.tiles);
+      this.renderer.renderLists.dispose();
     }
     const visible = new Set<string>();
     const obtain = (id: string, product: Product) => {
@@ -970,7 +1180,10 @@ export class Workshop {
       });
       let cached = this.productMeshes.get(id);
       if (!cached || cached.signature !== signature) {
-        if (cached) this.products.remove(cached.group);
+        if (cached) {
+          this.releaseResources(cached.group);
+          this.products.remove(cached.group);
+        }
         cached = { signature, group: this.makeProduct(product) };
         this.productMeshes.set(id, cached);
         this.products.add(cached.group);
@@ -994,7 +1207,11 @@ export class Workshop {
               ? 0x99d6e6
               : e.action === "paint"
                 ? 0x2783bf
-                : 0xffe6ac,
+                : e.action === "dry"
+                  ? 0xe3ad53
+                  : e.action === "unpack"
+                    ? 0x61b6ad
+                    : 0xffe6ac,
             e.removedLabel ? 12 : 7,
           );
           if (e.removedLabel) {
@@ -1026,9 +1243,13 @@ export class Workshop {
     });
     for (const [id, cached] of this.productMeshes)
       if (!visible.has(id)) {
+        this.releaseResources(cached.group);
         this.products.remove(cached.group);
         this.productMeshes.delete(id);
       }
+    const activePieceIds = new Set(sim.pieces.map((piece) => piece.id));
+    for (const id of this.lastHistory.keys())
+      if (!activePieceIds.has(id)) this.lastHistory.delete(id);
     const machineryActive =
       sim.mode === "running" ||
       (sim.mode === "paused" && sim.previousMode === "running");
@@ -1050,6 +1271,38 @@ export class Workshop {
         actuator.restYaw +
         (!this.reduced && working ? Math.sin(this.time * 12) * 0.13 : 0);
     }
+    for (const mechanism of this.processMechanisms) {
+      const working =
+        machineryActive &&
+        sim.pieces.some(
+          (p) =>
+            key(p.cell) === key(mechanism.tile) && p.progress >= 1 && p.dwell > 0,
+        );
+      const phase = this.time * 12;
+      if (mechanism.fan && working && !this.reduced)
+        mechanism.fan.rotation.z += dt * 17;
+      if (mechanism.heat)
+        mechanism.heat.emissiveIntensity = working
+          ? 0.6 + (this.reduced ? 0 : Math.sin(phase) * 0.12)
+          : 0.13;
+      mechanism.air?.forEach((air, i) => {
+        air.visible = working;
+        air.position.y =
+          1.25 +
+          (!this.reduced && working ? Math.sin(phase + i) * 0.045 : 0);
+      });
+      mechanism.jaws?.forEach((jaw, i) => {
+        const side = i === 0 ? -1 : 1;
+        jaw.rotation.x =
+          side *
+          (working
+            ? 0.14 + (this.reduced ? 0 : Math.sin(phase) * 0.13)
+            : 0.36);
+      });
+      if (mechanism.cutter)
+        mechanism.cutter.position.x =
+          working && !this.reduced ? Math.sin(phase) * 0.24 : 0;
+    }
     this.focus.visible = !!focusCell;
     if (focusCell) this.focus.position.copy(this.position(focusCell));
     for (const particle of this.particles) {
@@ -1060,8 +1313,8 @@ export class Workshop {
     }
     this.particles = this.particles.filter((p) => {
       if (p.life <= 0) {
+        this.releaseResources(p.mesh);
         this.fx.remove(p.mesh);
-        p.mesh.geometry.dispose();
         return false;
       }
       return true;

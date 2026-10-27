@@ -2,6 +2,25 @@
   "state": {
     "coordinateSystem": "grid x east/right 0..8, z south/front 0..6; world x=(gridX-4)*1.2, world z=(gridZ-3)*1.2; y up",
     "mode": "editing",
+    "campaign": {
+      "total": 45,
+      "completed": 1,
+      "completedIds": [
+        "first-shipment"
+      ],
+      "chapter": 1,
+      "layout": 1,
+      "finaleVisible": false,
+      "saved": true
+    },
+    "controls": {
+      "coachVisible": true,
+      "learned": [
+        "place"
+      ],
+      "moveFrom": null,
+      "undoCount": 0
+    },
     "challenge": 2,
     "title": "אותה עבודה, מוקד חדש",
     "contract": "First, the crates are washed by the cleaning arm. Then they are painted by the painter. Leave them unpacked.",
@@ -597,7 +616,7 @@
     ],
     "medals": [
       {
-        "time": 6.658633333333318,
+        "time": 6.666666666666648,
         "footprint": 11,
         "attempts": 1,
         "hints": 0,
@@ -609,16 +628,6 @@
       "arm": "ready"
     },
     "assetInfo": {
-      "arm": {
-        "meshes": 1,
-        "triangles": 18108,
-        "animations": 0,
-        "size": [
-          1.0000001192092896,
-          0.892333984375,
-          0.5132446885108948
-        ]
-      },
       "washer": {
         "meshes": 1,
         "triangles": 18144,
@@ -628,13 +637,27 @@
           1,
           0.6232910752296448
         ]
+      },
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
       }
+    },
+    "industryAssets": {
+      "pump": "ready",
+      "spotlight": "ready"
     },
     "muted": false,
     "audioState": {
       "unlocked": true,
       "contextState": "running",
-      "loadedCues": 12,
+      "loadedCues": 14,
       "musicLoaded": true,
       "musicEnabled": true,
       "effectsEnabled": true,
@@ -648,18 +671,25 @@
       "activeMusicLoops": 1,
       "musicSourceCount": 1,
       "musicStarts": 1,
-      "sfxPlayed": 11,
-      "activeEffects": 0,
+      "sfxPlayed": 9,
+      "activeEffects": 6,
       "musicSeconds": 68.57141666666666,
-      "playhead": 8.911249999999995,
+      "playhead": 1.5893333333333333,
       "error": ""
     },
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.6,
-      "drawCalls": 27,
-      "triangles": 39470
+      "meanFrameMs": 8.79,
+      "drawCalls": 39,
+      "triangles": 161338,
+      "resources": {
+        "geometries": 24,
+        "textures": 17,
+        "programs": 9,
+        "productGroups": 0,
+        "particles": 0
+      }
     }
   },
-  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n? עזרה\nⅡ השהיה\n♪\n♫\n≈\n⛶\nהזמנה 2 / 5 · אותה עבודה, מוקד חדש\n⌕ מילים\n▷ EN\n\nFirst, the crates are washed by the cleaning arm. Then they are painted by the painter. Leave them unpacked.\n\nניסוח פעיל\nיעד: 2 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n⚒\nPainter\n4\n▣\nPacker\n5\n◈\nCleaning arm\n6\n▤\nLabel press\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nקראו את ההזמנה ובנו מסלול. עצירה מחזירה לעריכה.\n0 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה"
+  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n☷ הזמנות\n? עזרה\nⅡ השהיה\n♪\n♫\n≈\n⛶\nהזמנה 2 / 45 · אותה עבודה, מוקד חדש\n⌃\n⌕ מילים\n▷ EN\nפרק 1 · המשמרת הראשונה\n\nFirst, the crates are washed by the cleaning arm. Then they are painted by the painter. Leave them unpacked.\n\nניסוח פעיל\nיעד: 2 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nBelt\n\nMoves an item straight to the next tile.\n\nיציאה: ימינה\nבנייה: ⁦Belt⁩ · לחצו על משבצת פנויה · ↻ / R משנה כיוון\nקראו את ההזמנה ובנו מסלול. עצירה מחזירה לעריכה.\n0 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n↶ ביטול\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה על חלק לבחירה · R סיבוב · M העברה · Delete מחיקה · ⌘/Ctrl Z ביטול · Space הפעלה · גרירה ימנית לסיבוב המבט"
 }

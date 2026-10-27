@@ -29,7 +29,7 @@ export const key = (c: Cell) => `${c.x},${c.z}`;
 export const same = (a: Cell, b: Cell) => a.x === b.x && a.z === b.z;
 export const inside = (b: Board, c: Cell) =>
   c.x >= 0 && c.x < b.width && c.z >= 0 && c.z < b.depth;
-export function boardFor(index: number): Board {
+export function boardFor(index: number, receiver?: Receiver): Board {
   const width = 9,
     depth = 7;
   const row = index === 4 ? 5 : 3;
@@ -65,6 +65,24 @@ export function boardFor(index: number): Board {
       { x: 2, z: 2, kind: "belt", rotation: 2 },
       { x: 4, z: 4, kind: "belt", rotation: 1 },
     );
+  if (index >= 5) {
+    const layouts = [
+      { row: 1, end: 5, obstacles: [{x:3,z:1},{x:3,z:2},{x:3,z:3},{x:5,z:3},{x:5,z:4},{x:5,z:5}] },
+      { row: 1, end: 3, obstacles: [{x:3,z:2},{x:3,z:3},{x:3,z:4},{x:6,z:1},{x:6,z:5}] },
+      { row: 5, end: 1, obstacles: [{x:2,z:3},{x:2,z:4},{x:2,z:5},{x:5,z:1},{x:5,z:2},{x:5,z:3}] },
+      { row: 3, end: 3, obstacles: [{x:2,z:3},{x:3,z:2},{x:4,z:3},{x:5,z:4},{x:6,z:3}] },
+    ];
+    const layout = layouts[(index - 5) % layouts.length];
+    return {
+      width, depth,
+      sources: index === 6
+        ? [{x:-1,z:1,receiver: receiver === "panel" ? "panel" : "crate"}, {x:-1,z:5,receiver:"service-arm"}]
+        : [{x:-1,z:layout.row,receiver:receiver ?? "crate"}],
+      exit: {x:9,z:layout.end}, obstacles: layout.obstacles, initial: [],
+    };
+  }
+  if (receiver && index !== 2) sources[0].receiver = receiver;
+  if (receiver === "panel" && index === 2) sources[0].receiver = "panel";
   return {
     width,
     depth,

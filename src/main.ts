@@ -2,8 +2,10 @@ import "./style.css";
 import { FoundryAudio } from "./audio";
 import { Foundry } from "./simulation";
 import { Workshop } from "./workshop";
+import { readCampaign, nextUnfinished } from "./campaign";
 import {
   CONTRACTS,
+  CHAPTERS,
   TOOL_DESCRIPTIONS,
   VOCABULARY,
   validateContracts,
@@ -14,6 +16,54 @@ const $ = <T extends HTMLElement = HTMLElement>(id: string) =>
   document.getElementById(id) as T;
 const sim = new Foundry();
 const soundtrack = new FoundryAudio();
+const campaign = readCampaign(localStorage.getItem("sf-campaign-v1"));
+const savedIndex = CONTRACTS.findIndex(c => c.id === campaign.current);
+sim.load(Math.max(0, savedIndex));
+if (campaign.draft?.id === sim.contract.id) {
+  sim.tiles = campaign.draft.tiles;
+  sim.variant = campaign.draft.variant;
+  sim.activeText = campaign.draft.activeText;
+}
+let finaleVisible = Boolean(campaign.endingVisible);
+let persisted = "";
+let storageAvailable = true;
+let lastCompletion = "";
+let coachVisible = localStorage.getItem("sf-controls-seen") !== "true";
+const learned = new Set<string>();
+let undoHistory: Tile[][] = [];
+let editNotice = "";
+function edit(action: () => unknown) {
+  const before = sim.tiles.map(t => ({ ...t }));
+  action();
+  if (JSON.stringify(before) !== JSON.stringify(sim.tiles)) {
+    undoHistory.push(before);
+    if (undoHistory.length > 30) undoHistory.shift();
+  }
+}
+function saveCampaign() {
+  campaign.current = sim.contract.id;
+  campaign.draft = { id: sim.contract.id, tiles: sim.tiles, variant: sim.variant, activeText: sim.activeText };
+  if (sim.mode === "success") {
+    const signature = `${sim.level}:${sim.time}:${sim.attempts}:${sim.variant}`;
+    if (lastCompletion !== signature) {
+      lastCompletion = signature;
+      const wasComplete = Object.keys(campaign.completed).length === CONTRACTS.length;
+      const previous = campaign.completed[sim.contract.id];
+      campaign.completed[sim.contract.id] = {
+        seconds: previous ? Math.min(previous.seconds, sim.time) : sim.time,
+        pieces: previous ? Math.min(previous.pieces, sim.tiles.length) : sim.tiles.length,
+        attempts: sim.attempts, supported: sim.hints > 0 || sim.readingSupport > 0,
+      };
+      if (!wasComplete && Object.keys(campaign.completed).length === CONTRACTS.length) finaleVisible = true;
+    }
+  }
+  campaign.endingVisible = finaleVisible;
+  const serialized = JSON.stringify(campaign);
+  if (serialized !== persisted) {
+    try { localStorage.setItem("sf-campaign-v1", serialized); persisted = serialized; }
+    catch { storageAvailable = false; }
+  }
+}
 let tool: Tool = "belt",
   rotation = 0,
   selected: Cell | null = null,
@@ -38,6 +88,8 @@ const symbols: Record<Tool, string> = {
   paint: "⚒",
   label: "▤",
   pack: "▣",
+  dry: "☀",
+  unpack: "⋈",
 };
 const labels: Record<Tool, string> = {
   belt: "Belt",
@@ -46,6 +98,8 @@ const labels: Record<Tool, string> = {
   paint: "Painter",
   label: "Label press",
   pack: "Packer",
+  dry: "Dryer",
+  unpack: "Unpacker",
 };
 function unlockAudio(event: Event) {
   if ((event.target as HTMLElement).closest("#mute")) return;
@@ -54,6 +108,7 @@ function unlockAudio(event: Event) {
 window.addEventListener("pointerdown", unlockAudio, { passive: true });
 window.addEventListener("keydown", unlockAudio);
 function selectTool(next: Tool) {
+  editNotice = "";
   tool = next;
   rotation = 0;
   selected = null;
@@ -63,24 +118,38 @@ function selectTool(next: Tool) {
   refresh(true);
 }
 function clickCell(cell: Cell) {
-  if (sim.mode !== "editing" && sim.mode !== "review") return;
+  if (sim.mode !== "editing" && sim.mode !== "review" || finaleVisible) return;
   selected = cell;
+  editNotice = "";
   if (editMode === "erase") {
-    sim.remove(cell);
+    edit(() => sim.remove(cell));
     soundtrack.play("remove");
   } else if (editMode === "move") {
     if (!moveFrom) {
-      if (sim.tiles.some((t) => key(t) === key(cell))) moveFrom = cell;
+      if (sim.tiles.some(t => key(t) === key(cell))) moveFrom = { ...cell };
+      else editNotice = "בחרו קודם את החלק שרוצים להעביר.";
     } else {
-      const tile = sim.tiles.find((t) => key(t) === key(moveFrom!));
-      if (tile && sim.place(cell, tile.kind, tile.rotation)) {
-        if (key(moveFrom) !== key(cell)) sim.remove(moveFrom);
+      let moved = false;
+      edit(() => { moved = sim.move(moveFrom!, cell); });
+      if (moved) {
         moveFrom = null;
+        learned.add("move");
         soundtrack.play("place");
-      }
+      } else editNotice = "המקום תפוס או חסום. בחרו משבצת פנויה; החלק נשאר במקומו.";
     }
-  } else if (sim.place(cell, tool, rotation)) {
-    soundtrack.play("place");
+  } else {
+    const existing = sim.tiles.find(t => key(t) === key(cell));
+    if (existing) {
+      tool = existing.kind;
+      rotation = existing.rotation;
+    } else {
+      let placed = false;
+      edit(() => { placed = sim.place(cell, tool, rotation); });
+      if (placed) {
+        learned.add("place");
+        soundtrack.play("place");
+      } else editNotice = "אי אפשר לבנות כאן. בדקו את המכשול או את מגבלת החלקים.";
+    }
   }
   refresh(true);
 }
@@ -88,22 +157,21 @@ function rotate() {
   if (sim.mode !== "editing" && sim.mode !== "review") return;
   const tile = selected && sim.tiles.find((t) => key(t) === key(selected!));
   if (tile) {
-    sim.rotate(tile);
+    edit(() => sim.rotate(tile));
     rotation = tile.rotation;
     tool = tile.kind;
   } else rotation = (rotation + 1) % (tool === "corner" ? 8 : 4);
+  learned.add("rotate");
   soundtrack.play("rotate");
   refresh(true);
 }
 function buildPalette() {
-  const order: Tool[] =
-    sim.level % 2 === 0
-      ? ["belt", "corner", "wash", "paint", "label", "pack"]
-      : ["belt", "corner", "paint", "pack", "wash", "label"];
+  const order: Tool[] = ["belt", "corner", ...sim.contract.availableMachines];
+  $("palette").classList.toggle("expanded", order.length > 6);
   $("palette").innerHTML = order
     .map(
       (kind, i) =>
-        `<button data-tool="${kind}" aria-label="${labels[kind]}" aria-pressed="${tool === kind}"><kbd>${i + 1}</kbd><span class="symbol">${symbols[kind]}</span><small lang="en">${labels[kind]}</small></button>`,
+        `<button data-tool="${kind}" title="${labels[kind]} · מקש ${i + 1}" aria-label="${labels[kind]}" aria-pressed="${tool === kind}"><kbd>${i + 1}</kbd><span class="symbol">${symbols[kind]}</span><small lang="en">${labels[kind]}</small></button>`,
     )
     .join("");
   document
@@ -123,6 +191,14 @@ function describeRejection() {
     d.product.packed
   )
     return "התווית נמצאת בתוך האריזה. בדקו מתי היא הוצמדה.";
+  if (d.reasons.includes("final:paintCured"))
+    return "הצבע עדיין לא התקשה. ייבוש צריך לפעול אחרי הצביעה, כשהחפץ מחוץ לאריזה.";
+  if (d.reasons.includes("final:dried"))
+    return "מצב הייבוש אינו מתאים להזמנה. שטיפה או צבע מחדש מבטלים ייבוש קודם.";
+  if (d.reasons.includes("final:itemLabelled"))
+    return "התווית הפנימית חסרה. בדקו אם היא הוצמדה לחפץ לפני שסגרתם את האריזה.";
+  if (d.reasons.includes("final:packed"))
+    return "מצב האריזה אינו מתאים להזמנה. פותח האריזות פועל רק על חפץ שכבר נארז.";
   if (d.reasons.includes("final:painted"))
     return "מצב הצבע אינו מתאים להזמנה. שימו לב למה קרה בדרך.";
   if (d.reasons.includes("final:labelled"))
@@ -130,6 +206,7 @@ function describeRejection() {
   return "התוצר או סדר הפעולות אינם מתאימים. עצרו, בדקו את התוצר ותקנו את המסלול.";
 }
 function status() {
+  if (editNotice) return editNotice;
   if (sim.mode === "paused") return "מושהה · אפשר לקרוא ולתכנן בלי קנס זמן";
   if (moveFrom) return "בחרו משבצת להעברת החלק · R מסובב את החלק";
   if (sim.mode === "success")
@@ -164,8 +241,21 @@ function refresh(force = false) {
   ].join("|");
   if (!force && signature === lastUi) return;
   lastUi = signature;
-  $("level-label").textContent =
-    `הזמנה ${sim.level + 1} / 5 · ${sim.contract.titleHe}`;
+  saveCampaign();
+  $("level-label").textContent = `הזמנה ${sim.level + 1} / ${CONTRACTS.length} · ${sim.contract.titleHe}`;
+  $("chapter-label").textContent = `פרק ${sim.contract.chapter + 1} · ${CHAPTERS[sim.contract.chapter].titleHe}`;
+  $("campaign-open").title = `${Object.keys(campaign.completed).length} / ${CONTRACTS.length} הושלמו · בחירת הזמנה`;
+  $("control-coach").hidden = !coachVisible || sim.level !== 0 || sim.mode === "running" || sim.mode === "success" || finaleVisible;
+  for (const action of ["place", "rotate", "move"]) $(`learn-${action}`).classList.toggle("learned", learned.has(action));
+  const selectedTile = selected && sim.tiles.find(t => key(t) === key(selected!));
+  $("control-tip").textContent = sim.mode === "running"
+    ? "הקו עובד · לחצו עצירה כדי לסובב, להעביר או למחוק חלקים"
+    : editMode === "move" ? (moveFrom ? "↔ עכשיו לחצו על המקום החדש · Esc מבטל העברה" : "↔ שלב 1: לחצו על החלק שרוצים להעביר")
+    : editMode === "erase" ? "⌫ לחצו על חלק למחיקה · לחיצה נוספת על מחיקה חוזרת לבנייה"
+    : selectedTile ? `נבחר: ${"\u2066" + labels[selectedTile.kind] + "\u2069"} · ↻ / R לסיבוב · ↔ / M להעברה · Delete למחיקה`
+    : `בנייה: ${"\u2066" + labels[tool] + "\u2069"} · לחצו על משבצת פנויה · ↻ / R משנה כיוון`;
+  ($("undo") as HTMLButtonElement).disabled = !undoHistory.length || !["editing", "review"].includes(sim.mode);
+  for (const id of ["move", "rotate", "erase"]) ($<HTMLButtonElement>(id)).disabled = !["editing", "review"].includes(sim.mode);
   $("order").textContent = sim.text;
   $("quantity").textContent =
     `יעד: ${sim.contract.count} תוצרים · התקבלו ${sim.accepted}`;
@@ -173,7 +263,7 @@ function refresh(force = false) {
   $("receiver").hidden = !sim.contract.receiverAlternative;
   $("paraphrase").textContent = sim.activeText ? "ניסוח סביל" : "ניסוח פעיל";
   $("status-text").textContent = status();
-  $("build-size").textContent = `${sim.tiles.length} חלקים`;
+  $("build-size").textContent = `${sim.tiles.length}${sim.contract.maxPieces ? " / " + sim.contract.maxPieces : ""} חלקים`;
   $("run").classList.toggle("running", sim.mode === "running");
   $("run").querySelector("span")!.textContent =
     sim.mode === "running" ? "עצירה ועריכה" : "הפעלת המפעל";
@@ -210,21 +300,24 @@ function refresh(force = false) {
   $("orientation").textContent =
     `יציאה: ${["ימינה", "קדימה", "שמאלה", "אחורה"][rotation % 4]}${tool === "corner" ? " · " + (rotation >= 4 ? "פנייה הפוכה" : "פנייה רגילה") : ""}`;
   buildPalette();
-  $("result").hidden = sim.mode !== "success";
+  $("result").hidden = sim.mode !== "success" || finaleVisible;
+  $("finale").hidden = !finaleVisible;
+  if (finaleVisible) {
+    $("finale-stats").innerHTML = `<strong>45 <small>הזמנות</small></strong><strong>9 <small>פרקים</small></strong><strong>6 <small>מכונות</small></strong>`;
+  }
   if (sim.mode === "success") {
-    const final = sim.level === 4;
-    $("result-title").textContent = final
-      ? "כל חמש ההזמנות הושלמו!"
-      : "המשלוח יצא לדרך";
-    $("result-detail").textContent =
-      `${sim.contract.count} תוצרים תקינים · ${sim.time.toFixed(1)} שניות ייצור · ${sim.tiles.length} חלקים · ${sim.attempts} ניסיונות${sim.hints ? " · בעזרת רמז" : " · ללא רמז"}. קריאה ובנייה אינן נספרות בזמן.`;
-    $("next").textContent = final ? "סדנה חדשה ↺" : "להזמנה הבאה ←";
+    const final = sim.level === CONTRACTS.length - 1;
+    const chapterEnd = (sim.level + 1) % 5 === 0;
+    $("result-title").textContent = final ? "משלוח הגמר התקבל!" : chapterEnd ? `סיימתם את פרק ${sim.contract.chapter + 1}!` : "המשלוח יצא לדרך";
+    $("result-detail").textContent = `${sim.contract.count} תוצרים תקינים · ${sim.time.toFixed(1)} שניות ייצור · ${sim.tiles.length} חלקים · ${sim.attempts} ניסיונות${sim.hints ? " · בעזרת רמז" : " · ללא רמז"}. הושלמו ${Object.keys(campaign.completed).length} / ${CONTRACTS.length}. קריאה ובנייה אינן נספרות בזמן.`;
+    $("next").textContent = final ? "לשאר ההזמנות ☷" : "להזמנה הבאה ←";
   }
   try {
     localStorage.setItem("sf-events", JSON.stringify(sim.events));
   } catch {}
 }
 function run() {
+  if (finaleVisible || ($("dialog") as HTMLDialogElement).open) return;
   const stopping = sim.mode === "running";
   soundtrack.play(stopping ? "remove" : "start");
   if (!stopping) {
@@ -237,8 +330,10 @@ function run() {
   refresh(true);
 }
 function openDialog(html: string) {
+  stopSpeech();
   dialogPaused = sim.mode !== "paused";
   if (dialogPaused) sim.pause();
+  $("dialog").classList.remove("campaign-dialog");
   $("dialog-content").innerHTML = html;
   ($("dialog") as HTMLDialogElement).showModal();
   refresh(true);
@@ -247,9 +342,13 @@ function closeDialog() {
   ($("dialog") as HTMLDialogElement).close();
   if (dialogPaused && sim.mode === "paused") sim.pause();
   dialogPaused = false;
-  let speechVersion = 0;
   refresh(true);
 }
+$("contract-toggle").onclick = () => {
+  const collapsed = $("contract").classList.toggle("collapsed");
+  $("contract-toggle").setAttribute("aria-expanded", String(!collapsed));
+  $("contract-toggle").textContent = collapsed ? "⌄" : "⌃";
+};
 $("close-dialog").onclick = closeDialog;
 ($("dialog") as HTMLDialogElement).addEventListener("cancel", (e) => {
   e.preventDefault();
@@ -257,7 +356,7 @@ $("close-dialog").onclick = closeDialog;
 });
 $("help").onclick = () =>
   openDialog(
-    `<h2>בונים. מפעילים. מתקנים.</h2><p>קראו את הזמנת הלקוח באנגלית. בחרו מסוע או מכונה, ולחצו על השולחן כדי לבנות מסלול מהכניסה אל <b dir="ltr">DISPATCH</b>. כל חץ מראה לאן החפץ ייצא. מכונה ישרה מקבלת חפץ מהצד הנגדי לחץ.</p><p>בחרו <b>העברה</b>, לחצו על חלק ואז על המקום החדש. <b>סיבוב / R</b> מסובב את החלק הנבחר, או את החלק הבא שייבנה. למסוע פנייה יש 8 מצבי כניסה ויציאה.</p><p>הפעילו וצפו בחפצים. מים מסירים צבע ונייר, צבע מכסה נייר, ואריזה אוטמת את החפץ. אפשר לעצור, להעביר מכונה ולהריץ שוב. גם תור במסוע בטוח לחפצים.</p><p>מקשים: <b dir="ltr">1–6</b> כלים · <b dir="ltr">WASD / arrows</b> מיקוד משבצת · <b dir="ltr">Enter</b> בנייה · <b dir="ltr">R</b> סיבוב · <b dir="ltr">Space</b> הפעלה/עצירה · <b dir="ltr">P / Esc</b> השהיה · <b dir="ltr">F</b> מסך מלא. גרירה ימנית או גרירת אצבע מסובבת את המבט; צביטה משנה מרחק.</p><p>קריאה, תרגום ותכנון אינם גורעים מציון. זמן הייצור ושטח המפעל הם אתגרי יעילות נפרדים. המידע נשמר רק בדפדפן זה, ללא שמות תלמידים.</p><p style="font-size:11px">תרגול הבנה לפי Workbook כיתה ח׳. המשפטים במשחק מקוריים. אין כאן מדידה של הפקת דקדוק או אישור של הישגי למידה.</p>`,
+    `<h2>בונים. מסובבים. מעבירים.</h2><div class="control-lesson"><p><b>① בנייה</b> · בחרו כלי מהמדף ולחצו על משבצת פנויה.</p><p><b>② סיבוב</b> · לחצו על חלק קיים, ואז על ↻ סיבוב או R. החץ שעל החלק הוא כיוון היציאה.</p><p><b>③ העברה</b> · לחצו ↔ העברה או M, בחרו חלק, ואז לחצו על משבצת פנויה. אין צורך לגרור.</p><p><b>↶ ביטול</b> · טעיתם בעריכה? לחצו ביטול או ⌘ / Ctrl Z.</p></div><p>קראו את הזמנת הלקוח באנגלית. בחרו מסוע או מכונה, ולחצו על השולחן כדי לבנות מסלול מהכניסה אל <b dir="ltr">DISPATCH</b>. כל חץ מראה לאן החפץ ייצא. מכונה ישרה מקבלת חפץ מהצד הנגדי לחץ.</p><p>בחרו <b>העברה</b>, לחצו על חלק ואז על המקום החדש. <b>סיבוב / R</b> מסובב את החלק הנבחר, או את החלק הבא שייבנה. למסוע פנייה יש 8 מצבי כניסה ויציאה.</p><p>הפעילו וצפו בחפצים. מים מסירים צבע ונייר, צבע מכסה נייר, ואריזה אוטמת את החפץ. אפשר לעצור, להעביר מכונה ולהריץ שוב. גם תור במסוע בטוח לחפצים.</p><p>מקשים: <b dir="ltr">1–8</b> כלים · <b dir="ltr">WASD / arrows</b> מיקוד משבצת · <b dir="ltr">Enter</b> בנייה · <b dir="ltr">R</b> סיבוב · <b dir="ltr">Space</b> הפעלה/עצירה · <b dir="ltr">P / Esc</b> השהיה · <b dir="ltr">F</b> מסך מלא. גרירה ימנית או גרירת אצבע מסובבת את המבט; צביטה משנה מרחק.</p><p>קריאה, תרגום ותכנון אינם גורעים מציון. זמן הייצור ושטח המפעל הם אתגרי יעילות נפרדים. המידע נשמר רק בדפדפן זה, ללא שמות תלמידים.</p><p style="font-size:11px">תרגול הבנה לפי Workbook כיתה ח׳. המשפטים במשחק מקוריים. אין כאן מדידה של הפקת דקדוק או אישור של הישגי למידה.</p>`,
   );
 $("read").onclick = () => {
   sim.readingSupport++;
@@ -284,7 +383,8 @@ $("rotate").onclick = rotate;
 $("move").onclick = () => {
   editMode = editMode === "move" ? "place" : "move";
   moveFrom = null;
-  selected = null;
+  if (editMode === "move" && selected && sim.tiles.some(t => key(t) === key(selected!))) moveFrom = { ...selected };
+  editNotice = "";
   refresh(true);
 };
 $("erase").onclick = () => {
@@ -292,30 +392,58 @@ $("erase").onclick = () => {
   moveFrom = null;
   refresh(true);
 };
-$("restart").onclick = () => {
+function loadLevel(index: number) {
   stopSpeech();
   soundtrack.resetRun();
-  sim.log("restart");
-  sim.load(sim.level);
-  tool = "belt";
-  selected = null;
-  moveFrom = null;
-  editMode = "place";
-  refresh(true);
-};
-$("next").onclick = () => {
-  stopSpeech();
-  soundtrack.resetRun();
-  sim.load((sim.level + 1) % 5);
+  sim.load(index);
   tool = "belt";
   rotation = 0;
   selected = null;
   moveFrom = null;
   editMode = "place";
+  editNotice = "";
+  undoHistory = [];
   lastDeliveries = 0;
+  lastMode = "";
+  finaleVisible = false;
   workshop.resetCamera();
   refresh(true);
+}
+$("restart").onclick = () => { sim.log("restart"); loadLevel(sim.level); };
+$("next").onclick = () => {
+  if (sim.level === CONTRACTS.length - 1) openCampaign();
+  else loadLevel(sim.level + 1);
 };
+$("undo").onclick = () => {
+  if (!["editing", "review"].includes(sim.mode)) return;
+  const previous = undoHistory.pop();
+  if (previous) { sim.tiles = previous; selected = null; moveFrom = null; editNotice = ""; }
+  refresh(true);
+};
+$("dismiss-coach").onclick = () => {
+  coachVisible = false;
+  localStorage.setItem("sf-controls-seen", "true");
+  refresh(true);
+};
+function openCampaign() {
+  const count = Object.keys(campaign.completed).length;
+  const recommended = nextUnfinished(campaign);
+  openDialog(`<div class="campaign-heading"><span lang="en" dir="ltr">THE WORK ORDER BOOK</span><h2>ספר ההזמנות</h2><p>${count} מתוך ${CONTRACTS.length} הושלמו · אפשר לבחור כל הזמנה</p></div>${CHAPTERS.map((chapter, ci) => {
+    const levels = CONTRACTS.map((contract, index) => ({ contract, index })).filter(({contract}) => contract.chapter === ci);
+    const done = levels.filter(({contract}) => campaign.completed[contract.id]).length;
+    return `<section class="campaign-chapter"><div><h3><b>${String(ci+1).padStart(2,"0")}</b> ${chapter.titleHe}</h3><span>${done} / ${levels.length}</span></div><p>${chapter.descriptionHe}</p><div class="campaign-levels">${levels.map(({contract,index}) => `<button data-level="${index}" class="${campaign.completed[contract.id] ? "done" : ""} ${sim.level === index ? "current" : ""}" aria-label="הזמנה ${index + 1}: ${contract.titleHe}${campaign.completed[contract.id] ? ", הושלמה" : ""}"><b>${index + 1}</b><span>${contract.titleHe}</span><small>${campaign.completed[contract.id] ? "✓ הושלם" : index === recommended ? "הבא בתור" : "לסדנה ←"}</small></button>`).join("")}</div></section>`;
+  }).join("")}<p class="save-note">${storageAvailable ? "ההתקדמות והבנייה הנוכחית נשמרות אוטומטית בדפדפן הזה." : "הדפדפן אינו מאפשר שמירה כרגע. השאירו את החלון פתוח כדי לשמור על ההתקדמות."}</p>${count === CONTRACTS.length ? '<button id="view-finale">✦ חזרה לסיום החגיגי</button>' : ""}`);
+  $("dialog").classList.add("campaign-dialog");
+  document.querySelectorAll<HTMLButtonElement>("[data-level]").forEach(b => b.onclick = () => {
+    closeDialog();
+    loadLevel(Number(b.dataset.level));
+  });
+  const viewFinale = document.getElementById("view-finale");
+  if (viewFinale) viewFinale.onclick = () => { closeDialog(); finaleVisible = true; refresh(true); };
+}
+$("campaign-open").onclick = openCampaign;
+$("finale-map").onclick = () => { finaleVisible = false; refresh(true); openCampaign(); };
+$("finale-replay").onclick = () => { finaleVisible = false; refresh(true); };
 $("try-again").onclick = () => {
   sim.stop();
   refresh(true);
@@ -435,7 +563,16 @@ window.addEventListener("keydown", (e) => {
   }
   if (e.code === "Escape" && document.fullscreenElement)
     void document.exitFullscreen();
-  if (e.code === "KeyR") rotate();
+  if ((e.ctrlKey || e.metaKey) && e.code === "KeyZ") { e.preventDefault(); $("undo").click(); return; }
+  if (e.code === "KeyM") $("move").click();
+  if (e.code === "Delete" || e.code === "Backspace") {
+    e.preventDefault();
+    if (selected) { edit(() => sim.remove(selected!)); refresh(true); }
+  }
+  if (e.code === "Escape" && (moveFrom || editMode !== "place")) {
+    moveFrom = null; editMode = "place"; editNotice = ""; refresh(true); return;
+  }
+  if (e.code === "KeyR" && !e.repeat) rotate();
   if (e.code === "Space" && !e.repeat) run();
   if ((e.code === "KeyP" || e.code === "Escape") && !e.repeat) {
     sim.pause();
@@ -530,6 +667,8 @@ Object.assign(window, {
       coordinateSystem:
         "grid x east/right 0..8, z south/front 0..6; world x=(gridX-4)*1.2, world z=(gridZ-3)*1.2; y up",
       mode: sim.mode,
+      campaign: { total: CONTRACTS.length, completed: Object.keys(campaign.completed).length, completedIds: Object.keys(campaign.completed), chapter: sim.contract.chapter + 1, layout: sim.contract.layout, finaleVisible, saved: storageAvailable },
+      controls: { coachVisible, learned: [...learned], moveFrom, undoCount: undoHistory.length },
       challenge: sim.level + 1,
       title: sim.contract.titleHe,
       contract: sim.text,
@@ -588,6 +727,7 @@ Object.assign(window, {
             ).toFixed(2),
             drawCalls: workshop.renderer.info.render.calls,
             triangles: workshop.renderer.info.render.triangles,
+            resources: workshop.resourceInfo,
           }
         : null,
     }),

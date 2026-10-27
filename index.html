@@ -22,7 +22,7 @@
           ><span>מפעל ההמצאות</span>
         </div>
         <nav aria-label="הגדרות">
-          <button id="help">? <span>עזרה</span></button
+          <button id="campaign-open">☷ <span>הזמנות</span></button><button id="help">? <span>עזרה</span></button
           ><button id="pause">Ⅱ <span>השהיה</span></button
           ><button id="mute" aria-label="השתקת כל הצלילים">♪</button
           ><button
@@ -68,10 +68,10 @@
       </section>
       <section id="contract" aria-label="הזמנת לקוח">
         <div class="contract-meta">
-          <span id="level-label"></span><button id="read">⌕ מילים</button
+          <span id="level-label"></span><button id="contract-toggle" aria-label="קיפול או פתיחת ההזמנה" aria-expanded="true">⌃</button><button id="read">⌕ מילים</button
           ><button id="speak" aria-label="הקראת ההזמנה">▷ EN</button>
         </div>
-        <p id="order" lang="en" dir="ltr"></p>
+        <div id="chapter-label"></div><p id="order" lang="en" dir="ltr"></p>
         <div class="contract-actions">
           <button id="paraphrase" hidden>ניסוח אחר</button
           ><button id="receiver" hidden>הזמנת לקוח אחרת</button
@@ -84,6 +84,14 @@
         <p id="tool-description" dir="ltr" lang="en"></p>
         <span id="orientation"></span>
       </section>
+      <section id="control-coach" aria-label="איך בונים">
+        <button id="dismiss-coach" aria-label="הסתרת מדריך">×</button>
+        <strong>שלוש פעולות שכדאי להכיר</strong>
+        <span id="learn-place">① בוחרים כלי ולוחצים על משבצת</span>
+        <span id="learn-rotate">② לוחצים על חלק ואז ↻ או R</span>
+        <span id="learn-move">③ העברה: חלק ← מקום חדש</span>
+      </section>
+      <div id="control-tip" role="status"></div>
       <section id="status" role="status">
         <span id="status-text"></span><span id="build-size"></span>
       </section>
@@ -91,22 +99,29 @@
         <div class="edit-controls">
           <button id="move" title="העברת חלק">↔ העברה</button
           ><button id="rotate">↻ סיבוב <kbd>R</kbd></button
-          ><button id="erase">⌫ מחיקה</button><button id="camera">◌ מבט</button>
+          ><button id="erase" title="מחיקת חלק (Delete)">⌫ מחיקה</button><button id="undo" title="ביטול העריכה האחרונה (Ctrl / ⌘ Z)">↶ ביטול</button><button id="camera">◌ מבט</button>
         </div>
         <button id="run" class="primary">
           ▶ <span>הפעלת המפעל</span><small>SPACE</small></button
         ><button id="restart" title="איפוס ההזמנה">↺</button
         ><button id="hint">רמז</button>
       </footer>
-      <div id="keyboard-help">
-        לחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה /
-        עצירה
-      </div>
+      <div id="keyboard-help">לחיצה על חלק לבחירה · R סיבוב · M העברה · Delete מחיקה · ⌘/Ctrl Z ביטול · Space הפעלה · גרירה ימנית לסיבוב המבט</div>
       <dialog id="dialog">
         <button id="close-dialog" aria-label="סגירה">×</button>
         <div id="dialog-content"></div>
       </dialog>
       <div id="loading">מכינים את שולחן העבודה…</div>
+      <section id="finale" hidden aria-labelledby="finale-title">
+        <div class="finale-seal" aria-hidden="true">✦</div>
+        <span class="eyebrow" lang="en" dir="ltr">SENTENCE FOUNDRY · 45 / 45</span>
+        <h1 id="finale-title">המפעל שלכם. כל הזמנה הושלמה.</h1>
+        <p>ממשלוח העץ הראשון ועד להזמנת הגמר — קראתם, בניתם, בדקתם ותיקנתם.</p>
+        <div id="finale-stats"></div>
+        <p class="save-note">כל 45 ההזמנות הושלמו ונשמרו בדפדפן הזה. אפשר לחזור לכל מפעל ולשפר אותו.</p>
+        <button id="finale-map" class="primary">לכל ההזמנות ☷</button>
+        <button id="finale-replay">חזרה לסדנה</button>
+      </section>
       <section id="result" hidden>
         <span class="eyebrow">משלוח הושלם</span>
         <h1 id="result-title"></h1>

@@ -32,3 +32,10 @@ The locked-Mac acquisition interruption is resolved. Both local assets, observed
 ## User-requested industrial update
 
 After the original target pass, the user requested a stronger industry feel and search-before-generation sourcing. The final refreshed captures include a corrugated steel wall, factory windows, pipes/valves and hanging lamps. Two already-owned Tripo props—a brass pressure pump on the rear bench and spotlights at outer corners—were acquired after gallery search and reuse-rights review. Their placement leaves the63-cell grid, sources and dispatch accessible; actual desktop and mobile images were opened and inspected. The warm wood/cobalt/brass material family and English/Hebrew hierarchy remain intact. New music/effects controls live in a compact mixer rather than occupying the world. No new generation was needed.
+
+
+## Campaign expansion, 27 October 2026
+
+The original built-in conceptual targets remain the art references. This expansion preserves the same tabletop, local Tripo identities and industrial room. Added authored amber dryer and teal unpacker have open overhead structures so crates/panels/arms remain visible; their fan/heater and jaws/cutter are rigid mechanical animations. No model generation credits were spent. `docs/art/campaign-machine-visual.json` and accompanying actual captures record desktop and mobile processing.
+
+The lead inspected the real first-job control guide, dryer processing, unpacker processing, 390px eight-tool palette, full chapter book and completed campaign finale. The game scene retains the largest area. Long English contracts remain scrollable/foldable, while the chapter book is intentionally a separate modal. The finale uses a restrained seal and explicit completed totals, then offers chapter replay. `docs/review/campaign-*.png` contains the actual reviewed states; these are not generated mockups. Mobile tool descriptions now form a separate LTR block to avoid mixed-direction title wrapping.

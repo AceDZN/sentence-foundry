@@ -1,0 +1,336 @@
+{
+  "results": [
+    {
+      "level": 1,
+      "title": "משלוח ראשון",
+      "accepted": 1,
+      "layout": 0,
+      "pieces": 9
+    },
+    {
+      "level": 2,
+      "title": "אותה עבודה, מוקד חדש",
+      "accepted": 2,
+      "layout": 1,
+      "pieces": 9
+    },
+    {
+      "level": 3,
+      "title": "מי מקבל צבע?",
+      "accepted": 1,
+      "layout": 2,
+      "pieces": 10
+    },
+    {
+      "level": 4,
+      "title": "לא שוטפים את התווית",
+      "accepted": 3,
+      "layout": 3,
+      "pieces": 11
+    },
+    {
+      "level": 5,
+      "title": "הזמנה בסדנה חדשה",
+      "accepted": 3,
+      "layout": 4,
+      "pieces": 13
+    },
+    {
+      "level": 6,
+      "title": "תווית על העץ",
+      "accepted": 2,
+      "layout": 1,
+      "pieces": 9
+    },
+    {
+      "level": 7,
+      "title": "אריזה בלי קישוטים",
+      "accepted": 3,
+      "layout": 5,
+      "pieces": 15
+    },
+    {
+      "level": 8,
+      "title": "התג של היחידה",
+      "accepted": 1,
+      "layout": 6,
+      "pieces": 11
+    },
+    {
+      "level": 9,
+      "title": "לוחות כחולים עם שם",
+      "accepted": 2,
+      "layout": 8,
+      "pieces": 13
+    },
+    {
+      "level": 10,
+      "title": "הצבע בפנים, התווית בחוץ",
+      "accepted": 3,
+      "layout": 0,
+      "pieces": 9
+    },
+    {
+      "level": 11,
+      "title": "עץ יבש למשלוח",
+      "accepted": 2,
+      "layout": 1,
+      "pieces": 9
+    },
+    {
+      "level": 12,
+      "title": "הצבע צריך להתקבע",
+      "accepted": 3,
+      "layout": 5,
+      "pieces": 15
+    },
+    {
+      "level": 13,
+      "title": "דוגמה של צבע טרי",
+      "accepted": 1,
+      "layout": 8,
+      "pieces": 13
+    },
+    {
+      "level": 14,
+      "title": "זרוע נקייה, בלי צבע",
+      "accepted": 2,
+      "layout": 6,
+      "pieces": 11
+    },
+    {
+      "level": 15,
+      "title": "שני תפקידים למייבש",
+      "accepted": 2,
+      "layout": 7,
+      "pieces": 15
+    },
+    {
+      "level": 16,
+      "title": "קודם צבע יציב, אחר כך נייר",
+      "accepted": 3,
+      "layout": 3,
+      "pieces": 11
+    },
+    {
+      "level": 17,
+      "title": "בדיקת הסרת נייר",
+      "accepted": 2,
+      "layout": 5,
+      "pieces": 15
+    },
+    {
+      "level": 18,
+      "title": "הזרוע מוכנה לזיהוי",
+      "accepted": 2,
+      "layout": 2,
+      "pieces": 10
+    },
+    {
+      "level": 19,
+      "title": "הצבע היה רק לבדיקה",
+      "accepted": 2,
+      "layout": 8,
+      "pieces": 13
+    },
+    {
+      "level": 20,
+      "title": "התג הגלוי של הלוחות",
+      "accepted": 4,
+      "layout": 7,
+      "pieces": 15
+    },
+    {
+      "level": 21,
+      "title": "קו קטן לחומר נקי",
+      "accepted": 3,
+      "layout": 0,
+      "pieces": 9
+    },
+    {
+      "level": 22,
+      "title": "ציפוי בקו קומפקטי",
+      "accepted": 3,
+      "layout": 1,
+      "pieces": 9
+    },
+    {
+      "level": 23,
+      "title": "שתי פעולות יכולות להתחלף",
+      "accepted": 2,
+      "layout": 6,
+      "pieces": 11
+    },
+    {
+      "level": 24,
+      "title": "לפני האטימה",
+      "accepted": 2,
+      "layout": 1,
+      "pieces": 9
+    },
+    {
+      "level": 25,
+      "title": "הציפוי הסופי נשאר טרי",
+      "accepted": 2,
+      "layout": 0,
+      "pieces": 9
+    },
+    {
+      "level": 26,
+      "title": "פותחים כדי לתייג",
+      "accepted": 2,
+      "layout": 5,
+      "pieces": 15
+    },
+    {
+      "level": 27,
+      "title": "הצובע צריך להגיע פנימה",
+      "accepted": 2,
+      "layout": 8,
+      "pieces": 13
+    },
+    {
+      "level": 28,
+      "title": "התג הפנימי נשאר",
+      "accepted": 2,
+      "layout": 6,
+      "pieces": 11
+    },
+    {
+      "level": 29,
+      "title": "מחליפים תג אריזה",
+      "accepted": 3,
+      "layout": 3,
+      "pieces": 11
+    },
+    {
+      "level": 30,
+      "title": "חוזרים לחומר הנקי",
+      "accepted": 3,
+      "layout": 7,
+      "pieces": 15
+    },
+    {
+      "level": 31,
+      "title": "מחליפים ציפוי שנכשל",
+      "accepted": 2,
+      "layout": 8,
+      "pieces": 13
+    },
+    {
+      "level": 32,
+      "title": "שתי שכבות של מידע",
+      "accepted": 3,
+      "layout": 5,
+      "pieces": 15
+    },
+    {
+      "level": 33,
+      "title": "המספר נוסף אחרי הבדיקה",
+      "accepted": 2,
+      "layout": 2,
+      "pieces": 10
+    },
+    {
+      "level": 34,
+      "title": "דוגמה בלי שטיפה",
+      "accepted": 1,
+      "layout": 7,
+      "pieces": 15
+    },
+    {
+      "level": 35,
+      "title": "בדיקת ציפוי חוזרת",
+      "accepted": 3,
+      "layout": 3,
+      "pieces": 11
+    },
+    {
+      "level": 36,
+      "title": "תג חדש אחרי פתיחה",
+      "accepted": 2,
+      "layout": 8,
+      "pieces": 13
+    },
+    {
+      "level": 37,
+      "title": "הצבע מכסה את תג הבדיקה",
+      "accepted": 2,
+      "layout": 5,
+      "pieces": 15
+    },
+    {
+      "level": 38,
+      "title": "בדיקת אטימה לפני הצביעה",
+      "accepted": 3,
+      "layout": 7,
+      "pieces": 15
+    },
+    {
+      "level": 39,
+      "title": "מתקנים יחידה מתויגת",
+      "accepted": 2,
+      "layout": 6,
+      "pieces": 11
+    },
+    {
+      "level": 40,
+      "title": "הבדיקה אינה מוחקת זהות",
+      "accepted": 4,
+      "layout": 3,
+      "pieces": 11
+    },
+    {
+      "level": 41,
+      "title": "ארגז התערוכה חוזר לבדיקה",
+      "accepted": 3,
+      "layout": 8,
+      "pieces": 13
+    },
+    {
+      "level": 42,
+      "title": "בתערוכה רואים את החומר",
+      "accepted": 3,
+      "layout": 7,
+      "pieces": 15
+    },
+    {
+      "level": 43,
+      "title": "שומרים את זהות הזרוע",
+      "accepted": 2,
+      "layout": 6,
+      "pieces": 11
+    },
+    {
+      "level": 44,
+      "title": "המשלוח שחזר לסדנה",
+      "accepted": 4,
+      "layout": 5,
+      "pieces": 15
+    },
+    {
+      "level": 45,
+      "title": "משלוח הגמר לתערוכה",
+      "accepted": 3,
+      "layout": 8,
+      "pieces": 13
+    },
+    {
+      "resourceBaseline": {
+        "geometries": 32,
+        "textures": 21,
+        "programs": 10,
+        "productGroups": 0,
+        "particles": 0
+      },
+      "resourceAfter": {
+        "geometries": 32,
+        "textures": 21,
+        "programs": 10,
+        "productGroups": 0,
+        "particles": 0
+      }
+    }
+  ],
+  "errors": []
+}

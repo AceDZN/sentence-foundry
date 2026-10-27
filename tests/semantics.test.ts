@@ -27,14 +27,14 @@ const process = (receiver: Receiver, actions: Operation[]) =>
     makeProduct(receiver),
   );
 
-test("all five contracts validate before any selection or surface shuffle", () => {
+test("original five contracts retain their scope inside the validated campaign", () => {
   assert.deepEqual(validateContracts(), []);
-  assert.equal(CONTRACTS.length, 5);
+  assert.equal(CONTRACTS.length, 45);
   assert.deepEqual(
-    CONTRACTS.map((c) => c.count),
+    CONTRACTS.slice(0, 5).map((c) => c.count),
     [1, 2, 1, 3, 3],
   );
-  assert.equal(CONTRACTS.filter((c) => c.transfer).length, 1);
+  assert.equal(CONTRACTS.slice(0, 5).filter((c) => c.transfer).length, 1);
 });
 
 test("first shipment requires actual cleaning and rejects paint as a substitute", () => {
@@ -231,7 +231,7 @@ test("independent operation-sequence enumeration finds solutions for each contra
     ["wash", "paint", "label", "pack"],
     ["wash", "pack", "label"],
   ];
-  for (const [index, contract] of CONTRACTS.entries()) {
+  for (const [index, contract] of CONTRACTS.slice(0, 5).entries()) {
     const solutions = candidates.filter(
       (actions) =>
         checkProduct(process(contract.spec.receiver, actions), contract.spec)
@@ -307,4 +307,46 @@ test("truth graph validation rejects cycles, dangling links, and mixed receiver 
       steps: [{ id: "wash", action: "wash", receiver: "service-arm" }],
     }).includes("receiver-mismatch"),
   );
+});
+
+
+test("drying bare material does not invent paint or a cured coat", () => {
+  const p=process('panel',['wash','dry']);
+  assert.equal(p.dried,true);assert.equal(p.paintCured,false);assert.equal(p.painted,false);
+});
+test("dry-before-paint differs from curing the coat after painting", () => {
+  const wet=process('crate',['wash','dry','paint']);
+  assert.equal(wet.dried,false);assert.equal(wet.paintCured,false);
+  const cured=applyOperation(wet,'dry');assert.equal(cured.dried,true);assert.equal(cured.paintCured,true);assert.equal(cured.paintBonded,true);
+  const unbonded=process('crate',['paint','dry']);assert.equal(unbonded.paintCured,true);assert.equal(unbonded.paintBonded,false);
+});
+test("wash and new paint both invalidate a previous dry or cured state", () => {
+  const cured=process('crate',['wash','paint','dry']);
+  for(const action of ['wash','paint'] as Operation[]){const p=applyOperation(cured,action);assert.equal(p.dried,false);assert.equal(p.paintCured,false);}
+  assert.equal(applyOperation(cured,'wash').painted,false);
+});
+test("the dryer cannot reach sealed contents and a no-op opener is not a witness", () => {
+  const p=process('panel',['pack','dry']);assert.equal(p.dried,false);assert.equal(p.history.at(-1)?.effect,'sealed');
+  const opened=process('panel',['unpack']);assert.equal(opened.history[0].effect,'sealed');
+  const spec:ProductionSpec={receiver:'panel',final:{packed:false},steps:[{id:'open',action:'unpack',receiver:'panel'}],before:[]};
+  assert.equal(checkProduct(opened,spec).accepted,false);
+  assert.equal(checkProduct(process('panel',['pack','unpack']),spec).accepted,true);
+});
+test("opening discards an outside tag but keeps an inner identity tag", () => {
+  const outsideOnly=process('crate',['pack','label','unpack']);
+  assert.equal(outsideOnly.packed,false);assert.equal(outsideOnly.labelled,false);assert.equal(outsideOnly.labelSurface,null);assert.equal(outsideOnly.history.at(-1)?.removedLabel,true);
+  const insideOnly=process('crate',['label','pack','unpack']);
+  assert.equal(insideOnly.labelled,true);assert.equal(insideOnly.labelSurface,'item');assert.equal(insideOnly.itemLabelled,true);
+  const both=process('crate',['label','pack','label','unpack']);
+  assert.equal(both.labelled,true);assert.equal(both.labelSurface,'item');assert.equal(both.itemLabelled,true);
+  const again=applyOperation(applyOperation(both,'pack'),'label');assert.equal(again.labelSurface,'package');assert.equal(again.itemLabelled,true);
+});
+test("unpacking preserves a cured coating and does not silently clean the item", () => {
+  const p=process('service-arm',['paint','dry','pack','unpack']);
+  assert.equal(p.painted,true);assert.equal(p.paintCured,true);assert.equal(p.dried,true);assert.equal(p.washed,false);assert.equal(p.paintBonded,false);
+});
+test("new present-passive forms are still present descriptions", () => {
+  assert.equal(validatePassiveForm({number:'singular',auxiliary:'is',action:'dry',participle:'dried'}),true);
+  assert.equal(validatePassiveForm({number:'plural',auxiliary:'are',action:'unpack',participle:'unpacked'}),true);
+  assert.equal(validatePassiveForm({number:'singular',auxiliary:'is',action:'dry',participle:'dry'}),false);
 });

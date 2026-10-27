@@ -2,6 +2,21 @@
   "state": {
     "coordinateSystem": "grid x east/right 0..8, z south/front 0..6; world x=(gridX-4)*1.2, world z=(gridZ-3)*1.2; y up",
     "mode": "paused",
+    "campaign": {
+      "total": 45,
+      "completed": 0,
+      "completedIds": [],
+      "chapter": 1,
+      "layout": 0,
+      "finaleVisible": false,
+      "saved": true
+    },
+    "controls": {
+      "coachVisible": true,
+      "learned": [],
+      "moveFrom": null,
+      "undoCount": 0
+    },
     "challenge": 1,
     "title": "משלוח ראשון",
     "contract": "The cleaning arm washes the crate. Keep the wood unpainted and unpacked.",
@@ -600,6 +615,12 @@
         "aided": false
       },
       {
+        "type": "contract",
+        "challenge": 1,
+        "attempt": 0,
+        "aided": false
+      },
+      {
         "type": "vocabulary",
         "challenge": 1,
         "attempt": 0,
@@ -618,16 +639,6 @@
       "arm": "ready"
     },
     "assetInfo": {
-      "arm": {
-        "meshes": 1,
-        "triangles": 18108,
-        "animations": 0,
-        "size": [
-          1.0000001192092896,
-          0.892333984375,
-          0.5132446885108948
-        ]
-      },
       "washer": {
         "meshes": 1,
         "triangles": 18144,
@@ -637,13 +648,27 @@
           1,
           0.6232910752296448
         ]
+      },
+      "arm": {
+        "meshes": 1,
+        "triangles": 18108,
+        "animations": 0,
+        "size": [
+          1.0000001192092896,
+          0.892333984375,
+          0.5132446885108948
+        ]
       }
+    },
+    "industryAssets": {
+      "pump": "ready",
+      "spotlight": "ready"
     },
     "muted": false,
     "audioState": {
       "unlocked": true,
       "contextState": "suspended",
-      "loadedCues": 12,
+      "loadedCues": 14,
       "musicLoaded": true,
       "musicEnabled": true,
       "effectsEnabled": true,
@@ -660,15 +685,22 @@
       "sfxPlayed": 1,
       "activeEffects": 0,
       "musicSeconds": 68.57141666666666,
-      "playhead": 37.013333333333335,
+      "playhead": 0.9600000000000001,
       "error": ""
     },
     "reduced": false,
     "performance": {
-      "meanFrameMs": 8.33,
-      "drawCalls": 43,
-      "triangles": 49494
+      "meanFrameMs": 8.65,
+      "drawCalls": 55,
+      "triangles": 171362,
+      "resources": {
+        "geometries": 33,
+        "textures": 14,
+        "programs": 8,
+        "productGroups": 0,
+        "particles": 0
+      }
     }
   },
-  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n? עזרה\nⅡ השהיה\n♪\n♫\n≈\n⛶\nהזמנה 1 / 5 · משלוח ראשון\n⌕ מילים\n▷ EN\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nיעד: 1 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nLabel press\n\nAttaches a paper label. After packing, it labels the outside of the package.\n\nיציאה: ימינה\nמושהה · אפשר לקרוא ולתכנן בלי קנס זמן\n8 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה לבנייה · גרירה ימנית לסיבוב מבט · R סיבוב חלק · SPACE הפעלה / עצירה\n×\nמילים בהזמנה\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nkeep\nהשאירו\nwood\nעץ\nunpainted\nללא צבע\ncleaning\nניקוי\ncrate\nארגז\narm\nזרוע\nwashes\nשוטף\nunpacked\nללא אריזה\n\nהייצור מושהה בזמן הקריאה."
+  "text": "SENTENCE FOUNDRY\nמפעל ההמצאות\n☷ הזמנות\n? עזרה\nⅡ השהיה\n♪\n♫\n≈\n⛶\nהזמנה 1 / 45 · משלוח ראשון\n⌃\n⌕ מילים\n▷ EN\nפרק 1 · המשמרת הראשונה\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nיעד: 1 תוצרים · התקבלו 0\n1\n➜\nBelt\n2\n↳\nCorner\n3\n◈\nCleaning arm\n4\n⚒\nPainter\n5\n▤\nLabel press\n6\n▣\nPacker\nLabel press\n\nAttaches a paper label. After packing, it labels the outside of the package.\n\nיציאה: ימינה\n×\nשלוש פעולות שכדאי להכיר\n① בוחרים כלי ולוחצים על משבצת\n② לוחצים על חלק ואז ↻ או R\n③ העברה: חלק ← מקום חדש\nבנייה: ⁦Label press⁩ · לחצו על משבצת פנויה · ↻ / R משנה כיוון\nמושהה · אפשר לקרוא ולתכנן בלי קנס זמן\n8 חלקים\n↔ העברה\n↻ סיבוב R\n⌫ מחיקה\n↶ ביטול\n◌ מבט\n▶ הפעלת המפעל\nSPACE\n↺\nרמז\nלחיצה על חלק לבחירה · R סיבוב · M העברה · Delete מחיקה · ⌘/Ctrl Z ביטול · Space הפעלה · גרירה ימנית לסיבוב המבט\n×\nמילים בהזמנה\n\nThe cleaning arm washes the crate. Keep the wood unpainted and unpacked.\n\nkeep\nהשאירו\nwood\nעץ\nunpainted\nללא צבע\ncleaning\nניקוי\ncrate\nארגז\narm\nזרוע\nwashes\nשוטף\nunpacked\nללא אריזה\n\nהייצור מושהה בזמן הקריאה."
 }

@@ -326,6 +326,15 @@ sfx("pack", 0.28, (t) => {
   hit(t, 0.075, "wood", 0.8);
   note(t, 0.09, 0.15, 60, 0.13, "pluck");
 });
+sfx("dry", 0.46, (t) => {
+  [55, 62, 67, 74].forEach((m, i) => note(t, i * .055, .23, m, .14, "keys", i * .16 - .24));
+  hit(t, .02, "steel", .35);
+});
+sfx("unpack", .34, (t) => {
+  hit(t, 0, "wood", .7);
+  hit(t, .10, "steel", .65);
+  [76, 67, 60].forEach((m, i) => note(t, i * .075, .16, m, .16, "pluck"));
+});
 sfx("delivery", 0.58, (t) => {
   [72, 76, 79].forEach((m, i) =>
     note(t, i * 0.1, 0.3, m, 0.19, "bell", i * 0.25 - 0.25),
@@ -358,6 +367,6 @@ console.log(
   JSON.stringify({
     title: "Brass & Belts",
     seconds: frames / SR,
-    notes: "32 bars at112 BPM; stereo original synthesis;11 effect cues",
+    notes: "32 bars at112 BPM; stereo original synthesis;13 effect cues",
   }),
 );

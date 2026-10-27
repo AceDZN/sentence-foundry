@@ -29,6 +29,7 @@ async function context(mobile=false){
  return {c,p};
 }
 async function snapshot(p,name,screenshot=false){
+ if(requireIndustry)await wait(p,()=>{const s=JSON.parse(window.render_game_to_text());return s.industryAssets?.pump==='ready'&&s.industryAssets?.spotlight==='ready';});
  const s=await state(p);if(requireIndustry)assert.deepEqual(s.industryAssets,{pump:'ready',spotlight:'ready'},'both industrial Tripo props loaded');assert.equal(s.audioState.error,'',`audio error at ${name}`);assert.ok(s.audioState.musicSourceCount<=1,`one music source at ${name}`);assert.ok(s.audioState.activeEffects<=12,`bounded SFX at ${name}`);
  await fs.writeFile(path.join(root,'docs/review',`audio-${name}.json`),JSON.stringify({state:s,text:await p.locator('body').innerText()},null,2));
  if(screenshot){const pixels=await p.evaluate(()=>{window.advanceTime(0);return document.querySelector('canvas').toDataURL('image/png').split(',')[1];});await fs.writeFile(path.join(root,'docs/review',`audio-${name}-canvas.png`),Buffer.from(pixels,'base64'));await p.screenshot({path:path.join(root,'docs/review',`audio-${name}.png`),timeout:10000});}
@@ -36,7 +37,7 @@ async function snapshot(p,name,screenshot=false){
 }
 async function start(p){
  await openMix(p);
- await wait(p,()=>{const a=JSON.parse(window.render_game_to_text()).audioState;return a.musicLoaded&&a.loadedCues===12&&a.contextState==='running';});
+ await wait(p,()=>{const a=JSON.parse(window.render_game_to_text()).audioState;return a.musicLoaded&&a.loadedCues===14&&a.contextState==='running';});
  const a=await audio(p);assert.equal(a.musicSourceCount,1);assert.equal(a.musicStarts,1);assert.equal(a.activeMusicLoops,1);assert.ok(a.musicSeconds>0);
 }
 async function setRange(p,id,value){
@@ -108,12 +109,12 @@ try{
  }
  // The actual popover, checkboxes and sliders fit/tap at mobile width.
  {
-  const {c,p}=await context(true);await touch(p,'#music-mix');await wait(p,()=>{const a=JSON.parse(window.render_game_to_text()).audioState;return a.musicLoaded&&a.loadedCues===12&&a.contextState==='running';});
+  const {c,p}=await context(true);await touch(p,'#music-mix');await wait(p,()=>{const a=JSON.parse(window.render_game_to_text()).audioState;return a.musicLoaded&&a.loadedCues===14&&a.contextState==='running';});
   for(const id of ['#music-mix','#mute','#music-enabled','#effects-enabled','#music-volume','#effects-volume','#close-audio']){const b=await p.locator(id).boundingBox();assert.ok(b&&b.x>=0&&b.y>=0&&b.x+b.width<=390&&b.y+b.height<=844,`${id} reachable at 390x844`);}
   await touch(p,'#effects-enabled');assert.equal((await audio(p)).effectsEnabled,false);await touch(p,'#music-enabled');assert.equal((await audio(p)).musicEnabled,false);await touch(p,'#music-enabled');await touch(p,'#effects-enabled');await touch(p,'#music-volume',.25);assert.notEqual((await audio(p)).musicVolume,.5,'touch adjusts music level');await snapshot(p,'mobile-mix',true);await touch(p,'#close-audio');if(requireIndustry)await snapshot(p,'mobile-industry-canvas',true);await touch(p,'#mute');await wait(p,()=>JSON.parse(window.render_game_to_text()).audioState.contextState==='suspended');await snapshot(p,'mobile-muted');await c.close();
  }
  }
- assert.deepEqual(errors,[]);assert.ok(requests.length>=12);assert.ok(requests.every(r=>r.status===200));
+ assert.deepEqual(errors,[]);assert.ok(requests.length>=14);assert.ok(requests.every(r=>r.status===200));
  await fs.writeFile(path.join(root,'docs/review',speechOnly?'audio-speech-summary.json':mobileOnly?'audio-mobile-summary.json':'audio-summary.json'),JSON.stringify({results,requests,errors},null,2));
 }catch(e){let observed=null;if(currentPage&&!currentPage.isClosed()){observed=await state(currentPage).catch(()=>null);await currentPage.screenshot({path:path.join(root,'docs/review/audio-FAILED.png'),timeout:5000}).catch(()=>{});}await fs.writeFile(path.join(root,'docs/review/audio-failure.json'),JSON.stringify({error:String(e.stack),observed,requests,errors,results},null,2));await fs.writeFile(path.join(root,'docs/review/audio-failure.txt'),String(e.stack));console.error(e);process.exitCode=1;}
 finally{await browser.close();}

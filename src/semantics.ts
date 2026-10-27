@@ -1,7 +1,7 @@
 /** Authored meaning, separate from sentence wording, grid layout and rendering.
- * This is an oracle for the five verified contracts, not an English parser.
+ * This is an oracle for the authored campaign, not an English parser.
  */
-export type Operation = "wash" | "paint" | "label" | "pack";
+export type Operation = "wash" | "paint" | "label" | "pack" | "dry" | "unpack";
 export type Receiver = "crate" | "service-arm" | "panel";
 export type LabelSurface = "item" | "package" | null;
 
@@ -10,6 +10,8 @@ export const OPERATION_AGENTS: Readonly<Record<Operation, string>> = {
   paint: "painter",
   label: "label-press",
   pack: "packing-press",
+  dry: "dryer",
+  unpack: "unpacker",
 };
 
 /** Backwards-compatible descriptive alias for callers. */
@@ -19,7 +21,7 @@ export interface ProductionEvent {
   action: Operation;
   receiver: Receiver;
   agent: string;
-  effect: "washed" | "painted" | "labelled" | "packed" | "sealed";
+  effect: "washed" | "painted" | "labelled" | "packed" | "dried" | "unpacked" | "sealed";
   removedPaint?: boolean;
   removedLabel?: boolean;
 }
@@ -32,6 +34,11 @@ export interface Product {
   labelled: boolean;
   labelSurface: LabelSurface;
   packed: boolean;
+  dried: boolean;
+  paintCured: boolean;
+  /** Retains an inner label when a package label is also attached. Optional for
+   * older renderer fixtures; all products made by makeProduct carry the flag. */
+  itemLabelled?: boolean;
   history: ProductionEvent[];
 }
 
@@ -45,7 +52,7 @@ export interface SemanticStep {
 
 export type ProductProperties = Pick<
   Product,
-  "washed" | "painted" | "paintBonded" | "labelled" | "labelSurface" | "packed"
+  "washed" | "painted" | "paintBonded" | "labelled" | "labelSurface" | "packed" | "dried" | "paintCured" | "itemLabelled"
 >;
 
 export interface ProductionSpec {
@@ -70,6 +77,9 @@ export function makeProduct(receiver: Receiver): Product {
     labelled: false,
     labelSurface: null,
     packed: false,
+    dried: false,
+    paintCured: false,
+    itemLabelled: false,
     history: [],
   };
 }
@@ -94,10 +104,24 @@ export function applyOperation(
   if (action === "label") {
     next.labelled = true;
     next.labelSurface = next.packed ? "package" : "item";
+    next.itemLabelled = !next.packed || (product.itemLabelled ?? false);
     event.effect = "labelled";
   } else if (action === "pack") {
+    next.itemLabelled = product.itemLabelled ?? (product.labelled && product.labelSurface === "item");
     next.packed = true;
     event.effect = "packed";
+  } else if (action === "unpack" && product.packed) {
+    const inside = product.itemLabelled ?? (product.labelled && product.labelSurface === "item");
+    next.packed = false;
+    next.itemLabelled = inside;
+    next.labelled = inside;
+    next.labelSurface = inside ? "item" : null;
+    event.effect = "unpacked";
+    event.removedLabel = product.labelled && product.labelSurface === "package";
+  } else if (action === "dry" && !product.packed) {
+    next.dried = true;
+    next.paintCured = product.painted;
+    event.effect = "dried";
   } else if (!product.packed && action === "wash") {
     event.effect = "washed";
     event.removedPaint = product.painted;
@@ -105,6 +129,9 @@ export function applyOperation(
     next.washed = true;
     next.painted = false;
     next.paintBonded = false;
+    next.dried = false;
+    next.paintCured = false;
+    next.itemLabelled = false;
     next.labelled = false;
     next.labelSurface = null;
   } else if (!product.packed && action === "paint") {
@@ -112,6 +139,9 @@ export function applyOperation(
     event.removedLabel = product.labelled;
     next.painted = true;
     next.paintBonded = product.washed;
+    next.dried = false;
+    next.paintCured = false;
+    next.itemLabelled = false;
     next.labelled = false;
     next.labelSurface = null;
   }
@@ -186,6 +216,8 @@ export function validateSpec(spec: ProductionSpec): string[] {
   const errors: string[] = [];
   const ids = spec.steps.map((step) => step.id);
   if (new Set(ids).size !== ids.length) errors.push("duplicate-step-id");
+  if (ids.some(id => !id.trim())) errors.push("empty-step-id");
+  if (spec.steps.some(step => !(step.action in OPERATION_AGENTS))) errors.push("unknown-operation");
   if (spec.steps.some((step) => step.receiver !== spec.receiver))
     errors.push("receiver-mismatch");
   if (spec.before.some(([a, b]) => !ids.includes(a) || !ids.includes(b)))
@@ -204,6 +236,9 @@ export function validateSpec(spec: ProductionSpec): string[] {
   if (ids.some((id) => reaches(id, id))) errors.push("cyclic-order");
   if (spec.final.labelled === false && spec.final.labelSurface)
     errors.push("label-surface-without-label");
+  if (spec.final.paintCured === true && (spec.final.painted === false || spec.final.dried === false)) errors.push("impossible-cured-state");
+  if (spec.final.paintBonded === true && spec.final.painted === false) errors.push("bond-without-paint");
+  if (spec.final.packed === false && spec.final.labelSurface === "package") errors.push("outside-label-without-package");
   return errors;
 }
 
@@ -219,6 +254,8 @@ const PARTICIPLES: Readonly<Record<Operation, string>> = {
   paint: "painted",
   label: "labelled",
   pack: "packed",
+  dry: "dried",
+  unpack: "unpacked",
 };
 
 /** Checks the limited authored present-passive forms used in this slice. The
