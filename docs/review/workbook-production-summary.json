@@ -1,0 +1,69 @@
+{
+  "base": "https://english-games.workbook.co.il",
+  "results": [
+    {
+      "name": "home-detail-late-link",
+      "challenge": 45,
+      "events": [
+        {
+          "type": "ready",
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "sentence-foundry"
+        },
+        {
+          "type": "level-start",
+          "level": 45,
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "sentence-foundry"
+        }
+      ]
+    },
+    {
+      "name": "actual-first-shipment-next",
+      "accepted": 1,
+      "events": [
+        {
+          "type": "ready",
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "sentence-foundry"
+        },
+        {
+          "type": "level-start",
+          "level": 1,
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "sentence-foundry"
+        },
+        {
+          "type": "level-complete",
+          "level": 1,
+          "durationMs": 6658,
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "sentence-foundry"
+        },
+        {
+          "type": "level-start",
+          "level": 2,
+          "source": "workbook-game",
+          "version": 1,
+          "slug": "sentence-foundry"
+        }
+      ]
+    },
+    {
+      "name": "portrait-touch-edit",
+      "challenge": 26,
+      "tools": 8,
+      "assets": {
+        "washer": "ready",
+        "arm": "ready"
+      }
+    }
+  ],
+  "errors": [],
+  "failed": []
+}
